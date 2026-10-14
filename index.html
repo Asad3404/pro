@@ -134,24 +134,46 @@ section.block{padding-block:96px 0}
 .shead p{color:var(--muted);max-width:30em}
 
 /* about */
-.about{display:grid;grid-template-columns:1.2fr 1fr;gap:48px}
-.about > *{min-width:0}
-.about .text{display:grid;gap:16px;font-size:17px;max-width:62ch}
-.console{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;position:relative;box-shadow:var(--shadow)}
-.console::before{content:"";position:absolute;inset:-1px;border-radius:15px;padding:1px;background:conic-gradient(from var(--a,0deg),transparent 0 70%,var(--signal) 85%,transparent 100%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
-.console .bar{display:flex;align-items:center;gap:8px;padding:10px 14px;border-bottom:1px solid var(--line);font:500 12px var(--f-mono);color:var(--muted)}
-.console .bar i{width:10px;height:10px;border-radius:50%;background:var(--line)}
-.trace{padding:14px 16px 16px;font:400 13px/1.85 var(--f-mono);overflow-x:auto}
-.trace .cmd::before{content:"$ ";color:var(--signal)}
-.hop{display:grid;grid-template-columns:2ch 1fr auto;gap:12px;white-space:nowrap;color:var(--muted)}
-.hop b{color:var(--fg);font-weight:500}
-.hop .ms{color:var(--ok)}
-.hop.dest b{color:var(--signal)}
-.facts{margin:20px 0 0;border-top:1px solid var(--line)}
-.facts div{display:grid;grid-template-columns:110px 1fr;gap:12px;padding:11px 0;border-bottom:1px solid var(--line);font-size:15px}
-.facts dt{font:500 12px/1.9 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
-.facts dd{margin:0;min-width:0;overflow-wrap:anywhere}
-@media (max-width: 900px){.about{grid-template-columns:1fr}}
+.about2{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;align-items:center}
+.about2 > *{min-width:0}
+.ab-photo{position:relative;width:100%;padding:28px 40px 28px 28px}
+.ab-card{position:relative;aspect-ratio:4/5;max-width:100%;border-radius:22px;overflow:hidden;background:var(--surface);border:1px solid var(--line);box-shadow:var(--shadow)}
+.ab-card::before{content:"";position:absolute;inset:-40%;background:conic-gradient(from var(--a,0deg),transparent 0 60%,var(--signal) 80%,transparent);opacity:.35;z-index:0}
+.ab-card img{position:absolute;inset:3px;width:calc(100% - 6px);height:calc(100% - 6px);object-fit:cover;object-position:50% 25%;border-radius:20px;z-index:1}
+.ab-shade{position:absolute;inset:0;z-index:2;background:linear-gradient(transparent 55%,rgba(10,12,18,.85));border-radius:22px}
+.ab-name{position:absolute;left:22px;right:22px;bottom:20px;z-index:3;color:#fff;display:grid;gap:2px}
+.ab-name b{font:700 22px var(--f-display)}
+.ab-name span{font:500 12px var(--f-mono);opacity:.8;letter-spacing:.04em}
+.float{position:absolute;z-index:4;display:flex;align-items:center;gap:10px;padding:10px 14px 10px 10px;border-radius:14px;background:color-mix(in srgb,var(--surface) 88%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid var(--line);box-shadow:var(--shadow);white-space:nowrap}
+.float b{display:block;font:600 14px var(--f-body)}
+.float small{display:block;font:500 11px var(--f-mono);color:var(--muted)}
+.float.f1{top:6%;right:0}
+.float.f2{top:52%;right:0}
+.float.f3{top:30%;left:0}
+.ab-text h2{font-size:clamp(32px,4.4vw,52px);font-weight:800;letter-spacing:-.025em;margin-top:10px}
+.ab-text h2 span{color:var(--signal)}
+.ab-lede{font-size:18px;color:var(--muted);margin-top:18px;max-width:56ch}
+.ab-lede strong{color:var(--fg);font-weight:600}
+.does{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:28px}
+.do{display:flex;gap:14px;align-items:flex-start;padding:16px;border:1px solid var(--line);border-radius:var(--r);background:var(--surface);min-width:0}
+.do > div{min-width:0}
+.do h3{font:600 16px/1.3 var(--f-body)}
+.do p{color:var(--muted);font-size:14px;margin-top:4px}
+.journey{margin-top:56px;padding:26px 28px 30px;border:1px solid var(--line);border-radius:var(--r);background:radial-gradient(circle at 90% 0%,var(--glow),transparent 55%),var(--surface)}
+.jhead{display:flex;justify-content:space-between;gap:12px;margin-bottom:26px}
+.jline{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(7,1fr);gap:8px;position:relative}
+.jline::before{content:"";position:absolute;left:4%;right:4%;top:23px;height:2px;background:var(--line)}
+.jline::after{content:"";position:absolute;left:4%;right:4%;top:23px;height:2px;background:linear-gradient(90deg,var(--signal),var(--ok));transform-origin:0 50%}
+.jline li{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;text-align:center;gap:4px;min-width:0}
+.jline .dot{padding:3px;border-radius:16px;background:var(--surface);border:1px solid var(--line);transition:transform .3s}
+.jline li:hover .dot{transform:translateY(-4px) scale(1.06)}
+.jline li.now .dot{border-color:var(--live);box-shadow:0 0 0 5px color-mix(in srgb,var(--live) 20%,transparent)}
+.jline .yr{font:600 12px var(--f-mono);color:var(--signal);margin-top:8px}
+.jline strong{font:600 14px/1.25 var(--f-body)}
+.jline small{font-size:12px;color:var(--muted)}
+@media (max-width: 960px){.about2{grid-template-columns:1fr;gap:40px}.ab-photo{max-width:440px;margin-inline:auto;padding:24px 28px}.float.f2{right:0}.float.f3{left:0}}
+@media (max-width: 760px){.jline{grid-template-columns:1fr;gap:14px}.jline::before,.jline::after{left:27px;right:auto;top:6px;bottom:6px;width:2px;height:auto}.jline li{flex-direction:row;text-align:left;gap:12px;align-items:center}.jline .yr{margin:0;min-width:3.2em}.jline small{margin-left:auto}}
+@media (max-width: 520px){.does{grid-template-columns:1fr}.float b{font-size:13px}.ab-photo{padding:20px 0}.float{padding:8px 10px 8px 8px}.float.f1{right:-4px}.float.f2{right:-4px}.float.f3{left:-4px}.jline small{display:none}}
 
 /* experience timeline */
 .tl{position:relative;display:grid;gap:16px;padding-left:28px}
@@ -351,7 +373,11 @@ footer{padding-block:28px 40px;color:var(--muted);font:400 13px var(--f-mono);di
   .ring.r2 .sat .lg{animation:spinBack 64s linear infinite reverse}
   @keyframes spin{to{transform:rotate(360deg)}}
   @keyframes spinBack{from{transform:translate(-50%,-50%) rotate(0)}to{transform:translate(-50%,-50%) rotate(-360deg)}}
-  .avatar,.console::before{animation:hue 6s linear infinite}
+  .avatar,.console::before,.ab-card::before{animation:hue 6s linear infinite}
+  .float{animation:bob 6s ease-in-out infinite}
+  .float.f2{animation-delay:-2s}.float.f3{animation-delay:-4s}
+  @keyframes bob{50%{transform:translateY(-10px)}}
+  .jline li{animation:fadeUp .6s calc(var(--i) * 90ms) both}
   @keyframes hue{to{--a:360deg}}
   .hop{animation:hopIn .5s both}
   @keyframes hopIn{from{opacity:0;transform:translateX(-6px)}}
@@ -362,7 +388,7 @@ footer{padding-block:28px 40px;color:var(--muted);font:400 13px var(--f-mono);di
   @supports (animation-timeline: view()){
     .reveal{animation:reveal linear both;animation-timeline:view();animation-range:entry 0% entry 35%}
     @keyframes reveal{from{opacity:0;transform:perspective(1000px) rotateX(16deg) translateY(44px) scale(.96)}}
-    .bar2 i{animation:grow linear both;animation-timeline:view();animation-range:entry 20% cover 40%}
+    .bar2 i,.jline::after{animation:grow linear both;animation-timeline:view();animation-range:entry 20% cover 45%}
     @keyframes grow{from{transform:scaleX(0)}}
   }
 }
@@ -409,26 +435,28 @@ footer{padding-block:28px 40px;color:var(--muted);font:400 13px var(--f-mono);di
     <div class="marquee" aria-label="Organizations"><div class="marquee-track" id="orgs"></div></div>
 
     <section class="block" id="about">
-      <div class="shead reveal"><div><div class="label">About</div><h2>From code to the core network</h2></div></div>
-      <div class="about">
-        <div class="text reveal">
-          <p>I'm a <strong>Computer Science graduate from Mohammad Ali Jinnah University</strong> (CGPA <strong class="hl">3.46 / 4.0</strong>, merit scholar for all four years) working as a <strong>Resident Engineer in the Network Operations Center at Wateen Telecom Limited</strong>, where I design, implement and maintain LAN/WAN systems and resolve network incidents quickly to keep downtime low.</p>
-          <p>Before that I spent <strong>14 months as a SOC Analyst at NanoTechx</strong>. Earlier I built product as a front-end intern at 360XpertSolutions, led the React Native track at Bytewise, and mentored contributors in Winter of Blockchain.</p>
-          <p>My academic work leans into <strong>machine learning and computer vision</strong>: a CNN-based non-invasive glucose monitor for Microsoft Imagine Cup, an attention UNet for low-light enhancement (<strong class="hl">27.82 dB PSNR</strong>), and a PyTorch re-implementation of PointNet. I keep studying NeuroAI and human visual processing in preparation for graduate study in data science and computational imaging.</p>
-          <p>Outside work I build communities. I <strong>founded the Microsoft Learn Student Community at MAJU</strong>, led Android at Google Developer Student Club, organized national conferences with Cisco and Microsoft communities, and write beginner guides on Git, cloud and AWS.</p>
-        </div>
-        <div class="reveal">
-          <div class="console" aria-label="Career path shown as a network traceroute">
-            <div class="bar"><i></i><i></i><i></i><span style="margin-left:6px">noc-console: bash</span></div>
-            <div class="trace" id="trace"></div>
+      <div class="about2">
+        <div class="ab-photo reveal">
+          <div class="ab-card tilt fx">
+            <img src="assets/profile.jpg" alt="Syed Mustafa Hassan" onerror="this.remove()">
+            <div class="ab-shade"></div>
+            <div class="ab-name"><b>Syed Mustafa Hassan</b><span>Karachi, Pakistan · Urdu &amp; English</span></div>
           </div>
-          <dl class="facts">
-            <div><dt>Based in</dt><dd>Karachi, Sindh, Pakistan</dd></div>
-            <div><dt>Focus</dt><dd>Networking, security operations, cloud, AI / computer vision</dd></div>
-            <div><dt>HSC</dt><dd>A1 grade (91.81%), Govt. Degree College Latifabad No. 11</dd></div>
-            <div><dt>Languages</dt><dd>Urdu (native), English (professional)</dd></div>
-          </dl>
+          <div class="float f1"><span data-logo="wateen" data-size="34"></span><div><b>Resident Engineer</b><small>Wateen Telecom · Now</small></div></div>
+          <div class="float f2"><span data-logo="nanotechx" data-size="34"></span><div><b>SOC Analyst</b><small>NanoTechx · 14 months</small></div></div>
+          <div class="float f3"><span data-logo="maju" data-size="34"></span><div><b>BS Computer Science</b><small>MAJU · CGPA 3.46</small></div></div>
         </div>
+        <div class="ab-text">
+          <div class="label reveal">About me</div>
+          <h2 class="reveal">Hi, I'm Mustafa.<br><span>I connect networks, security and people.</span></h2>
+          <p class="ab-lede reveal">I'm a <strong>Computer Science graduate from Mohammad Ali Jinnah University</strong> working as a <strong>Resident Engineer at Wateen Telecom</strong>. Before that I spent 14 months as a <strong>SOC Analyst at NanoTechx</strong>, and I've built and mentored in React and React Native along the way.</p>
+          <p class="ab-lede reveal" style="margin-top:12px">I'm also a <strong>Microsoft Learn Student Ambassador</strong> and the <strong>founder of the Microsoft Learn Student Community at MAJU</strong>, where I help students learn new skills and start their tech careers.</p>
+          <div class="does" id="does"></div>
+        </div>
+      </div>
+      <div class="journey reveal">
+        <div class="jhead"><div class="label">Career journey</div><span class="label">2021 → today</span></div>
+        <ol class="jline" id="journey"></ol>
       </div>
     </section>
 
@@ -545,9 +573,20 @@ const D = {
   orbitInner: ["microsoft","google","github","cisco","amazonaws","fortinet"],
   orbitOuter: ["wateen","meta","postman","react","python","pytorch","linux","mckinsey","stanford","icpc"],
   orgs: [["wateen","Wateen Telecom"],["nanotechx","NanoTechx"],["microsoft","Microsoft"],["google","Google"],["github","GitHub"],["cisco","Cisco"],["amazonaws","AWS"],["fortinet","Fortinet"],["mckinsey","McKinsey & Company"],["meta","Meta"],["stanford","Stanford"],["icpc","ICPC"],["bytewise","Bytewise"],["xpert","360XpertSolutions"],["swoc","Social Winter of Code"],["gssoc","GirlScript Summer of Code"],["postman","Postman"],["hackerrank","HackerRank"]],
-  trace: [
-    ["MAJU · BS Computer Science","2021"],["GDSC MAJU · Android Lead","2023"],["GirlScript SoC · Open Source","2023"],["Microsoft Learn Student Ambassador","2023"],
-    ["360XpertSolutions · Front-end Intern","2024"],["Bytewise · React Native Mentor","2024"],["McKinsey Forward Program","2024"],["NanoTechx · SOC Analyst","2025"],["Wateen Telecom · Resident Engineer","2026"]
+  does: [
+    ["wateen","Network operations","Designing, maintaining and troubleshooting enterprise LAN/WAN at Wateen Telecom."],
+    ["fortinet","Cybersecurity","SOC monitoring and incident response, with Fortinet and Cisco certifications."],
+    ["microsoft","Community leader","Microsoft Learn Student Ambassador (Alpha & Beta) and MLSC-MAJU founder."],
+    ["maju","Academic excellence","CGPA 3.46, merit scholar 2021–2025 and three-time Dean's List."]
+  ],
+  journey: [
+    ["maju","2021","BS Computer Science","MAJU"],
+    ["gdgmaju","2023","Android Team Lead","GDG on Campus MAJU"],
+    ["mlsc","2023","Founder","MLSC-MAJU"],
+    ["xpert","2024","Front-end Intern","360XpertSolutions"],
+    ["bytewise","2024","React Native Mentor","Bytewise"],
+    ["nanotechx","2025","SOC Analyst","NanoTechx"],
+    ["wateen","2026","Resident Engineer","Wateen Telecom"]
   ],
   stats: [["3.46","/4","CGPA, BS Computer Science"],["3","×","Dean's List of Honor"],["CERTS","+","certifications & courses"],["150","+","members in MLSA Karachi community"],["EVENTS","+","tech events organized & attended"]],
   jobs: [
@@ -749,9 +788,8 @@ placeRing($("#r1"), D.orbitInner); placeRing($("#r2"), D.orbitOuter);
 
 $("#orgs").innerHTML = [...D.orgs, ...D.orgs].map(([k, n]) => `<span class="chip">${logo(k, 30)}${esc(n)}</span>`).join("");
 
-$("#trace").innerHTML = '<div class="cmd">traceroute career.mustafa-hassan</div>' +
-  D.trace.map(([n, y], i) => `<div class="hop${i === D.trace.length - 1 ? " dest" : ""}" style="animation-delay:${i * 90}ms"><span>${i + 1}</span><b>${esc(n)}</b><span class="ms">${y}</span></div>`).join("") +
-  '<div class="hop" style="animation-delay:900ms"><span></span><span style="color:var(--live)">✓ destination reached · link up</span><span></span></div>';
+$("#does").innerHTML = D.does.map(([k, t, d], i) => `<div class="do fx reveal" style="--i:${i}">${logo(k, 42)}<div><h3>${esc(t)}</h3><p>${esc(d)}</p></div></div>`).join("");
+$("#journey").innerHTML = D.journey.map(([k, y, t, o], i) => `<li class="${i === D.journey.length - 1 ? "now" : ""}" style="--i:${i}"><span class="dot">${logo(k, 46)}</span><b class="yr">${y}</b><strong>${esc(t)}</strong><small>${esc(o)}</small></li>`).join("");
 
 $("#stats").innerHTML = D.stats.map(([n, s, t]) =>
   `<div class="stat"><div class="n">${n === "CERTS" ? D.certs.length : n === "EVENTS" ? D.events.length : n}<small>${s}</small></div><div class="t">${t}</div></div>`).join("");
