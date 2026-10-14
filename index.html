@@ -5,157 +5,194 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Syed Mustafa Hassan</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Syed Mustafa Hassan: Network Resident Engineer at Wateen Telecom, former SOC Analyst, BS Computer Science (MAJU), Microsoft Learn Student Ambassador, open-source contributor and community founder.">
+<meta name="description" content="Syed Mustafa Hassan: Resident Engineer (NOC) at Wateen Telecom, former SOC Analyst, BS Computer Science (MAJU), Microsoft Learn Student Ambassador, open-source contributor and community founder.">
 <meta property="og:title" content="Syed Mustafa Hassan · Network & Security Engineer">
 <meta property="og:description" content="Network operations, security, AI/ML projects, open source and community leadership.">
+<meta property="og:image" content="assets/profile.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
-/* Layout: a network-operations console. Career told as a traceroute of hops; sections are numbered "layers" only where order matters (timeline). Dark-first. */
+/* Layout: palette taken from the portrait: charcoal backdrop & suit, white shirt, navy tie. Hero = portrait with partner logos in orbit; career as a traceroute; extracurriculars as tabs; events as a poster gallery. Dark-first. */
 :root{
-  --bg:#0c121c;         /* console ink */
-  --surface:#121a27;    /* panel */
-  --raise:#18233379;    /* hover / chips */
-  --line:#24324a;       /* hairlines */
-  --fg:#e6ebf2;         /* primary text */
-  --muted:#8d9bb0;      /* secondary text */
-  --signal:#f2a93b;     /* amber: link-up / highlight */
-  --signal-ink:#1a1206; /* text on amber */
-  --ok:#5ec8a8;         /* green status LED */
-  --glow:rgba(242,169,59,.14);
-  --f-display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
-  --f-body:"IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
-  --f-mono:"IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
-  --r:10px;
+  --bg:#141518;         /* charcoal backdrop */
+  --surface:#1c1d21;    /* suit grey panel */
+  --raise:#272930;      /* chips / hover */
+  --line:#31343c;       /* hairlines */
+  --fg:#f3f4f6;         /* shirt white */
+  --muted:#9ca1ad;      /* secondary text */
+  --signal:#7d9bff;     /* navy tie, lifted for contrast on charcoal */
+  --signal-ink:#0b1430; /* text on accent */
+  --ok:#c3d0f5;         /* pale steel blue, second accent */
+  --live:#5ec8a8;       /* status LED only */
+  --glow:rgba(125,155,255,.14);
+  --shadow:0 24px 48px -28px rgba(0,0,0,.7);
+  --f-display:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
+  --f-body:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
+  --r:12px;
   color-scheme:dark;
 }
 @media (prefers-color-scheme: light){
   :root:not([data-theme="dark"]){
-    --bg:#f2f4f7;--surface:#ffffff;--raise:#e9edf3;--line:#d6dce6;--fg:#141b26;--muted:#5a6678;
-    --signal:#b45f06;--signal-ink:#ffffff;--ok:#1f8a6b;--glow:rgba(180,95,6,.10);color-scheme:light;
+    --bg:#f5f5f6;--surface:#ffffff;--raise:#ebecf0;--line:#dcdee4;--fg:#16171b;--muted:#5a5e69;
+    --signal:#1f3a8a;--signal-ink:#ffffff;--ok:#4a68c4;--live:#1f8a6b;--glow:rgba(31,58,138,.09);--shadow:0 24px 48px -28px rgba(20,25,40,.28);color-scheme:light;
   }
 }
 :root[data-theme="light"]{
-  --bg:#f2f4f7;--surface:#ffffff;--raise:#e9edf3;--line:#d6dce6;--fg:#141b26;--muted:#5a6678;
-  --signal:#b45f06;--signal-ink:#ffffff;--ok:#1f8a6b;--glow:rgba(180,95,6,.10);color-scheme:light;
+  --bg:#f5f5f6;--surface:#ffffff;--raise:#ebecf0;--line:#dcdee4;--fg:#16171b;--muted:#5a5e69;
+  --signal:#1f3a8a;--signal-ink:#ffffff;--ok:#4a68c4;--live:#1f8a6b;--glow:rgba(31,58,138,.09);--shadow:0 24px 48px -28px rgba(20,25,40,.28);color-scheme:light;
 }
 
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:72px}
-@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
-body{margin:0;background:var(--bg);color:var(--fg);font:400 16px/1.6 var(--f-body);-webkit-font-smoothing:antialiased}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 16px/1.6 var(--f-body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{color:inherit}
-a:focus-visible,button:focus-visible{outline:2px solid var(--signal);outline-offset:3px;border-radius:4px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--signal);outline-offset:3px;border-radius:6px}
 h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0;line-height:1.1}
 p{margin:0}
 .wrap{max-width:1180px;margin:0 auto;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
-.mono{font-family:var(--f-mono)}
 .label{font:500 12px/1.4 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
 .hl{color:var(--signal)}
 mark{background:var(--glow);color:var(--fg);padding:0 .2em;border-radius:3px;font-weight:600}
 
+/* logo tiles */
+.lg{--s:40px;flex:none;width:var(--s);height:var(--s);border-radius:calc(var(--s)*.26);display:inline-grid;place-items:center;background:var(--c);color:var(--ink,#fff);box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)}
+.lg svg{width:56%;height:56%;fill:currentColor}
+.lg b{font:700 calc(var(--s)*.3)/1 var(--f-mono);letter-spacing:-.02em}
+.lg.dark{box-shadow:inset 0 0 0 1px var(--line)}
+
 /* header */
-header.top{position:sticky;top:env(safe-area-inset-top, 0px);z-index:20;background:color-mix(in srgb, var(--bg) 86%, transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-header.top .wrap{display:flex;align-items:center;gap:20px;min-height:60px}
+#progress{position:fixed;left:0;top:0;height:2px;width:100%;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,var(--signal),var(--ok));z-index:30}
+header.top{position:sticky;top:env(safe-area-inset-top, 0px);z-index:20;background:color-mix(in srgb, var(--bg) 84%, transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;gap:16px;min-height:60px}
 .brand{font:700 18px var(--f-display);text-decoration:none;display:flex;align-items:center;gap:10px;white-space:nowrap}
-.led{width:9px;height:9px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 3px color-mix(in srgb, var(--ok) 25%, transparent);flex:none}
-@media (prefers-reduced-motion: no-preference){.led{animation:pulse 2.4s ease-in-out infinite}}
-@keyframes pulse{50%{box-shadow:0 0 0 6px transparent}}
-nav.links{display:flex;gap:4px;margin-left:auto;overflow-x:auto;scrollbar-width:none}
+.brand img{width:30px;height:30px;border-radius:50%;object-fit:cover;object-position:50% 15%;border:1px solid var(--line)}
+.led{width:9px;height:9px;border-radius:50%;background:var(--live);box-shadow:0 0 0 3px color-mix(in srgb, var(--live) 25%, transparent);flex:none}
+nav.links{display:flex;gap:2px;margin-left:auto;overflow-x:auto;scrollbar-width:none}
 nav.links::-webkit-scrollbar{display:none}
-nav.links a{font:500 13px var(--f-mono);text-decoration:none;color:var(--muted);padding:6px 10px;border-radius:6px;white-space:nowrap}
+nav.links a{font:500 13px var(--f-mono);text-decoration:none;color:var(--muted);padding:6px 9px;border-radius:6px;white-space:nowrap;transition:color .2s,background .2s}
 nav.links a:hover,nav.links a.on{color:var(--fg);background:var(--raise)}
 .theme{flex:none;background:none;border:1px solid var(--line);color:var(--fg);border-radius:8px;width:36px;height:36px;cursor:pointer;font:16px var(--f-mono)}
-@media (max-width: 860px){nav.links{display:none}.theme{margin-left:auto}}
+@media (max-width: 960px){nav.links{display:none}.theme{margin-left:auto}}
 
 /* hero */
-.hero{padding-block:72px 56px;display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
+.hero-wrap{position:relative;isolation:isolate;overflow:hidden}
+#net{position:absolute;inset:0;width:100%;height:100%;z-index:-1;opacity:.6;pointer-events:none;-webkit-mask-image:radial-gradient(ellipse 80% 70% at 60% 40%,#000 30%,transparent 75%);mask-image:radial-gradient(ellipse 80% 70% at 60% 40%,#000 30%,transparent 75%)}
+.hero{padding-block:64px 48px;display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center}
 .hero > *{min-width:0}
-.status{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:999px;padding:6px 14px 6px 12px;font:500 13px var(--f-mono);color:var(--muted)}
+.status{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:999px;padding:6px 14px 6px 8px;font:500 13px var(--f-mono);color:var(--muted);background:var(--surface)}
 .status b{color:var(--fg);font-weight:500}
-.hero h1{font-size:clamp(44px, 7.4vw, 88px);font-weight:800;letter-spacing:-.025em;margin-top:22px}
-.hero h1 span{display:block;color:var(--signal)}
-.role{font:500 clamp(17px,2vw,20px)/1.5 var(--f-body);margin-top:20px;max-width:34em}
+.status .lg{--s:22px;border-radius:50%}
+.hero h1{font-size:clamp(44px,7.2vw,88px);font-weight:800;letter-spacing:-.025em;margin-top:22px}
+.hero h1 span{display:block;background:linear-gradient(100deg,var(--signal) 0%,var(--ok) 50%,var(--signal) 100%);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent}
+.role{font:500 clamp(17px,2vw,20px)/1.55 var(--f-body);margin-top:20px;max-width:34em}
 .lede{color:var(--muted);margin-top:14px;max-width:38em}
 .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
-.btn{display:inline-flex;align-items:center;gap:8px;font:600 14px var(--f-body);text-decoration:none;padding:11px 18px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--fg);cursor:pointer}
-.btn.primary{background:var(--signal);color:var(--signal-ink);border-color:var(--signal)}
-.btn:hover{transform:translateY(-1px)}
-.btn{transition:transform .15s}
+.btn{display:inline-flex;align-items:center;gap:8px;font:600 14px var(--f-body);text-decoration:none;padding:12px 18px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--fg);cursor:pointer;transition:transform .2s,box-shadow .2s}
+.btn.primary{background:var(--signal);color:var(--signal-ink);border-color:var(--signal);box-shadow:0 10px 30px -12px var(--signal)}
+.btn:hover{transform:translateY(-2px)}
 
-/* traceroute console */
-.console{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 30px 60px -30px rgba(0,0,0,.45)}
-.console .bar{display:flex;align-items:center;gap:8px;padding:10px 14px;border-bottom:1px solid var(--line);font:500 12px var(--f-mono);color:var(--muted)}
-.console .bar i{width:10px;height:10px;border-radius:50%;background:var(--line)}
-.console .bar span{margin-left:6px}
-.trace{padding:16px 18px 18px;font:400 13px/1.85 var(--f-mono);overflow-x:auto}
-.trace .cmd{color:var(--fg)}
-.trace .cmd::before{content:"$ ";color:var(--signal)}
-.hop{display:grid;grid-template-columns:2ch 1fr auto;gap:12px;white-space:nowrap;color:var(--muted)}
-.hop b{color:var(--fg);font-weight:500}
-.hop .ms{color:var(--ok)}
-.hop.dest b{color:var(--signal)}
-@media (prefers-reduced-motion: no-preference){
-  .hop{animation:hopIn .5s both}
-  @keyframes hopIn{from{opacity:.0;transform:translateX(-6px)}}
-}
+/* orbit + portrait */
+.orbit{--R1:150px;--R2:220px;position:relative;width:min(100%,480px);aspect-ratio:1;max-width:100%;margin-inline:auto}
+.ring{position:absolute;inset:0;margin:auto;border:1px dashed var(--line);border-radius:50%}
+.ring.r1{width:calc(var(--R1)*2);height:calc(var(--R1)*2)}
+.ring.r2{width:calc(var(--R2)*2);height:calc(var(--R2)*2)}
+.ring .sat{position:absolute;left:50%;top:50%;width:0;height:0}
+.ring .sat .lg{position:absolute;transform:translate(-50%,-50%);--s:44px;box-shadow:var(--shadow),inset 0 0 0 1px rgba(255,255,255,.1)}
+.ring.r2 .sat .lg{--s:38px}
+.avatar{position:absolute;inset:0;margin:auto;width:210px;height:210px;border-radius:50%;padding:4px;background:conic-gradient(from var(--a,0deg),var(--signal),var(--ok),#1f3a8a,var(--signal));box-shadow:0 30px 70px -20px var(--glow),0 0 0 10px color-mix(in srgb,var(--signal) 8%,transparent)}
+.avatar > div{width:100%;height:100%;border-radius:50%;background:var(--surface);display:grid;place-items:center;overflow:hidden;position:relative}
+.avatar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 18%}
+.avatar b{font:800 52px var(--f-display);letter-spacing:-.03em;color:var(--fg)}
+.avatar small{position:absolute;bottom:-12px;left:50%;transform:translateX(-50%);white-space:nowrap;font:500 11px var(--f-mono);background:var(--surface);color:var(--fg);border:1px solid var(--line);padding:4px 11px;border-radius:999px;display:flex;gap:6px;align-items:center}
+@property --a{syntax:"<angle>";inherits:false;initial-value:0deg}
+@media (max-width: 520px){.orbit{--R1:112px;--R2:165px}.ring .sat .lg{--s:34px}.ring.r2 .sat .lg{--s:30px}.avatar{width:160px;height:160px}}
 
-/* stats strip */
+/* stats */
 .stats{display:grid;grid-template-columns:repeat(6,1fr);border:1px solid var(--line);border-radius:var(--r);background:var(--surface)}
 .stat{padding:20px 18px;border-left:1px solid var(--line)}
 .stat:first-child{border-left:0}
-.stat .n{font:800 34px/1 var(--f-display);font-variant-numeric:tabular-nums;color:var(--fg)}
+.stat .n{font:800 34px/1 var(--f-display);font-variant-numeric:tabular-nums}
 .stat .n small{font-size:.55em;color:var(--signal)}
 .stat .t{margin-top:8px;font-size:13px;color:var(--muted);line-height:1.35}
 @media (max-width: 960px){.stats{grid-template-columns:repeat(3,1fr)}.stat:nth-child(4){border-left:0}.stat:nth-child(n+4){border-top:1px solid var(--line)}}
 @media (max-width: 520px){.stats{grid-template-columns:repeat(2,1fr)}.stat{border-left:1px solid var(--line)!important;border-top:1px solid var(--line)}.stat:nth-child(odd){border-left:0!important}.stat:nth-child(-n+2){border-top:0}}
 
+/* marquee */
+.marquee{overflow:hidden;margin-top:24px;padding-block:14px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.marquee-track{display:flex;gap:14px;width:max-content}
+.chip{display:inline-flex;align-items:center;gap:10px;padding:8px 16px 8px 8px;border:1px solid var(--line);border-radius:999px;background:var(--surface);font:600 14px var(--f-body);white-space:nowrap}
+.chip .lg{--s:30px;border-radius:50%}
+
 /* sections */
-section.block{padding-block:88px 0}
+section.block{padding-block:96px 0}
 .shead{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:16px;margin-bottom:36px}
-.shead h2{font-size:clamp(30px,4.2vw,46px);font-weight:700;letter-spacing:-.02em;margin-top:8px}
+.shead h2{font-size:clamp(30px,4.2vw,48px);font-weight:700;letter-spacing:-.02em;margin-top:8px}
 .shead p{color:var(--muted);max-width:30em}
 
 /* about */
-.about{display:grid;grid-template-columns:1.3fr 1fr;gap:48px}
+.about{display:grid;grid-template-columns:1.2fr 1fr;gap:48px}
 .about > *{min-width:0}
 .about .text{display:grid;gap:16px;font-size:17px;max-width:62ch}
-.facts{display:grid;gap:0;border-top:1px solid var(--line)}
-.facts div{display:grid;grid-template-columns:120px 1fr;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);font-size:15px}
+.console{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;position:relative;box-shadow:var(--shadow)}
+.console::before{content:"";position:absolute;inset:-1px;border-radius:15px;padding:1px;background:conic-gradient(from var(--a,0deg),transparent 0 70%,var(--signal) 85%,transparent 100%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+.console .bar{display:flex;align-items:center;gap:8px;padding:10px 14px;border-bottom:1px solid var(--line);font:500 12px var(--f-mono);color:var(--muted)}
+.console .bar i{width:10px;height:10px;border-radius:50%;background:var(--line)}
+.trace{padding:14px 16px 16px;font:400 13px/1.85 var(--f-mono);overflow-x:auto}
+.trace .cmd::before{content:"$ ";color:var(--signal)}
+.hop{display:grid;grid-template-columns:2ch 1fr auto;gap:12px;white-space:nowrap;color:var(--muted)}
+.hop b{color:var(--fg);font-weight:500}
+.hop .ms{color:var(--ok)}
+.hop.dest b{color:var(--signal)}
+.facts{margin:20px 0 0;border-top:1px solid var(--line)}
+.facts div{display:grid;grid-template-columns:110px 1fr;gap:12px;padding:11px 0;border-bottom:1px solid var(--line);font-size:15px}
 .facts dt{font:500 12px/1.9 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
 .facts dd{margin:0;min-width:0;overflow-wrap:anywhere}
-@media (max-width: 860px){.about{grid-template-columns:1fr}}
+@media (max-width: 900px){.about{grid-template-columns:1fr}}
 
-/* timeline */
-.tl{position:relative;display:grid;gap:0}
-.job{display:grid;grid-template-columns:190px 1fr;gap:32px;padding:28px 0;border-top:1px solid var(--line)}
-.job:last-child{border-bottom:1px solid var(--line)}
-.job > *{min-width:0}
-.job .when{font:500 13px/1.6 var(--f-mono);color:var(--muted)}
-.job .when b{display:block;color:var(--fg);font-weight:500}
-.job.current .when b{color:var(--signal)}
-.job h3{font-size:22px;font-weight:700}
+/* experience timeline */
+.tl{position:relative;display:grid;gap:16px;padding-left:28px}
+.tl::before{content:"";position:absolute;left:7px;top:8px;bottom:8px;width:2px;background:linear-gradient(var(--signal),var(--ok) 40%,var(--line))}
+.job{position:relative;display:grid;grid-template-columns:auto 1fr;gap:20px;padding:24px;border:1px solid var(--line);border-radius:var(--r);background:var(--surface)}
+.job::before{content:"";position:absolute;left:-27px;top:34px;width:12px;height:12px;border-radius:50%;background:var(--bg);border:2px solid var(--muted)}
+.job.current::before{border-color:var(--live);background:var(--live);box-shadow:0 0 0 5px color-mix(in srgb,var(--live) 25%,transparent)}
+.job > div{min-width:0}
+.job .top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 16px;align-items:baseline}
+.job h3{font-size:21px;font-weight:700}
+.job .when{font:500 13px var(--f-mono);color:var(--muted);white-space:nowrap}
+.job.current .when{color:var(--live)}
 .job .org{margin-top:4px;color:var(--muted);font-size:15px}
 .job .org strong{color:var(--fg);font-weight:600}
-.job ul{margin:14px 0 0;padding-left:18px;display:grid;gap:6px;max-width:72ch}
+.job ul{margin:12px 0 0;padding-left:18px;display:grid;gap:6px;max-width:74ch}
 .job li::marker{color:var(--signal)}
 .pill{display:inline-flex;align-items:center;gap:6px;font:500 11px var(--f-mono);letter-spacing:.08em;text-transform:uppercase;padding:3px 9px;border-radius:999px;border:1px solid var(--line);color:var(--muted);vertical-align:middle}
-.pill.now{border-color:var(--ok);color:var(--ok)}
+.pill.now{border-color:var(--signal);color:var(--signal)}
+.pill.live{border-color:var(--live);color:var(--live)}
 .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
-.tag{font:500 12px var(--f-mono);padding:4px 9px;border-radius:6px;background:var(--raise);color:var(--fg)}
-.more{display:inline-block;margin-top:12px;font:500 13px var(--f-mono);color:var(--signal);text-decoration:none}
+.tag{display:inline-flex;align-items:center;gap:6px;font:500 12px var(--f-mono);padding:4px 9px;border-radius:6px;background:var(--raise);color:var(--fg);transition:background .2s,color .2s}
+.tag:hover{background:var(--signal);color:var(--signal-ink)}
+.tag svg{width:13px;height:13px;fill:currentColor}
+.more{display:inline-flex;gap:4px;margin-top:12px;font:500 13px var(--f-mono);color:var(--signal);text-decoration:none}
 .more:hover{text-decoration:underline}
-@media (max-width: 720px){.job{grid-template-columns:1fr;gap:8px}}
+@media (max-width: 600px){.job{grid-template-columns:1fr;gap:14px;padding:20px}.tl{padding-left:22px}.job::before{left:-21px}}
+
+/* card hover system */
+.fx{position:relative;transition:transform .3s cubic-bezier(.2,.7,.2,1),border-color .3s,box-shadow .3s}
+.fx::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .3s;background:radial-gradient(340px circle at var(--mx,50%) var(--my,50%),var(--glow),transparent 60%)}
+.fx:hover{border-color:color-mix(in srgb,var(--signal) 45%,var(--line));box-shadow:var(--shadow)}
+.fx:hover::after{opacity:1}
+.tilt{transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) translateY(var(--ty,0px))}
+.tilt:hover{--ty:-4px}
 
 /* projects */
 .projects{display:grid;grid-template-columns:repeat(6,1fr);gap:16px}
 .proj{grid-column:span 2;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:24px;display:flex;flex-direction:column;gap:12px;min-width:0}
 .proj.wide{grid-column:span 3}
-.proj .k{display:flex;justify-content:space-between;gap:12px;align-items:baseline}
-.proj h3{font-size:21px;font-weight:700}
+.proj .k{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+.proj h3{font-size:22px;font-weight:700}
 .proj p{color:var(--muted);font-size:15px}
-.metric{font:800 30px/1 var(--f-display);color:var(--signal)}
+.metric{font:800 30px/1 var(--f-display);color:var(--signal);text-align:right;flex:none}
 .metric small{display:block;font:500 11px var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:6px}
 .proj .tags{margin-top:auto;padding-top:6px}
 @media (max-width: 960px){.proj,.proj.wide{grid-column:span 3}}
@@ -163,7 +200,7 @@ section.block{padding-block:88px 0}
 
 /* skills */
 .skills{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.sk{border:1px solid var(--line);border-radius:var(--r);padding:20px;min-width:0}
+.sk{border:1px solid var(--line);border-radius:var(--r);padding:20px;min-width:0;background:var(--surface)}
 .sk h3{font:600 13px var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--signal);margin-bottom:14px}
 @media (max-width: 900px){.skills{grid-template-columns:1fr 1fr}}
 @media (max-width: 560px){.skills{grid-template-columns:1fr}}
@@ -172,86 +209,117 @@ section.block{padding-block:88px 0}
 .edu{display:grid;grid-template-columns:1.4fr 1fr;gap:16px}
 .edu > *{min-width:0}
 .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:28px}
-.gpa{display:flex;align-items:baseline;gap:6px;font:800 64px/1 var(--f-display);color:var(--signal);font-variant-numeric:tabular-nums}
+.card .hd{display:flex;gap:16px;align-items:center}
+.gpa{display:flex;align-items:baseline;gap:8px;font:800 64px/1 var(--f-display);color:var(--signal);font-variant-numeric:tabular-nums}
 .gpa small{font:500 16px var(--f-mono);color:var(--muted)}
 .bar2{height:6px;border-radius:3px;background:var(--raise);margin-top:12px;overflow:hidden}
-.bar2 i{display:block;height:100%;background:var(--signal)}
-.courses{display:flex;flex-wrap:wrap;gap:6px;margin-top:18px}
+.bar2 i{display:block;height:100%;width:86.5%;background:linear-gradient(90deg,var(--signal),var(--ok));transform-origin:0 50%}
 @media (max-width: 860px){.edu{grid-template-columns:1fr}}
 
+/* filters & tabs */
+.filters,.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.filters button,.tabs button{font:500 13px var(--f-mono);padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--muted);cursor:pointer;transition:all .2s}
+.filters button:hover,.tabs button:hover{color:var(--fg)}
+.filters button[aria-pressed="true"],.tabs button[aria-selected="true"]{background:var(--signal);color:var(--signal-ink);border-color:var(--signal)}
+.filters button span,.tabs button span{opacity:.65;margin-left:4px}
+
 /* certifications */
-.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
-.filters button{font:500 13px var(--f-mono);padding:7px 12px;border-radius:999px;border:1px solid var(--line);background:none;color:var(--muted);cursor:pointer}
-.filters button[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
-.filters button span{opacity:.6;margin-left:4px}
-.certs{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
-.cert{display:flex;gap:14px;align-items:flex-start;padding:16px;border:1px solid var(--line);border-radius:var(--r);background:var(--surface);min-width:0}
-.cert .ico{flex:none;width:38px;height:38px;border-radius:8px;display:grid;place-items:center;font:700 13px var(--f-mono);background:var(--raise);color:var(--signal)}
+.certs{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:12px}
+.cert{display:flex;gap:14px;align-items:center;padding:14px;border:1px solid var(--line);border-radius:var(--r);background:var(--surface);min-width:0}
 .cert h3{font:600 15px/1.35 var(--f-body)}
 .cert .meta{font:400 12px var(--f-mono);color:var(--muted);margin-top:4px}
 .cert .feat{color:var(--signal)}
+.issuers{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:24px}
+.issuers .lg{transition:transform .25s}
+.issuers .lg:hover{transform:translateY(-4px) scale(1.08)}
 
 /* awards */
-.awards{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:12px}
-.award{display:grid;grid-template-columns:auto 1fr;gap:16px;padding:20px;border:1px solid var(--line);border-radius:var(--r);min-width:0}
-.award .yr{font:700 13px var(--f-mono);color:var(--signal);padding-top:3px;font-variant-numeric:tabular-nums}
+.awards{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:12px}
+.award{display:grid;grid-template-columns:auto 1fr;gap:16px;padding:20px;border:1px solid var(--line);border-radius:var(--r);background:var(--surface);min-width:0}
+.award .yr{font:700 12px var(--f-mono);color:var(--signal);margin-bottom:4px}
 .award h3{font:600 17px/1.3 var(--f-body)}
 .award p{color:var(--muted);font-size:14px;margin-top:6px}
-.award.gold{background:var(--glow);border-color:color-mix(in srgb, var(--signal) 40%, var(--line))}
-@media (max-width: 400px){.awards{grid-template-columns:1fr}}
+.award.gold{background:linear-gradient(135deg,var(--glow),var(--surface) 60%);border-color:color-mix(in srgb,var(--signal) 40%,var(--line))}
+@media (max-width: 420px){.awards{grid-template-columns:1fr}}
 
-/* community */
-.comm{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:28px}
-.comm .card{padding:24px;display:flex;flex-direction:column;gap:6px}
-.comm .big{font:800 40px/1 var(--f-display);color:var(--fg)}
-.comm .big small{font-size:.5em;color:var(--signal)}
-.comm h3{font:600 16px/1.35 var(--f-body);margin-top:10px}
+/* extracurricular */
+.comm{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:32px}
+.comm a{display:flex;flex-direction:column;gap:8px;padding:24px;text-decoration:none}
+.comm .row{display:flex;align-items:center;justify-content:space-between}
+.comm .big{font:800 44px/1 var(--f-display);margin-top:8px;font-variant-numeric:tabular-nums}
+.comm .big small{font-size:.42em;color:var(--signal);margin-left:4px}
+.comm h3{font:600 16px/1.35 var(--f-body)}
 .comm p{color:var(--muted);font-size:14px}
 @media (max-width: 860px){.comm{grid-template-columns:1fr}}
-.roles{display:grid;grid-template-columns:1fr 1fr;gap:0 32px}
-.roles .job{grid-template-columns:150px 1fr;gap:20px}
-@media (max-width: 960px){.roles{grid-template-columns:1fr}}
-@media (max-width: 520px){.roles .job{grid-template-columns:1fr;gap:6px}}
+.panel{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.act{display:grid;grid-template-columns:auto 1fr;gap:16px;padding:22px;border:1px solid var(--line);border-radius:var(--r);background:var(--surface);min-width:0}
+.act > div{min-width:0}
+.act h3{font-size:19px;font-weight:700}
+.act .org{color:var(--muted);font-size:14px;margin-top:3px}
+.act .org strong{color:var(--fg);font-weight:600}
+.act .when{font:500 12px var(--f-mono);color:var(--signal);margin-bottom:6px}
+.act p.d{color:var(--muted);font-size:15px;margin-top:10px}
+.act ul{margin:10px 0 0;padding-left:18px;color:var(--muted);font-size:15px;display:grid;gap:4px}
+.act li::marker{color:var(--signal)}
+@media (max-width: 860px){.panel{grid-template-columns:1fr}}
 
-/* events */
-.events{border-top:1px solid var(--line)}
-.ev{display:grid;grid-template-columns:120px 1fr auto;gap:20px;align-items:center;padding:14px 4px;border-bottom:1px solid var(--line);text-decoration:none}
-a.ev:hover{background:var(--raise)}
-.ev .d{font:500 13px var(--f-mono);color:var(--muted);font-variant-numeric:tabular-nums}
-.ev .t{font-weight:500;min-width:0}
-.ev .go{font:500 13px var(--f-mono);color:var(--signal)}
-@media (max-width: 560px){.ev{grid-template-columns:1fr auto;gap:2px 12px}.ev .d{grid-column:1/-1}}
+/* events gallery */
+.evgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.ev{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:var(--r);background:var(--surface);overflow:hidden;text-decoration:none;min-width:0}
+.cover{position:relative;aspect-ratio:16/10;max-width:100%;overflow:hidden;background:
+  radial-gradient(circle at 85% 15%,hsl(var(--h) 70% 55% / .55),transparent 55%),
+  radial-gradient(circle at 10% 100%,hsl(calc(var(--h) + 40) 60% 45% / .4),transparent 55%),
+  linear-gradient(160deg,hsl(var(--h) 30% 17%),hsl(225 12% 9%))}
+.cover::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.18) 1px,transparent 1px);background-size:16px 16px;-webkit-mask-image:linear-gradient(120deg,transparent 30%,#000);mask-image:linear-gradient(120deg,transparent 30%,#000)}
+.cover .art{position:absolute;inset:0;padding:18px;display:flex;flex-direction:column;justify-content:space-between;color:#fff;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.cover .art .row{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.cover .day{font:800 54px/.9 var(--f-display);letter-spacing:-.03em}
+.cover .mon{font:500 12px var(--f-mono);letter-spacing:.14em;text-transform:uppercase;opacity:.85;margin-top:6px}
+.cover .kind{display:inline-block;font:500 11px var(--f-mono);letter-spacing:.12em;text-transform:uppercase;padding:4px 10px;border-radius:999px;background:rgba(255,255,255,.14)}
+.cover .ttl{font:700 19px/1.15 var(--f-display);max-width:16em;text-wrap:balance;margin-top:10px}
+.cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.cover .lg{box-shadow:0 8px 20px rgba(0,0,0,.35)}
+.ev:hover .cover img,.ev:hover .cover .art{transform:scale(1.05)}
+.ev .body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:6px;flex:1}
+.ev .body h3{font:600 16px/1.35 var(--f-body)}
+.ev .body .meta{font:500 12px var(--f-mono);color:var(--muted)}
+.ev .go{margin-top:auto;padding-top:8px;font:500 13px var(--f-mono);color:var(--signal)}
+.ev .go.off{color:var(--muted)}
+@media (max-width: 960px){.evgrid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width: 600px){.evgrid{grid-template-columns:1fr}}
 
 /* writing */
 .posts{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.post{display:flex;flex-direction:column;gap:10px;padding:24px;border:1px solid var(--line);border-radius:var(--r);text-decoration:none;background:var(--surface);min-width:0}
-.post:hover{border-color:var(--signal)}
+.post{display:flex;flex-direction:column;gap:12px;padding:24px;border:1px solid var(--line);border-radius:var(--r);text-decoration:none;background:var(--surface);min-width:0}
 .post h3{font-size:21px;font-weight:700}
 .post .go{margin-top:auto;font:500 13px var(--f-mono);color:var(--signal)}
 @media (max-width: 860px){.posts{grid-template-columns:1fr}}
 
 /* contact */
-.contact{margin-top:88px;border-top:1px solid var(--line);padding-block:72px 40px}
-.contact h2{font-size:clamp(36px,6vw,72px);font-weight:800;letter-spacing:-.025em}
+.contact{margin-top:96px;border-top:1px solid var(--line);padding-block:72px 40px;display:grid;grid-template-columns:auto 1fr;gap:48px;align-items:start}
+.contact > *{min-width:0}
+.contact .ph{width:220px;aspect-ratio:4/5;max-width:100%;border-radius:18px;overflow:hidden;border:1px solid var(--line);background:var(--surface);box-shadow:var(--shadow)}
+.contact .ph img{width:100%;height:100%;object-fit:cover;object-position:50% 20%;display:block}
+.contact h2{font-size:clamp(36px,6vw,68px);font-weight:800;letter-spacing:-.025em}
 .contact h2 span{color:var(--signal)}
-.clist{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin-top:36px}
-.citem{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 18px;border:1px solid var(--line);border-radius:var(--r);background:var(--surface);min-width:0}
-.citem div{min-width:0}
-.citem a,.citem .v{font-weight:500;text-decoration:none;overflow-wrap:anywhere;user-select:all}
+.clist{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:12px;margin-top:32px}
+.citem{display:flex;align-items:center;gap:14px;padding:14px 16px;border:1px solid var(--line);border-radius:var(--r);background:var(--surface);min-width:0}
+.citem > div{min-width:0;flex:1}
+.citem a{font-weight:500;text-decoration:none;overflow-wrap:anywhere}
 .citem a:hover{color:var(--signal)}
 .copy{flex:none;font:500 12px var(--f-mono);border:1px solid var(--line);background:none;color:var(--muted);padding:5px 9px;border-radius:6px;cursor:pointer}
 .copy:hover{color:var(--fg)}
 footer{padding-block:28px 40px;color:var(--muted);font:400 13px var(--f-mono);display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+@media (max-width: 760px){.contact{grid-template-columns:1fr;gap:28px}.contact .ph{width:160px}}
 
-@media (max-width: 520px){.status{font-size:11px;border-radius:12px}}
-@media (max-width: 860px){.hero{grid-template-columns:1fr;padding-block:48px 40px;gap:36px}section.block{padding-block:64px 0}}
+@media (max-width: 900px){.hero{grid-template-columns:1fr;padding-block:44px 32px}section.block{padding-block:72px 0}}
+@media (max-width: 520px){.status{font-size:11px;border-radius:14px}}
 
-/* ---------- motion layer ---------- */
-.hero-wrap{position:relative;isolation:isolate}
-#net{position:absolute;inset:0;width:100%;height:100%;z-index:-1;opacity:.55;pointer-events:none;
-  -webkit-mask-image:radial-gradient(ellipse 80% 70% at 60% 40%,#000 30%,transparent 75%);mask-image:radial-gradient(ellipse 80% 70% at 60% 40%,#000 30%,transparent 75%)}
-.hero h1 span{background:linear-gradient(100deg,var(--signal) 0%,var(--ok) 50%,var(--signal) 100%);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent}
+/* motion */
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}}
 @media (prefers-reduced-motion: no-preference){
+  .led{animation:pulse 2.4s ease-in-out infinite}
+  @keyframes pulse{50%{box-shadow:0 0 0 7px transparent}}
   .hero h1 span{animation:sheen 6s linear infinite}
   @keyframes sheen{to{background-position:-200% 0}}
   .hero > div:first-child > *{animation:rise .8s cubic-bezier(.2,.7,.2,1) both}
@@ -259,36 +327,31 @@ footer{padding-block:28px 40px;color:var(--muted);font:400 13px var(--f-mono);di
   .hero > div:first-child > *:nth-child(3){animation-delay:.16s}
   .hero > div:first-child > *:nth-child(4){animation-delay:.24s}
   .hero > div:first-child > *:nth-child(5){animation-delay:.32s}
-  .console{animation:rise 1s .2s cubic-bezier(.2,.7,.2,1) both}
+  .orbit{animation:pop 1s .15s cubic-bezier(.2,.8,.2,1.1) both}
   @keyframes rise{from{opacity:0;transform:translateY(18px)}}
-  @supports (animation-timeline: view()){
-    .job,.proj,.sk,.cert,.award,.comm .card,.ev,.post,.card,.stat,.citem,.shead{animation:reveal linear both;animation-timeline:view();animation-range:entry 0% entry 40%}
-    @keyframes reveal{from{opacity:.0;transform:translateY(28px) scale(.98)}}
-  }
-  .marquee-track{animation:scroll 38s linear infinite}
+  @keyframes pop{from{opacity:0;transform:scale(.85)}}
+  .ring.r1{animation:spin 40s linear infinite}
+  .ring.r2{animation:spin 64s linear infinite reverse}
+  .ring.r1 .sat .lg{animation:spinBack 40s linear infinite}
+  .ring.r2 .sat .lg{animation:spinBack 64s linear infinite reverse}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  @keyframes spinBack{from{transform:translate(-50%,-50%) rotate(0)}to{transform:translate(-50%,-50%) rotate(-360deg)}}
+  .avatar,.console::before{animation:hue 6s linear infinite}
+  @keyframes hue{to{--a:360deg}}
+  .hop{animation:hopIn .5s both}
+  @keyframes hopIn{from{opacity:0;transform:translateX(-6px)}}
+  .marquee-track{animation:scroll 46s linear infinite}
   .marquee:hover .marquee-track{animation-play-state:paused}
   @keyframes scroll{to{transform:translateX(-50%)}}
+  .panel{animation:fadeUp .45s cubic-bezier(.2,.7,.2,1)}
+  @supports (animation-timeline: view()){
+    .reveal{animation:reveal linear both;animation-timeline:view();animation-range:entry 0% entry 35%}
+    @keyframes reveal{from{opacity:0;transform:translateY(32px) scale(.97)}}
+    .bar2 i{animation:grow linear both;animation-timeline:view();animation-range:entry 20% cover 40%}
+    @keyframes grow{from{transform:scaleX(0)}}
+  }
 }
-.console{position:relative}
-.console::before{content:"";position:absolute;inset:-1px;border-radius:15px;padding:1px;background:conic-gradient(from var(--a,0deg),transparent 0 70%,var(--signal) 85%,transparent 100%);
-  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
-@property --a{syntax:"<angle>";inherits:false;initial-value:0deg}
-@media (prefers-reduced-motion: no-preference){.console::before{animation:spin 5s linear infinite}@keyframes spin{to{--a:360deg}}}
-/* cursor spotlight on cards */
-.proj,.cert,.award,.post,.sk,.comm .card,.citem{position:relative;transition:transform .25s cubic-bezier(.2,.7,.2,1),border-color .25s,box-shadow .25s}
-.proj::after,.cert::after,.award::after,.post::after,.sk::after,.comm .card::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .3s;
-  background:radial-gradient(320px circle at var(--mx,50%) var(--my,50%),var(--glow),transparent 60%)}
-.proj:hover,.cert:hover,.award:hover,.post:hover,.sk:hover,.comm .card:hover{transform:translateY(-4px);border-color:color-mix(in srgb,var(--signal) 45%,var(--line));box-shadow:0 18px 40px -24px rgba(0,0,0,.5)}
-.proj:hover::after,.cert:hover::after,.award:hover::after,.post:hover::after,.sk:hover::after,.comm .card:hover::after{opacity:1}
-.tag{transition:background .2s,color .2s}
-.tag:hover{background:var(--signal);color:var(--signal-ink)}
-/* organisations marquee */
-.marquee{overflow:hidden;margin-top:28px;border-block:1px solid var(--line);padding-block:16px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
-.marquee-track{display:flex;gap:48px;width:max-content}
-.marquee span{font:700 20px var(--f-display);color:var(--muted);white-space:nowrap;letter-spacing:-.01em}
-.marquee span::before{content:"◆";color:var(--signal);font-size:10px;margin-right:48px;vertical-align:middle}
-/* progress bar */
-#progress{position:fixed;left:0;top:0;height:2px;width:100%;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,var(--signal),var(--ok));z-index:30}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{animation:none!important}}
 </style>
 </head>
 <body>
@@ -296,9 +359,9 @@ footer{padding-block:28px 40px;color:var(--muted);font:400 13px var(--f-mono);di
 
 <header class="top">
   <div class="wrap">
-    <a class="brand" href="#top"><i class="led" aria-hidden="true"></i>Mustafa Hassan</a>
+    <a class="brand" href="#top"><img src="assets/profile.jpg" alt="" onerror="this.remove()">Mustafa Hassan</a>
     <nav class="links" aria-label="Sections">
-      <a href="#about">About</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#education">Education</a><a href="#certifications">Certifications</a><a href="#awards">Awards</a><a href="#community">Community</a><a href="#writing">Writing</a><a href="#contact">Contact</a>
+      <a href="#about">About</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#education">Education</a><a href="#certifications">Certifications</a><a href="#awards">Awards</a><a href="#activities">Activities</a><a href="#events">Events</a><a href="#writing">Writing</a><a href="#contact">Contact</a>
     </nav>
     <button class="theme" id="themeBtn" type="button" aria-label="Toggle light and dark theme">◐</button>
   </div>
@@ -309,75 +372,79 @@ footer{padding-block:28px 40px;color:var(--muted);font:400 13px var(--f-mono);di
   <div class="wrap">
     <section class="hero">
       <div>
-        <span class="status"><i class="led" aria-hidden="true"></i><b>Online</b> · Resident Engineer, NOC @ Wateen Telecom</span>
+        <span class="status"><span data-logo="wateen"></span><b>Now</b> · Resident Engineer, NOC @ Wateen Telecom</span>
         <h1>Syed Mustafa <span>Hassan</span></h1>
-        <p class="role">Network &amp; security engineer who keeps enterprise infrastructure up, with a <mark>Computer Science degree</mark>, hands-on <mark>SOC experience</mark>, applied <mark>AI / computer-vision</mark> research projects, and a record of <mark>building tech communities</mark> across Karachi.</p>
+        <p class="role">Network &amp; security engineer who keeps enterprise infrastructure up, with a <mark>Computer Science degree</mark>, hands-on <mark>SOC experience</mark>, applied <mark>AI / computer-vision</mark> projects, and a record of <mark>building tech communities</mark> across Karachi.</p>
         <p class="lede">Microsoft Learn Student Ambassador (Alpha &amp; Beta), founder of the Microsoft Learn Student Community at MAJU, top contributor in Social Winter of Code, ICPC participant and three-time Dean's List honoree.</p>
         <div class="cta">
           <a class="btn primary" href="#contact">Get in touch</a>
           <a class="btn" href="#experience">View experience</a>
-          <a class="btn" href="https://www.linkedin.com/in/mustafahassan2001" target="_blank" rel="noopener">LinkedIn ↗</a>
+          <a class="btn" href="https://www.linkedin.com/in/mustafahassan2001" target="_blank" rel="noopener"><span data-logo="linkedin" data-size="20"></span>LinkedIn</a>
         </div>
       </div>
-      <div class="console" aria-label="Career path shown as a network traceroute">
-        <div class="bar"><i></i><i></i><i></i><span>noc-console — bash</span></div>
-        <div class="trace" id="trace"></div>
+      <div class="orbit" aria-label="Portrait of Syed Mustafa Hassan with logos of organizations he has worked and learned with">
+        <div class="ring r2" id="r2"></div>
+        <div class="ring r1" id="r1"></div>
+        <div class="avatar"><div><b>SMH</b><img src="assets/profile.jpg" alt="Syed Mustafa Hassan" onerror="this.remove()"></div><small><i class="led" aria-hidden="true"></i>Open to opportunities</small></div>
       </div>
     </section>
   </div></div>
+
   <div class="wrap">
-    <div class="stats" id="stats"></div>
-    <div class="marquee" aria-label="Organizations worked and learned with"><div class="marquee-track" id="orgs"></div></div>
+    <div class="stats reveal" id="stats"></div>
+    <div class="marquee" aria-label="Organizations"><div class="marquee-track" id="orgs"></div></div>
 
     <section class="block" id="about">
-      <div class="shead"><div><div class="label">About</div><h2>From code to the core network</h2></div></div>
+      <div class="shead reveal"><div><div class="label">About</div><h2>From code to the core network</h2></div></div>
       <div class="about">
-        <div class="text">
-          <p>I'm a <strong>Computer Science graduate from Mohammad Ali Jinnah University</strong> (CGPA <strong class="hl">3.46 / 4.0</strong>, merit scholar for all four years) currently working as a <strong>Resident Engineer in the Network Operations Center at Wateen Telecom Limited</strong>, where I design, implement and maintain LAN/WAN systems and resolve network incidents quickly to keep downtime low.</p>
-          <p>Before that I spent <strong>14 months as a SOC Analyst at NanoTechx</strong>, and earlier built product as a front-end intern at 360XpertSolutions, mentored React Native developers at Bytewise, and mentored contributors in Winter of Blockchain.</p>
+        <div class="text reveal">
+          <p>I'm a <strong>Computer Science graduate from Mohammad Ali Jinnah University</strong> (CGPA <strong class="hl">3.46 / 4.0</strong>, merit scholar for all four years) working as a <strong>Resident Engineer in the Network Operations Center at Wateen Telecom Limited</strong>, where I design, implement and maintain LAN/WAN systems and resolve network incidents quickly to keep downtime low.</p>
+          <p>Before that I spent <strong>14 months as a SOC Analyst at NanoTechx</strong>. Earlier I built product as a front-end intern at 360XpertSolutions, led the React Native track at Bytewise, and mentored contributors in Winter of Blockchain.</p>
           <p>My academic work leans into <strong>machine learning and computer vision</strong>: a CNN-based non-invasive glucose monitor for Microsoft Imagine Cup, an attention UNet for low-light enhancement (<strong class="hl">27.82 dB PSNR</strong>), and a PyTorch re-implementation of PointNet. I keep studying NeuroAI and human visual processing in preparation for graduate study in data science and computational imaging.</p>
-          <p>Outside work I build communities: I <strong>founded the Microsoft Learn Student Community at MAJU</strong>, led Android at Google Developer Student Club, organized national conferences with Cisco and Microsoft communities, and write beginner guides on Git, cloud and AWS.</p>
+          <p>Outside work I build communities. I <strong>founded the Microsoft Learn Student Community at MAJU</strong>, led Android at Google Developer Student Club, organized national conferences with Cisco and Microsoft communities, and write beginner guides on Git, cloud and AWS.</p>
         </div>
-        <dl class="facts">
-          <div><dt>Based in</dt><dd>Karachi, Sindh, Pakistan</dd></div>
-          <div><dt>Current</dt><dd>Resident Engineer, NOC · Wateen Telecom</dd></div>
-          <div><dt>Focus</dt><dd>Networking, security operations, cloud, AI / computer vision</dd></div>
-          <div><dt>Degree</dt><dd>BS Computer Science · MAJU · 2025</dd></div>
-          <div><dt>HSC</dt><dd>A1 grade (91.81%) · Govt. Degree College Latifabad No. 11</dd></div>
-          <div><dt>Languages</dt><dd>Urdu (native), English (professional)</dd></div>
-        </dl>
+        <div class="reveal">
+          <div class="console" aria-label="Career path shown as a network traceroute">
+            <div class="bar"><i></i><i></i><i></i><span style="margin-left:6px">noc-console: bash</span></div>
+            <div class="trace" id="trace"></div>
+          </div>
+          <dl class="facts">
+            <div><dt>Based in</dt><dd>Karachi, Sindh, Pakistan</dd></div>
+            <div><dt>Focus</dt><dd>Networking, security operations, cloud, AI / computer vision</dd></div>
+            <div><dt>HSC</dt><dd>A1 grade (91.81%), Govt. Degree College Latifabad No. 11</dd></div>
+            <div><dt>Languages</dt><dd>Urdu (native), English (professional)</dd></div>
+          </dl>
+        </div>
       </div>
     </section>
 
     <section class="block" id="experience">
-      <div class="shead"><div><div class="label">Experience</div><h2>Professional experience</h2></div><p>Network operations, security operations, software engineering and technical mentorship.</p></div>
+      <div class="shead reveal"><div><div class="label">Experience</div><h2>Professional experience</h2></div><p>Network operations, security operations, software engineering and technical mentorship.</p></div>
       <div class="tl" id="jobs"></div>
     </section>
 
     <section class="block" id="projects">
-      <div class="shead"><div><div class="label">Projects</div><h2>Selected projects</h2></div><p>Final-year and coursework projects in mobile health, computer vision and generative AI.</p></div>
+      <div class="shead reveal"><div><div class="label">Projects</div><h2>Selected projects</h2></div><p>Final-year and coursework projects in mobile health, computer vision and generative AI.</p></div>
       <div class="projects" id="projectList"></div>
     </section>
 
     <section class="block" id="skills">
-      <div class="shead"><div><div class="label">Skills</div><h2>Technical toolkit</h2></div></div>
+      <div class="shead reveal"><div><div class="label">Skills</div><h2>Technical toolkit</h2></div></div>
       <div class="skills" id="skillList"></div>
     </section>
 
     <section class="block" id="education">
-      <div class="shead"><div><div class="label">Education</div><h2>Education &amp; study</h2></div></div>
+      <div class="shead reveal"><div><div class="label">Education</div><h2>Education &amp; study</h2></div></div>
       <div class="edu">
-        <div class="card">
-          <div class="label">Oct 2021 – Jun 2025 · Karachi</div>
-          <h3 style="font-size:26px;margin-top:10px">Bachelor of Science, Computer Science</h3>
-          <p style="color:var(--muted);margin-top:4px">Mohammad Ali Jinnah University (MAJU)</p>
-          <div style="margin-top:24px"><div class="gpa">3.46<small>/ 4.0 CGPA</small></div><div class="bar2"><i style="width:86.5%"></i></div></div>
+        <div class="card fx reveal">
+          <div class="hd"><span data-logo="maju" data-size="56"></span><div><div class="label">Oct 2021 – Jun 2025 · Karachi</div><h3 style="font-size:24px;margin-top:6px">BS Computer Science</h3><p style="color:var(--muted)">Mohammad Ali Jinnah University (MAJU)</p></div></div>
+          <div style="margin-top:26px"><div class="gpa">3.46<small>/ 4.0 CGPA</small></div><div class="bar2"><i></i></div></div>
           <div class="tags" style="margin-top:20px"><span class="pill now">Merit scholarship 2021–2025</span><span class="pill now">Dean's List of Honor ×3</span></div>
           <div class="label" style="margin-top:24px">Highlighted courses</div>
-          <div class="courses" id="courses"></div>
+          <div class="tags" id="courses"></div>
         </div>
         <div style="display:grid;gap:16px;min-width:0">
-          <div class="card">
+          <div class="card fx reveal">
             <div class="label">Sep 2025 – Jul 2026</div>
             <h3 style="font-size:20px;margin-top:10px">Graduate preparation &amp; independent study</h3>
             <ul style="margin:12px 0 0;padding-left:18px;color:var(--muted);font-size:15px;display:grid;gap:6px">
@@ -386,7 +453,7 @@ footer{padding-block:28px 40px;color:var(--muted);font:400 13px var(--f-mono);di
               <li>Networks, cloud infrastructure and Linux through Cisco and AWS coursework.</li>
             </ul>
           </div>
-          <div class="card">
+          <div class="card fx reveal">
             <div class="label">Jan 2019 – Jul 2021 · Hyderabad</div>
             <h3 style="font-size:20px;margin-top:10px">Higher Secondary Certificate</h3>
             <p style="color:var(--muted);margin-top:4px">Govt. Degree College Latifabad No. 11</p>
@@ -397,35 +464,43 @@ footer{padding-block:28px 40px;color:var(--muted);font:400 13px var(--f-mono);di
     </section>
 
     <section class="block" id="certifications">
-      <div class="shead"><div><div class="label">Licenses &amp; certifications</div><h2><span id="certCount"></span> certifications &amp; courses</h2></div><p>From Fortinet, Cisco, AWS, Google, Microsoft, Meta, Stanford, DeepLearning.AI, Postman and more.</p></div>
+      <div class="shead reveal"><div><div class="label">Licenses &amp; certifications</div><h2><span id="certCount"></span> certifications &amp; courses</h2></div><p>Issued by Fortinet, Cisco, AWS, Google, Microsoft, Meta, Stanford, DeepLearning.AI, Postman and more.</p></div>
+      <div class="issuers reveal" id="issuers"></div>
       <div class="filters" id="filters" role="group" aria-label="Filter certifications"></div>
       <div class="certs" id="certList"></div>
     </section>
 
     <section class="block" id="awards">
-      <div class="shead"><div><div class="label">Honors &amp; awards</div><h2>Honors, awards &amp; competitions</h2></div><p>Academic distinction, competitive programming and open-source recognition.</p></div>
+      <div class="shead reveal"><div><div class="label">Honors &amp; awards</div><h2>Honors &amp; achievements</h2></div><p>Academic distinction, competitive programming and open-source recognition.</p></div>
       <div class="awards" id="awardList"></div>
     </section>
 
-    <section class="block" id="community">
-      <div class="shead"><div><div class="label">Leadership &amp; community</div><h2>Community leadership</h2></div><p>Founding, growing and running student tech communities with Microsoft, Google and GitHub.</p></div>
+    <section class="block" id="activities">
+      <div class="shead reveal"><div><div class="label">Extracurricular activities</div><h2>Beyond the classroom</h2></div><p>Communities I founded and led, open-source programs, competitions and volunteering.</p></div>
       <div class="comm" id="commStats"></div>
-      <div class="roles" id="roles"></div>
+      <div class="tabs" id="tabs" role="tablist" aria-label="Extracurricular categories"></div>
+      <div id="tabPanel" role="tabpanel"></div>
+    </section>
 
-      <div class="shead" style="margin-top:64px"><div><div class="label">Events organized &amp; attended</div><h2 style="font-size:clamp(24px,3vw,32px)">Events &amp; outreach</h2></div></div>
-      <div class="events" id="eventList"></div>
+    <section class="block" id="events">
+      <div class="shead reveal"><div><div class="label">Events</div><h2>Events organized &amp; attended</h2></div><p>Summits, conferences, workshops and meetups across Karachi. Open a card to see the post.</p></div>
+      <div class="filters" id="evFilters" role="group" aria-label="Filter events by year"></div>
+      <div class="evgrid" id="eventList"></div>
     </section>
 
     <section class="block" id="writing">
-      <div class="shead"><div><div class="label">Writing</div><h2>Articles</h2></div><p>Beginner-friendly guides on developer tools and the cloud.</p></div>
+      <div class="shead reveal"><div><div class="label">Writing</div><h2>Articles</h2></div><p>Beginner-friendly guides on developer tools and the cloud.</p></div>
       <div class="posts" id="postList"></div>
     </section>
 
     <section class="contact" id="contact">
-      <div class="label">Contact</div>
-      <h2 style="margin-top:10px">Let's build reliable,<br><span>secure systems.</span></h2>
-      <p style="color:var(--muted);margin-top:16px;max-width:40em">Open to roles and collaborations in network engineering, security operations, cloud and applied AI, and to research opportunities in computer vision.</p>
-      <div class="clist" id="contactList"></div>
+      <div class="ph reveal"><img src="assets/profile.jpg" alt="Syed Mustafa Hassan" onerror="this.parentNode.remove()"></div>
+      <div>
+        <div class="label">Contact</div>
+        <h2 style="margin-top:10px">Let's build reliable,<br><span>secure systems.</span></h2>
+        <p style="color:var(--muted);margin-top:16px;max-width:40em">Open to roles and collaborations in network engineering, security operations, cloud and applied AI, and to research opportunities in computer vision.</p>
+        <div class="clist" id="contactList"></div>
+      </div>
     </section>
   </div>
 </main>
@@ -433,200 +508,224 @@ footer{padding-block:28px 40px;color:var(--muted);font:400 13px var(--f-mono);di
 <div class="wrap"><footer><span>© <span id="yr"></span> Syed Mustafa Hassan</span><span>Karachi, Pakistan</span></footer></div>
 
 <script>
-/* ---------- All content lives here. Edit this object to update the site. ---------- */
+/* Brand icons from Simple Icons (CC0): key -> [hex, svg path] */
+const ICONS = {"microsoft":["5E5E5E","M0 0v11.408h11.408V0zm12.594 0v11.408H24V0zM0 12.594V24h11.408V12.594zm12.594 0V24H24V12.594z"],"google":["4285F4","M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"],"github":["181717","M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"],"cisco":["1BA0D7","M16.331 18.171V17.06l-.022.01c-.25.121-.522.19-.801.203a1.186 1.186 0 01-.806-.237 1.038 1.038 0 01-.352-.498 1.21 1.21 0 01-.023-.667c.052-.225.178-.426.357-.569.16-.134.355-.218.562-.242a1.85 1.85 0 011.061.198l.024.013v-1.117l-.051-.014a2.862 2.862 0 00-1.011-.132 2.34 2.34 0 00-.903.206c-.287.132-.54.327-.739.571a2.221 2.221 0 00-.04 2.705c.295.378.709.645 1.175.756.491.12 1.006.102 1.487-.052l.082-.023M5.336 18.171V17.06l-.022.01c-.25.121-.522.19-.801.203a1.183 1.183 0 01-.806-.237 1.03 1.03 0 01-.351-.498 1.202 1.202 0 01-.024-.667c.052-.225.177-.426.357-.569.16-.134.355-.218.562-.242a1.85 1.85 0 011.061.198l.024.013v-1.117l-.051-.014a2.862 2.862 0 00-1.011-.132 2.344 2.344 0 00-.903.206 2.08 2.08 0 00-.74.571 2.224 2.224 0 00-.041 2.705 2.11 2.11 0 001.176.756c.491.12 1.005.102 1.487-.052l.083-.023M9.26 17.249l-.004.957.07.012c.22.041.441.069.664.085.195.019.391.022.587.012.187-.014.372-.049.551-.104.21-.06.405-.163.571-.305a1.16 1.16 0 00.333-.478 1.31 1.31 0 00-.007-.96 1.068 1.068 0 00-.298-.414 1.261 1.261 0 00-.438-.255l-.722-.268a.388.388 0 01-.197-.188.245.245 0 01.008-.219.382.382 0 01.154-.142.798.798 0 01.257-.074c.153-.022.308-.021.46.005.18.02.358.051.533.096l.038.008v-.883l-.069-.015a4.749 4.749 0 00-.543-.097 2.844 2.844 0 00-.714-.003c-.3.027-.585.143-.821.33-.16.126-.281.293-.351.484-.104.29-.105.608 0 .899.054.145.14.274.252.381.097.093.207.173.327.236.157.084.324.149.497.195.057.017.114.035.17.054l.085.031.024.01c.084.03.162.078.226.14.045.042.08.094.101.151a.325.325 0 01.001.161.339.339 0 01-.166.198.856.856 0 01-.275.086 2.032 2.032 0 01-.427.021 5.208 5.208 0 01-.557-.074 9.195 9.195 0 01-.287-.067l-.033-.006zm-2.475.995h1.05v-4.167h-1.05v4.167zm12.162-2.936a1.095 1.095 0 011.541.158 1.094 1.094 0 01-.157 1.541l-.017.014a1.096 1.096 0 01-1.367-1.713m-1.525.854a2.193 2.193 0 002.666 2.107 2.139 2.139 0 00.701-3.937 2.207 2.207 0 00-3.367 1.83M22.961 10.728a.52.52 0 001.039 0V9.573a.52.52 0 00-1.039 0v1.155M20.117 10.728a.522.522 0 001.041 0V8.139a.521.521 0 00-1.04 0v2.589M17.231 11.771a.521.521 0 001.039 0V6.17a.52.52 0 00-1.039 0v5.601M14.393 10.728a.521.521 0 001.04 0V8.139a.52.52 0 00-1.039 0v2.589M11.494 10.728a.522.522 0 001.039 0V9.573a.52.52 0 00-1.039 0v1.155M8.624 10.728a.52.52 0 001.039 0V8.139a.52.52 0 00-1.039 0v2.589M5.737 11.771a.52.52 0 001.039 0V6.17a.52.52 0 00-1.039 0v5.601M2.876 10.728a.522.522 0 001.04 0V8.139a.52.52 0 00-1.039 0v2.589M0 10.728a.521.521 0 001.039 0V9.573a.52.52 0 00-1.039 0v1.155"],"amazonaws":["232F3E","M6.763 10.036c0 .296.032.535.088.71.064.176.144.368.256.576.04.063.056.127.056.183 0 .08-.048.16-.152.24l-.503.335a.383.383 0 0 1-.208.072c-.08 0-.16-.04-.239-.112a2.47 2.47 0 0 1-.287-.375 6.18 6.18 0 0 1-.248-.471c-.622.734-1.405 1.101-2.347 1.101-.67 0-1.205-.191-1.596-.574-.391-.384-.59-.894-.59-1.533 0-.678.239-1.23.726-1.644.487-.415 1.133-.623 1.955-.623.272 0 .551.024.846.064.296.04.6.104.918.176v-.583c0-.607-.127-1.03-.375-1.277-.255-.248-.686-.367-1.3-.367-.28 0-.568.031-.863.103-.295.072-.583.16-.862.272a2.287 2.287 0 0 1-.28.104.488.488 0 0 1-.127.023c-.112 0-.168-.08-.168-.247v-.391c0-.128.016-.224.056-.28a.597.597 0 0 1 .224-.167c.279-.144.614-.264 1.005-.36a4.84 4.84 0 0 1 1.246-.151c.95 0 1.644.216 2.091.647.439.43.662 1.085.662 1.963v2.586zm-3.24 1.214c.263 0 .534-.048.822-.144.287-.096.543-.271.758-.51.128-.152.224-.32.272-.512.047-.191.08-.423.08-.694v-.335a6.66 6.66 0 0 0-.735-.136 6.02 6.02 0 0 0-.75-.048c-.535 0-.926.104-1.19.32-.263.215-.39.518-.39.917 0 .375.095.655.295.846.191.2.47.296.838.296zm6.41.862c-.144 0-.24-.024-.304-.08-.064-.048-.12-.16-.168-.311L7.586 5.55a1.398 1.398 0 0 1-.072-.32c0-.128.064-.2.191-.2h.783c.151 0 .255.025.31.08.065.048.113.16.16.312l1.342 5.284 1.245-5.284c.04-.16.088-.264.151-.312a.549.549 0 0 1 .32-.08h.638c.152 0 .256.025.32.08.063.048.12.16.151.312l1.261 5.348 1.381-5.348c.048-.16.104-.264.16-.312a.52.52 0 0 1 .311-.08h.743c.127 0 .2.065.2.2 0 .04-.009.08-.017.128a1.137 1.137 0 0 1-.056.2l-1.923 6.17c-.048.16-.104.263-.168.311a.51.51 0 0 1-.303.08h-.687c-.151 0-.255-.024-.32-.08-.063-.056-.119-.16-.15-.32l-1.238-5.148-1.23 5.14c-.04.16-.087.264-.15.32-.065.056-.177.08-.32.08zm10.256.215c-.415 0-.83-.048-1.229-.143-.399-.096-.71-.2-.918-.32-.128-.071-.215-.151-.247-.223a.563.563 0 0 1-.048-.224v-.407c0-.167.064-.247.183-.247.048 0 .096.008.144.024.048.016.12.048.2.08.271.12.566.215.878.279.319.064.63.096.95.096.502 0 .894-.088 1.165-.264a.86.86 0 0 0 .415-.758.777.777 0 0 0-.215-.559c-.144-.151-.416-.287-.807-.415l-1.157-.36c-.583-.183-1.014-.454-1.277-.813a1.902 1.902 0 0 1-.4-1.158c0-.335.073-.63.216-.886.144-.255.335-.479.575-.654.24-.184.51-.32.83-.415.32-.096.655-.136 1.006-.136.175 0 .359.008.535.032.183.024.35.056.518.088.16.04.312.08.455.127.144.048.256.096.336.144a.69.69 0 0 1 .24.2.43.43 0 0 1 .071.263v.375c0 .168-.064.256-.184.256a.83.83 0 0 1-.303-.096 3.652 3.652 0 0 0-1.532-.311c-.455 0-.815.071-1.062.223-.248.152-.375.383-.375.71 0 .224.08.416.24.567.159.152.454.304.877.44l1.134.358c.574.184.99.44 1.237.767.247.327.367.702.367 1.117 0 .343-.072.655-.207.926-.144.272-.336.511-.583.703-.248.2-.543.343-.886.447-.36.111-.734.167-1.142.167zM21.698 16.207c-2.626 1.94-6.442 2.969-9.722 2.969-4.598 0-8.74-1.7-11.87-4.526-.247-.223-.024-.527.272-.351 3.384 1.963 7.559 3.153 11.877 3.153 2.914 0 6.114-.607 9.06-1.852.439-.2.814.287.383.607zM22.792 14.961c-.336-.43-2.22-.207-3.074-.103-.255.032-.295-.192-.063-.36 1.5-1.053 3.967-.75 4.254-.399.287.36-.08 2.826-1.485 4.007-.215.184-.423.088-.327-.151.32-.79 1.03-2.57.695-2.994z"],"fortinet":["EE3124","M0 9.785h6.788v4.454H0zm8.666-6.33h6.668v4.453H8.666zm0 12.637h6.668v4.454H8.666zm8.522-6.307H24v4.454h-6.812zM2.792 3.455C1.372 3.814.265 5.404 0 7.425v.506h6.788V3.454zM0 16.091v.554c.24 1.926 1.276 3.466 2.624 3.9h4.188v-4.454zm24-8.184v-.506c-.265-1.998-1.372-3.587-2.792-3.972h-4.02v4.454H24zM21.376 20.57c1.324-.458 2.36-1.974 2.624-3.9v-.554h-6.812v4.454Z"],"meta":["0467DF","M6.915 4.03c-1.968 0-3.683 1.28-4.871 3.113C.704 9.208 0 11.883 0 14.449c0 .706.07 1.369.21 1.973a6.624 6.624 0 0 0 .265.86 5.297 5.297 0 0 0 .371.761c.696 1.159 1.818 1.927 3.593 1.927 1.497 0 2.633-.671 3.965-2.444.76-1.012 1.144-1.626 2.663-4.32l.756-1.339.186-.325c.061.1.121.196.183.3l2.152 3.595c.724 1.21 1.665 2.556 2.47 3.314 1.046.987 1.992 1.22 3.06 1.22 1.075 0 1.876-.355 2.455-.843a3.743 3.743 0 0 0 .81-.973c.542-.939.861-2.127.861-3.745 0-2.72-.681-5.357-2.084-7.45-1.282-1.912-2.957-2.93-4.716-2.93-1.047 0-2.088.467-3.053 1.308-.652.57-1.257 1.29-1.82 2.05-.69-.875-1.335-1.547-1.958-2.056-1.182-.966-2.315-1.303-3.454-1.303zm10.16 2.053c1.147 0 2.188.758 2.992 1.999 1.132 1.748 1.647 4.195 1.647 6.4 0 1.548-.368 2.9-1.839 2.9-.58 0-1.027-.23-1.664-1.004-.496-.601-1.343-1.878-2.832-4.358l-.617-1.028a44.908 44.908 0 0 0-1.255-1.98c.07-.109.141-.224.211-.327 1.12-1.667 2.118-2.602 3.358-2.602zm-10.201.553c1.265 0 2.058.791 2.675 1.446.307.327.737.871 1.234 1.579l-1.02 1.566c-.757 1.163-1.882 3.017-2.837 4.338-1.191 1.649-1.81 1.817-2.486 1.817-.524 0-1.038-.237-1.383-.794-.263-.426-.464-1.13-.464-2.046 0-2.221.63-4.535 1.66-6.088.454-.687.964-1.226 1.533-1.533a2.264 2.264 0 0 1 1.088-.285z"],"postman":["FF6C37","M13.527.099C6.955-.744.942 3.9.099 10.473c-.843 6.572 3.8 12.584 10.373 13.428 6.573.843 12.587-3.801 13.428-10.374C24.744 6.955 20.101.943 13.527.099zm2.471 7.485a.855.855 0 0 0-.593.25l-4.453 4.453-.307-.307-.643-.643c4.389-4.376 5.18-4.418 5.996-3.753zm-4.863 4.861l4.44-4.44a.62.62 0 1 1 .847.903l-4.699 4.125-.588-.588zm.33.694l-1.1.238a.06.06 0 0 1-.067-.032.06.06 0 0 1 .01-.073l.645-.645.512.512zm-2.803-.459l1.172-1.172.879.878-1.979.426a.074.074 0 0 1-.085-.039.072.072 0 0 1 .013-.093zm-3.646 6.058a.076.076 0 0 1-.069-.083.077.077 0 0 1 .022-.046h.002l.946-.946 1.222 1.222-2.123-.147zm2.425-1.256a.228.228 0 0 0-.117.256l.203.865a.125.125 0 0 1-.211.117h-.003l-.934-.934-.294-.295 3.762-3.758 1.82-.393.874.874c-1.255 1.102-2.971 2.201-5.1 3.268zm5.279-3.428h-.002l-.839-.839 4.699-4.125a.952.952 0 0 0 .119-.127c-.148 1.345-2.029 3.245-3.977 5.091zm3.657-6.46l-.003-.002a1.822 1.822 0 0 1 2.459-2.684l-1.61 1.613a.119.119 0 0 0 0 .169l1.247 1.247a1.817 1.817 0 0 1-2.093-.343zm2.578 0a1.714 1.714 0 0 1-.271.218h-.001l-1.207-1.207 1.533-1.533c.661.72.637 1.832-.054 2.522zM18.855 6.05a.143.143 0 0 0-.053.157.416.416 0 0 1-.053.45.14.14 0 0 0 .023.197.141.141 0 0 0 .084.03.14.14 0 0 0 .106-.05.691.691 0 0 0 .087-.751.138.138 0 0 0-.194-.033z"],"datacamp":["03EF62","M12.946 18.151v-5.239L21.209 8.2 19.2 7.048l-6.254 3.567V5.36c0-.356-.192-.689-.5-.866L4.922.177a1.434 1.434 0 0 0-1.455.044 1.438 1.438 0 0 0-.676 1.224v14.777A1.44 1.44 0 0 0 4.92 17.49l6.032-3.44v4.683a1 1 0 0 0 .504.867l7.73 4.4 2.01-1.152-8.25-4.697zM10.953 5.938v5.814L4.785 15.27V2.4l6.168 3.539v-.001z"],"linkedin":["0A66C2","M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"],"hackerrank":["00EA64","M0 0v24h24V0zm9.95 8.002h1.805c.061 0 .111.05.111.111v7.767c0 .061-.05.111-.11.111H9.95c-.061 0-.111-.05-.111-.11v-2.87H7.894v2.87c0 .06-.05.11-.11.11H5.976a.11.11 0 01-.11-.11V8.112c0-.06.05-.11.11-.11h1.806c.061 0 .11.05.11.11v2.869H9.84v-2.87c0-.06.05-.11.11-.11zm2.999 0h5.778c.061 0 .111.05.111.11v7.767a.11.11 0 01-.11.112h-5.78a.11.11 0 01-.11-.11V8.111c0-.06.05-.11.11-.11z"],"gitkraken":["179287","M23.225 6.252a.478.478 0 00-.923.171c0 .053.013.119.026.171 2.15 5.71-.751 12.077-6.46 14.226a10.9 10.9 0 01-2.426.607v-5.155c.33-.066.646-.158.962-.264v4.338c5.445-1.332 8.794-6.817 7.463-12.262a10.147 10.147 0 00-4.958-6.487.472.472 0 00-.646.185.472.472 0 00.185.646c4.443 2.452 6.051 8.056 3.6 12.499a9.13 9.13 0 01-4.681 4.1v-3.836a1.472 1.472 0 001.028-1.398c0-.527-.264-1.002-.725-1.266.343-3.309 1.859-2.439 1.859-3.493v-.62c0-1.582-3.665-6.737-5.38-6.856h-.316c-1.714.119-5.379 5.274-5.379 6.856v.62c0 1.054 1.503.184 1.859 3.493a1.461 1.461 0 00-.725 1.266c0 .646.422 1.2 1.028 1.398v3.836C3.91 17.168 1.59 11.83 3.448 7.11a9.24 9.24 0 014.1-4.68.479.479 0 00.185-.66.487.487 0 00-.422-.237.444.444 0 00-.224.065 10.142 10.142 0 00-3.982 13.791 10.147 10.147 0 006.487 4.958V16.02c.316.106.633.198.962.264v5.155C4.503 20.636.257 15.085 1.062 9.034a10.9 10.9 0 01.606-2.426.489.489 0 00-.277-.62.494.494 0 00-.62.277c-2.333 6.21.805 13.131 7.015 15.452 1.2.448 2.452.699 3.73.751v-6.09c.172.012.489.012.489.012s.316 0 .488-.013v6.078c6.631-.277 11.773-5.867 11.496-12.499a12.458 12.458 0 00-.764-3.704zm-9.019 6.842a.995.995 0 011.398 0 .995.995 0 010 1.398.995.995 0 01-1.398 0 .988.988 0 010-1.398zm-4.43 1.398a.979.979 0 01-1.384 0 .995.995 0 010-1.398.995.995 0 011.398 0 .983.983 0 01-.013 1.398z"],"devdotto":["0A0A0A","M7.42 10.05c-.18-.16-.46-.23-.84-.23H6l.02 2.44.04 2.45.56-.02c.41 0 .63-.07.83-.26.24-.24.26-.36.26-2.2 0-1.91-.02-1.96-.29-2.18zM0 4.94v14.12h24V4.94H0zM8.56 15.3c-.44.58-1.06.77-2.53.77H4.71V8.53h1.4c1.67 0 2.16.18 2.6.9.27.43.29.6.32 2.57.05 2.23-.02 2.73-.47 3.3zm5.09-5.47h-2.47v1.77h1.52v1.28l-.72.04-.75.03v1.77l1.22.03 1.2.04v1.28h-1.6c-1.53 0-1.6-.01-1.87-.3l-.3-.28v-3.16c0-3.02.01-3.18.25-3.48.23-.31.25-.31 1.88-.31h1.64v1.3zm4.68 5.45c-.17.43-.64.79-1 .79-.18 0-.45-.15-.67-.39-.32-.32-.45-.63-.82-2.08l-.9-3.39-.45-1.67h.76c.4 0 .75.02.75.05 0 .06 1.16 4.54 1.26 4.83.04.15.32-.7.73-2.3l.66-2.52.74-.04c.4-.02.73 0 .73.04 0 .14-1.67 6.38-1.8 6.68z"],"react":["61DAFB","M14.23 12.004a2.236 2.236 0 0 1-2.235 2.236 2.236 2.236 0 0 1-2.236-2.236 2.236 2.236 0 0 1 2.235-2.236 2.236 2.236 0 0 1 2.236 2.236zm2.648-10.69c-1.346 0-3.107.96-4.888 2.622-1.78-1.653-3.542-2.602-4.887-2.602-.41 0-.783.093-1.106.278-1.375.793-1.683 3.264-.973 6.365C1.98 8.917 0 10.42 0 12.004c0 1.59 1.99 3.097 5.043 4.03-.704 3.113-.39 5.588.988 6.38.32.187.69.275 1.102.275 1.345 0 3.107-.96 4.888-2.624 1.78 1.654 3.542 2.603 4.887 2.603.41 0 .783-.09 1.106-.275 1.374-.792 1.683-3.263.973-6.365C22.02 15.096 24 13.59 24 12.004c0-1.59-1.99-3.097-5.043-4.032.704-3.11.39-5.587-.988-6.38-.318-.184-.688-.277-1.092-.278zm-.005 1.09v.006c.225 0 .406.044.558.127.666.382.955 1.835.73 3.704-.054.46-.142.945-.25 1.44-.96-.236-2.006-.417-3.107-.534-.66-.905-1.345-1.727-2.035-2.447 1.592-1.48 3.087-2.292 4.105-2.295zm-9.77.02c1.012 0 2.514.808 4.11 2.28-.686.72-1.37 1.537-2.02 2.442-1.107.117-2.154.298-3.113.538-.112-.49-.195-.964-.254-1.42-.23-1.868.054-3.32.714-3.707.19-.09.4-.127.563-.132zm4.882 3.05c.455.468.91.992 1.36 1.564-.44-.02-.89-.034-1.345-.034-.46 0-.915.01-1.36.034.44-.572.895-1.096 1.345-1.565zM12 8.1c.74 0 1.477.034 2.202.093.406.582.802 1.203 1.183 1.86.372.64.71 1.29 1.018 1.946-.308.655-.646 1.31-1.013 1.95-.38.66-.773 1.288-1.18 1.87-.728.063-1.466.098-2.21.098-.74 0-1.477-.035-2.202-.093-.406-.582-.802-1.204-1.183-1.86-.372-.64-.71-1.29-1.018-1.946.303-.657.646-1.313 1.013-1.954.38-.66.773-1.286 1.18-1.868.728-.064 1.466-.098 2.21-.098zm-3.635.254c-.24.377-.48.763-.704 1.16-.225.39-.435.782-.635 1.174-.265-.656-.49-1.31-.676-1.947.64-.15 1.315-.283 2.015-.386zm7.26 0c.695.103 1.365.23 2.006.387-.18.632-.405 1.282-.66 1.933-.2-.39-.41-.783-.64-1.174-.225-.392-.465-.774-.705-1.146zm3.063.675c.484.15.944.317 1.375.498 1.732.74 2.852 1.708 2.852 2.476-.005.768-1.125 1.74-2.857 2.475-.42.18-.88.342-1.355.493-.28-.958-.646-1.956-1.1-2.98.45-1.017.81-2.01 1.085-2.964zm-13.395.004c.278.96.645 1.957 1.1 2.98-.45 1.017-.812 2.01-1.086 2.964-.484-.15-.944-.318-1.37-.5-1.732-.737-2.852-1.706-2.852-2.474 0-.768 1.12-1.742 2.852-2.476.42-.18.88-.342 1.356-.494zm11.678 4.28c.265.657.49 1.312.676 1.948-.64.157-1.316.29-2.016.39.24-.375.48-.762.705-1.158.225-.39.435-.788.636-1.18zm-9.945.02c.2.392.41.783.64 1.175.23.39.465.772.705 1.143-.695-.102-1.365-.23-2.006-.386.18-.63.406-1.282.66-1.933zM17.92 16.32c.112.493.2.968.254 1.423.23 1.868-.054 3.32-.714 3.708-.147.09-.338.128-.563.128-1.012 0-2.514-.807-4.11-2.28.686-.72 1.37-1.536 2.02-2.44 1.107-.118 2.154-.3 3.113-.54zm-11.83.01c.96.234 2.006.415 3.107.532.66.905 1.345 1.727 2.035 2.446-1.595 1.483-3.092 2.295-4.11 2.295-.22-.005-.406-.05-.553-.132-.666-.38-.955-1.834-.73-3.703.054-.46.142-.944.25-1.438zm4.56.64c.44.02.89.034 1.345.034.46 0 .915-.01 1.36-.034-.44.572-.895 1.095-1.345 1.565-.455-.47-.91-.993-1.36-1.565z"],"googlecloud":["4285F4","M12.19 2.38a9.344 9.344 0 0 0-9.234 6.893c.053-.02-.055.013 0 0-3.875 2.551-3.922 8.11-.247 10.941l.006-.007-.007.03a6.717 6.717 0 0 0 4.077 1.356h5.173l.03.03h5.192c6.687.053 9.376-8.605 3.835-12.35a9.365 9.365 0 0 0-2.821-4.552l-.043.043.006-.05A9.344 9.344 0 0 0 12.19 2.38zm-.358 4.146c1.244-.04 2.518.368 3.486 1.15a5.186 5.186 0 0 1 1.862 4.078v.518c3.53-.07 3.53 5.262 0 5.193h-5.193l-.008.009v-.04H6.785a2.59 2.59 0 0 1-1.067-.23h.001a2.597 2.597 0 1 1 3.437-3.437l3.013-3.012A6.747 6.747 0 0 0 8.11 8.24c.018-.01.04-.026.054-.023a5.186 5.186 0 0 1 3.67-1.69z"],"microsoftazure":["0078D4","M22.379 23.343a1.62 1.62 0 0 0 1.536-2.14v.002L17.35 1.76A1.62 1.62 0 0 0 15.816.657H8.184A1.62 1.62 0 0 0 6.65 1.76L.086 21.204a1.62 1.62 0 0 0 1.536 2.139h4.741a1.62 1.62 0 0 0 1.535-1.103l.977-2.892 4.947 3.675c.28.208.618.32.966.32m-3.084-12.531 3.624 10.739a.54.54 0 0 1-.51.713v-.001h-.03a.54.54 0 0 1-.322-.106l-9.287-6.9h4.853m6.313 7.006c.116-.326.13-.694.007-1.058L9.79 1.76a1.722 1.722 0 0 0-.007-.02h6.034a.54.54 0 0 1 .512.366l6.562 19.445a.54.54 0 0 1-.338.684"],"python":["3776AB","M14.25.18l.9.2.73.26.59.3.45.32.34.34.25.34.16.33.1.3.04.26.02.2-.01.13V8.5l-.05.63-.13.55-.21.46-.26.38-.3.31-.33.25-.35.19-.35.14-.33.1-.3.07-.26.04-.21.02H8.77l-.69.05-.59.14-.5.22-.41.27-.33.32-.27.35-.2.36-.15.37-.1.35-.07.32-.04.27-.02.21v3.06H3.17l-.21-.03-.28-.07-.32-.12-.35-.18-.36-.26-.36-.36-.35-.46-.32-.59-.28-.73-.21-.88-.14-1.05-.05-1.23.06-1.22.16-1.04.24-.87.32-.71.36-.57.4-.44.42-.33.42-.24.4-.16.36-.1.32-.05.24-.01h.16l.06.01h8.16v-.83H6.18l-.01-2.75-.02-.37.05-.34.11-.31.17-.28.25-.26.31-.23.38-.2.44-.18.51-.15.58-.12.64-.1.71-.06.77-.04.84-.02 1.27.05zm-6.3 1.98l-.23.33-.08.41.08.41.23.34.33.22.41.09.41-.09.33-.22.23-.34.08-.41-.08-.41-.23-.33-.33-.22-.41-.09-.41.09zm13.09 3.95l.28.06.32.12.35.18.36.27.36.35.35.47.32.59.28.73.21.88.14 1.04.05 1.23-.06 1.23-.16 1.04-.24.86-.32.71-.36.57-.4.45-.42.33-.42.24-.4.16-.36.09-.32.05-.24.02-.16-.01h-8.22v.82h5.84l.01 2.76.02.36-.05.34-.11.31-.17.29-.25.25-.31.24-.38.2-.44.17-.51.15-.58.13-.64.09-.71.07-.77.04-.84.01-1.27-.04-1.07-.14-.9-.2-.73-.25-.59-.3-.45-.33-.34-.34-.25-.34-.16-.33-.1-.3-.04-.25-.02-.2.01-.13v-5.34l.05-.64.13-.54.21-.46.26-.38.3-.32.33-.24.35-.2.35-.14.33-.1.3-.06.26-.04.21-.02.13-.01h5.84l.69-.05.59-.14.5-.21.41-.28.33-.32.27-.35.2-.36.15-.36.1-.35.07-.32.04-.28.02-.21V6.07h2.09l.14.01zm-6.47 14.25l-.23.33-.08.41.08.41.23.33.33.23.41.08.41-.08.33-.23.23-.33.08-.41-.08-.41-.23-.33-.33-.23-.41-.08-.41.08z"],"pytorch":["EE4C2C","M12.005 0L4.952 7.053a9.865 9.865 0 000 14.022 9.866 9.866 0 0014.022 0c3.984-3.9 3.986-10.205.085-14.023l-1.744 1.743c2.904 2.905 2.904 7.634 0 10.538s-7.634 2.904-10.538 0-2.904-7.634 0-10.538l4.647-4.646.582-.665zm3.568 3.899a1.327 1.327 0 00-1.327 1.327 1.327 1.327 0 001.327 1.328A1.327 1.327 0 0016.9 5.226 1.327 1.327 0 0015.573 3.9z"],"tensorflow":["FF6F00","M1.292 5.856L11.54 0v24l-4.095-2.378V7.603l-6.168 3.564.015-5.31zm21.43 5.311l-.014-5.31L12.46 0v24l4.095-2.378V14.87l3.092 1.788-.018-4.618-3.074-1.756V7.603l6.168 3.564z"],"opencv":["5C3EE8","M11.8992.8525C8.735.8525 6.17 3.4175 6.17 6.5817c0 2.102 1.1321 3.9398 2.8198 4.9366l1.6412-2.7849c.0411-.0699.0176-.1593-.0495-.2048-.6233-.4227-1.0328-1.137-1.0328-1.947 0-1.298 1.0524-2.3504 2.3505-2.3504 1.2981 0 2.3505 1.0524 2.3505 2.3505 0 .8098-.4095 1.5242-1.0328 1.947-.0671.0454-.0907.1348-.0495.2047l1.6414 2.785c1.6878-.9969 2.8199-2.8346 2.8199-4.9367 0-3.1642-2.5653-5.7292-5.7295-5.7292zm-6.17 10.8366C2.565 11.6891 0 14.2541 0 17.4183c0 3.1642 2.565 5.7292 5.7292 5.7292 3.1798 0 5.8074-2.6995 5.7275-5.8762H8.2313c-.0847 0-.1513.0717-.1519.1564-.0082 1.266-1.0644 2.3411-2.3502 2.3411-1.2981 0-2.3505-1.0524-2.3505-2.3505 0-1.2982 1.0524-2.3505 2.3505-2.3505.34 0 .663.0724.9547.2022.0713.0318.1566.0077.1962-.0595l1.6464-2.7935c-.8273-.4636-1.7815-.7279-2.7973-.7279zm15.4424.7614l-1.6366 2.7878c-.041.07-.0172.1594.05.2048.624.4217 1.0348 1.1354 1.0363 1.9452.0022 1.298-1.0483 2.352-2.3465 2.3542-1.298.0023-2.3523-1.0482-2.3545-2.3462-.0015-.8098.4068-1.5248 1.0294-1.9486.067-.0457.0905-.1353.0492-.2051l-1.6464-2.7818c-1.6859.9998-2.8146 2.8394-2.811 4.9415.0056 3.1641 2.575 5.7248 5.7393 5.7192 3.1641-.0054 5.7246-2.575 5.7192-5.7392-.0037-2.1022-1.139-3.938-2.8284-4.9318z"],"linux":["FCC624","M12.504 0c-.155 0-.315.008-.48.021-4.226.333-3.105 4.807-3.17 6.298-.076 1.092-.3 1.953-1.05 3.02-.885 1.051-2.127 2.75-2.716 4.521-.278.832-.41 1.684-.287 2.489a.424.424 0 00-.11.135c-.26.268-.45.6-.663.839-.199.199-.485.267-.797.4-.313.136-.658.269-.864.68-.09.189-.136.394-.132.602 0 .199.027.4.055.536.058.399.116.728.04.97-.249.68-.28 1.145-.106 1.484.174.334.535.47.94.601.81.2 1.91.135 2.774.6.926.466 1.866.67 2.616.47.526-.116.97-.464 1.208-.946.587-.003 1.23-.269 2.26-.334.699-.058 1.574.267 2.577.2.025.134.063.198.114.333l.003.003c.391.778 1.113 1.132 1.884 1.071.771-.06 1.592-.536 2.257-1.306.631-.765 1.683-1.084 2.378-1.503.348-.199.629-.469.649-.853.023-.4-.2-.811-.714-1.376v-.097l-.003-.003c-.17-.2-.25-.535-.338-.926-.085-.401-.182-.786-.492-1.046h-.003c-.059-.054-.123-.067-.188-.135a.357.357 0 00-.19-.064c.431-1.278.264-2.55-.173-3.694-.533-1.41-1.465-2.638-2.175-3.483-.796-1.005-1.576-1.957-1.56-3.368.026-2.152.236-6.133-3.544-6.139zm.529 3.405h.013c.213 0 .396.062.584.198.19.135.33.332.438.533.105.259.158.459.166.724 0-.02.006-.04.006-.06v.105a.086.086 0 01-.004-.021l-.004-.024a1.807 1.807 0 01-.15.706.953.953 0 01-.213.335.71.71 0 00-.088-.042c-.104-.045-.198-.064-.284-.133a1.312 1.312 0 00-.22-.066c.05-.06.146-.133.183-.198.053-.128.082-.264.088-.402v-.02a1.21 1.21 0 00-.061-.4c-.045-.134-.101-.2-.183-.333-.084-.066-.167-.132-.267-.132h-.016c-.093 0-.176.03-.262.132a.8.8 0 00-.205.334 1.18 1.18 0 00-.09.4v.019c.002.089.008.179.02.267-.193-.067-.438-.135-.607-.202a1.635 1.635 0 01-.018-.2v-.02a1.772 1.772 0 01.15-.768c.082-.22.232-.406.43-.533a.985.985 0 01.594-.2zm-2.962.059h.036c.142 0 .27.048.399.135.146.129.264.288.344.465.09.199.14.4.153.667v.004c.007.134.006.2-.002.266v.08c-.03.007-.056.018-.083.024-.152.055-.274.135-.393.2.012-.09.013-.18.003-.267v-.015c-.012-.133-.04-.2-.082-.333a.613.613 0 00-.166-.267.248.248 0 00-.183-.064h-.021c-.071.006-.13.04-.186.132a.552.552 0 00-.12.27.944.944 0 00-.023.33v.015c.012.135.037.2.08.334.046.134.098.2.166.268.01.009.02.018.034.024-.07.057-.117.07-.176.136a.304.304 0 01-.131.068 2.62 2.62 0 01-.275-.402 1.772 1.772 0 01-.155-.667 1.759 1.759 0 01.08-.668 1.43 1.43 0 01.283-.535c.128-.133.26-.2.418-.2zm1.37 1.706c.332 0 .733.065 1.216.399.293.2.523.269 1.052.468h.003c.255.136.405.266.478.399v-.131a.571.571 0 01.016.47c-.123.31-.516.643-1.063.842v.002c-.268.135-.501.333-.775.465-.276.135-.588.292-1.012.267a1.139 1.139 0 01-.448-.067 3.566 3.566 0 01-.322-.198c-.195-.135-.363-.332-.612-.465v-.005h-.005c-.4-.246-.616-.512-.686-.71-.07-.268-.005-.47.193-.6.224-.135.38-.271.483-.336.104-.074.143-.102.176-.131h.002v-.003c.169-.202.436-.47.839-.601.139-.036.294-.065.466-.065zm2.8 2.142c.358 1.417 1.196 3.475 1.735 4.473.286.534.855 1.659 1.102 3.024.156-.005.33.018.513.064.646-1.671-.546-3.467-1.089-3.966-.22-.2-.232-.335-.123-.335.59.534 1.365 1.572 1.646 2.757.13.535.16 1.104.021 1.67.067.028.135.06.205.067 1.032.534 1.413.938 1.23 1.537v-.043c-.06-.003-.12 0-.18 0h-.016c.151-.467-.182-.825-1.065-1.224-.915-.4-1.646-.336-1.77.465-.008.043-.013.066-.018.135-.068.023-.139.053-.209.064-.43.268-.662.669-.793 1.187-.13.533-.17 1.156-.205 1.869v.003c-.02.334-.17.838-.319 1.35-1.5 1.072-3.58 1.538-5.348.334a2.645 2.645 0 00-.402-.533 1.45 1.45 0 00-.275-.333c.182 0 .338-.03.465-.067a.615.615 0 00.314-.334c.108-.267 0-.697-.345-1.163-.345-.467-.931-.995-1.788-1.521-.63-.4-.986-.87-1.15-1.396-.165-.534-.143-1.085-.015-1.645.245-1.07.873-2.11 1.274-2.763.107-.065.037.135-.408.974-.396.751-1.14 2.497-.122 3.854a8.123 8.123 0 01.647-2.876c.564-1.278 1.743-3.504 1.836-5.268.048.036.217.135.289.202.218.133.38.333.59.465.21.201.477.335.876.335.039.003.075.006.11.006.412 0 .73-.134.997-.268.29-.134.52-.334.74-.4h.005c.467-.135.835-.402 1.044-.7zm2.185 8.958c.037.6.343 1.245.882 1.377.588.134 1.434-.333 1.791-.765l.211-.01c.315-.007.577.01.847.268l.003.003c.208.199.305.53.391.876.085.4.154.78.409 1.066.486.527.645.906.636 1.14l.003-.007v.018l-.003-.012c-.015.262-.185.396-.498.595-.63.401-1.746.712-2.457 1.57-.618.737-1.37 1.14-2.036 1.191-.664.053-1.237-.2-1.574-.898l-.005-.003c-.21-.4-.12-1.025.056-1.69.176-.668.428-1.344.463-1.897.037-.714.076-1.335.195-1.814.12-.465.308-.797.641-.984l.045-.022zm-10.814.049h.01c.053 0 .105.005.157.014.376.055.706.333 1.023.752l.91 1.664.003.003c.243.533.754 1.064 1.189 1.637.434.598.77 1.131.729 1.57v.006c-.057.744-.48 1.148-1.125 1.294-.645.135-1.52.002-2.395-.464-.968-.536-2.118-.469-2.857-.602-.369-.066-.61-.2-.723-.4-.11-.2-.113-.602.123-1.23v-.004l.002-.003c.117-.334.03-.752-.027-1.118-.055-.401-.083-.71.043-.94.16-.334.396-.4.69-.533.294-.135.64-.202.915-.47h.002v-.002c.256-.268.445-.601.668-.838.19-.201.38-.336.663-.336zm7.159-9.074c-.435.201-.945.535-1.488.535-.542 0-.97-.267-1.28-.466-.154-.134-.28-.268-.373-.335-.164-.134-.144-.333-.074-.333.109.016.129.134.199.2.096.066.215.2.36.333.292.2.68.467 1.167.467.485 0 1.053-.267 1.398-.466.195-.135.445-.334.648-.467.156-.136.149-.267.279-.267.128.016.034.134-.147.332a8.097 8.097 0 01-.69.468zm-1.082-1.583V5.64c-.006-.02.013-.042.029-.05.074-.043.18-.027.26.004.063 0 .16.067.15.135-.006.049-.085.066-.135.066-.055 0-.092-.043-.141-.068-.052-.018-.146-.008-.163-.065zm-.551 0c-.02.058-.113.049-.166.066-.047.025-.086.068-.14.068-.05 0-.13-.02-.136-.068-.01-.066.088-.133.15-.133.08-.031.184-.047.259-.005.019.009.036.03.03.05v.02h.003z"],"git":["F05032","M23.546 10.93L13.067.452c-.604-.603-1.582-.603-2.188 0L8.708 2.627l2.76 2.76c.645-.215 1.379-.07 1.889.441.516.515.658 1.258.438 1.9l2.658 2.66c.645-.223 1.387-.078 1.9.435.721.72.721 1.884 0 2.604-.719.719-1.881.719-2.6 0-.539-.541-.674-1.337-.404-1.996L12.86 8.955v6.525c.176.086.342.203.488.348.713.721.713 1.883 0 2.6-.719.721-1.889.721-2.609 0-.719-.719-.719-1.879 0-2.598.182-.18.387-.316.605-.406V8.835c-.217-.091-.424-.222-.6-.401-.545-.545-.676-1.342-.396-2.009L7.636 3.7.45 10.881c-.6.605-.6 1.584 0 2.189l10.48 10.477c.604.604 1.582.604 2.186 0l10.43-10.43c.605-.603.605-1.582 0-2.187"],"mongodb":["47A248","M17.193 9.555c-1.264-5.58-4.252-7.414-4.573-8.115-.28-.394-.53-.954-.735-1.44-.036.495-.055.685-.523 1.184-.723.566-4.438 3.682-4.74 10.02-.282 5.912 4.27 9.435 4.888 9.884l.07.05A73.49 73.49 0 0111.91 24h.481c.114-1.032.284-2.056.51-3.07.417-.296.604-.463.85-.693a11.342 11.342 0 003.639-8.464c.01-.814-.103-1.662-.197-2.218zm-5.336 8.195s0-8.291.275-8.29c.213 0 .49 10.695.49 10.695-.381-.045-.765-1.76-.765-2.405z"],"postgresql":["4169E1","M23.5594 14.7228a.5269.5269 0 0 0-.0563-.1191c-.139-.2632-.4768-.3418-1.0074-.2321-1.6533.3411-2.2935.1312-2.5256-.0191 1.342-2.0482 2.445-4.522 3.0411-6.8297.2714-1.0507.7982-3.5237.1222-4.7316a1.5641 1.5641 0 0 0-.1509-.235C21.6931.9086 19.8007.0248 17.5099.0005c-1.4947-.0158-2.7705.3461-3.1161.4794a9.449 9.449 0 0 0-.5159-.0816 8.044 8.044 0 0 0-1.3114-.1278c-1.1822-.0184-2.2038.2642-3.0498.8406-.8573-.3211-4.7888-1.645-7.2219.0788C.9359 2.1526.3086 3.8733.4302 6.3043c.0409.818.5069 3.334 1.2423 5.7436.4598 1.5065.9387 2.7019 1.4334 3.582.553.9942 1.1259 1.5933 1.7143 1.7895.4474.1491 1.1327.1441 1.8581-.7279.8012-.9635 1.5903-1.8258 1.9446-2.2069.4351.2355.9064.3625 1.39.3772a.0569.0569 0 0 0 .0004.0041 11.0312 11.0312 0 0 0-.2472.3054c-.3389.4302-.4094.5197-1.5002.7443-.3102.064-1.1344.2339-1.1464.8115-.0025.1224.0329.2309.0919.3268.2269.4231.9216.6097 1.015.6331 1.3345.3335 2.5044.092 3.3714-.6787-.017 2.231.0775 4.4174.3454 5.0874.2212.5529.7618 1.9045 2.4692 1.9043.2505 0 .5263-.0291.8296-.0941 1.7819-.3821 2.5557-1.1696 2.855-2.9059.1503-.8707.4016-2.8753.5388-4.1012.0169-.0703.0357-.1207.057-.1362.0007-.0005.0697-.0471.4272.0307a.3673.3673 0 0 0 .0443.0068l.2539.0223.0149.001c.8468.0384 1.9114-.1426 2.5312-.4308.6438-.2988 1.8057-1.0323 1.5951-1.6698zM2.371 11.8765c-.7435-2.4358-1.1779-4.8851-1.2123-5.5719-.1086-2.1714.4171-3.6829 1.5623-4.4927 1.8367-1.2986 4.8398-.5408 6.108-.13-.0032.0032-.0066.0061-.0098.0094-2.0238 2.044-1.9758 5.536-1.9708 5.7495-.0002.0823.0066.1989.0162.3593.0348.5873.0996 1.6804-.0735 2.9184-.1609 1.1504.1937 2.2764.9728 3.0892.0806.0841.1648.1631.2518.2374-.3468.3714-1.1004 1.1926-1.9025 2.1576-.5677.6825-.9597.5517-1.0886.5087-.3919-.1307-.813-.5871-1.2381-1.3223-.4796-.839-.9635-2.0317-1.4155-3.5126zm6.0072 5.0871c-.1711-.0428-.3271-.1132-.4322-.1772.0889-.0394.2374-.0902.4833-.1409 1.2833-.2641 1.4815-.4506 1.9143-1.0002.0992-.126.2116-.2687.3673-.4426a.3549.3549 0 0 0 .0737-.1298c.1708-.1513.2724-.1099.4369-.0417.156.0646.3078.26.3695.4752.0291.1016.0619.2945-.0452.4444-.9043 1.2658-2.2216 1.2494-3.1676 1.0128zm2.094-3.988-.0525.141c-.133.3566-.2567.6881-.3334 1.003-.6674-.0021-1.3168-.2872-1.8105-.8024-.6279-.6551-.9131-1.5664-.7825-2.5004.1828-1.3079.1153-2.4468.079-3.0586-.005-.0857-.0095-.1607-.0122-.2199.2957-.2621 1.6659-.9962 2.6429-.7724.4459.1022.7176.4057.8305.928.5846 2.7038.0774 3.8307-.3302 4.7363-.084.1866-.1633.3629-.2311.5454zm7.3637 4.5725c-.0169.1768-.0358.376-.0618.5959l-.146.4383a.3547.3547 0 0 0-.0182.1077c-.0059.4747-.054.6489-.115.8693-.0634.2292-.1353.4891-.1794 1.0575-.11 1.4143-.8782 2.2267-2.4172 2.5565-1.5155.3251-1.7843-.4968-2.0212-1.2217a6.5824 6.5824 0 0 0-.0769-.2266c-.2154-.5858-.1911-1.4119-.1574-2.5551.0165-.5612-.0249-1.9013-.3302-2.6462.0044-.2932.0106-.5909.019-.8918a.3529.3529 0 0 0-.0153-.1126 1.4927 1.4927 0 0 0-.0439-.208c-.1226-.4283-.4213-.7866-.7797-.9351-.1424-.059-.4038-.1672-.7178-.0869.067-.276.1831-.5875.309-.9249l.0529-.142c.0595-.16.134-.3257.213-.5012.4265-.9476 1.0106-2.2453.3766-5.1772-.2374-1.0981-1.0304-1.6343-2.2324-1.5098-.7207.0746-1.3799.3654-1.7088.5321a5.6716 5.6716 0 0 0-.1958.1041c.0918-1.1064.4386-3.1741 1.7357-4.4823a4.0306 4.0306 0 0 1 .3033-.276.3532.3532 0 0 0 .1447-.0644c.7524-.5706 1.6945-.8506 2.802-.8325.4091.0067.8017.0339 1.1742.081 1.939.3544 3.2439 1.4468 4.0359 2.3827.8143.9623 1.2552 1.9315 1.4312 2.4543-1.3232-.1346-2.2234.1268-2.6797.779-.9926 1.4189.543 4.1729 1.2811 5.4964.1353.2426.2522.4522.2889.5413.2403.5825.5515.9713.7787 1.2552.0696.087.1372.1714.1885.245-.4008.1155-1.1208.3825-1.0552 1.717-.0123.1563-.0423.4469-.0834.8148-.0461.2077-.0702.4603-.0994.7662zm.8905-1.6211c-.0405-.8316.2691-.9185.5967-1.0105a2.8566 2.8566 0 0 0 .135-.0406 1.202 1.202 0 0 0 .1342.103c.5703.3765 1.5823.4213 3.0068.1344-.2016.1769-.5189.3994-.9533.6011-.4098.1903-1.0957.333-1.7473.3636-.7197.0336-1.0859-.0807-1.1721-.151zm.5695-9.2712c-.0059.3508-.0542.6692-.1054 1.0017-.055.3576-.112.7274-.1264 1.1762-.0142.4368.0404.8909.0932 1.3301.1066.887.216 1.8003-.2075 2.7014a3.5272 3.5272 0 0 1-.1876-.3856c-.0527-.1276-.1669-.3326-.3251-.6162-.6156-1.1041-2.0574-3.6896-1.3193-4.7446.3795-.5427 1.3408-.5661 2.1781-.463zm.2284 7.0137a12.3762 12.3762 0 0 0-.0853-.1074l-.0355-.0444c.7262-1.1995.5842-2.3862.4578-3.4385-.0519-.4318-.1009-.8396-.0885-1.2226.0129-.4061.0666-.7543.1185-1.0911.0639-.415.1288-.8443.1109-1.3505.0134-.0531.0188-.1158.0118-.1902-.0457-.4855-.5999-1.938-1.7294-3.253-.6076-.7073-1.4896-1.4972-2.6889-2.0395.5251-.1066 1.2328-.2035 2.0244-.1859 2.0515.0456 3.6746.8135 4.8242 2.2824a.908.908 0 0 1 .0667.1002c.7231 1.3556-.2762 6.2751-2.9867 10.5405zm-8.8166-6.1162c-.025.1794-.3089.4225-.6211.4225a.5821.5821 0 0 1-.0809-.0056c-.1873-.026-.3765-.144-.5059-.3156-.0458-.0605-.1203-.178-.1055-.2844.0055-.0401.0261-.0985.0925-.1488.1182-.0894.3518-.1226.6096-.0867.3163.0441.6426.1938.6113.4186zm7.9305-.4114c.0111.0792-.049.201-.1531.3102-.0683.0717-.212.1961-.4079.2232a.5456.5456 0 0 1-.075.0052c-.2935 0-.5414-.2344-.5607-.3717-.024-.1765.2641-.3106.5611-.352.297-.0414.6111.0088.6356.1851z"],"firebase":["FFCA28","M3.89 15.672L6.255.461A.542.542 0 017.27.288l2.543 4.771zm16.794 3.692l-2.25-14a.54.54 0 00-.919-.295L3.316 19.365l7.856 4.427a1.621 1.621 0 001.588 0zM14.3 7.147l-1.82-3.482a.542.542 0 00-.96 0L3.53 17.984z"],"nodedotjs":["5FA04E","M11.998,24c-0.321,0-0.641-0.084-0.922-0.247l-2.936-1.737c-0.438-0.245-0.224-0.332-0.08-0.383 c0.585-0.203,0.703-0.25,1.328-0.604c0.065-0.037,0.151-0.023,0.218,0.017l2.256,1.339c0.082,0.045,0.197,0.045,0.272,0l8.795-5.076 c0.082-0.047,0.134-0.141,0.134-0.238V6.921c0-0.099-0.053-0.192-0.137-0.242l-8.791-5.072c-0.081-0.047-0.189-0.047-0.271,0 L3.075,6.68C2.99,6.729,2.936,6.825,2.936,6.921v10.15c0,0.097,0.054,0.189,0.139,0.235l2.409,1.392 c1.307,0.654,2.108-0.116,2.108-0.89V7.787c0-0.142,0.114-0.253,0.256-0.253h1.115c0.139,0,0.255,0.112,0.255,0.253v10.021 c0,1.745-0.95,2.745-2.604,2.745c-0.508,0-0.909,0-2.026-0.551L2.28,18.675c-0.57-0.329-0.922-0.945-0.922-1.604V6.921 c0-0.659,0.353-1.275,0.922-1.603l8.795-5.082c0.557-0.315,1.296-0.315,1.848,0l8.794,5.082c0.57,0.329,0.924,0.944,0.924,1.603 v10.15c0,0.659-0.354,1.273-0.924,1.604l-8.794,5.078C12.643,23.916,12.324,24,11.998,24z M19.099,13.993 c0-1.9-1.284-2.406-3.987-2.763c-2.731-0.361-3.009-0.548-3.009-1.187c0-0.528,0.235-1.233,2.258-1.233 c1.807,0,2.473,0.389,2.747,1.607c0.024,0.115,0.129,0.199,0.247,0.199h1.141c0.071,0,0.138-0.031,0.186-0.081 c0.048-0.054,0.074-0.123,0.067-0.196c-0.177-2.098-1.571-3.076-4.388-3.076c-2.508,0-4.004,1.058-4.004,2.833 c0,1.925,1.488,2.457,3.895,2.695c2.88,0.282,3.103,0.703,3.103,1.269c0,0.983-0.789,1.402-2.642,1.402 c-2.327,0-2.839-0.584-3.011-1.742c-0.02-0.124-0.126-0.215-0.253-0.215h-1.137c-0.141,0-0.254,0.112-0.254,0.253 c0,1.482,0.806,3.248,4.655,3.248C17.501,17.007,19.099,15.91,19.099,13.993z"],"nextdotjs":["000000","M18.665 21.978C16.758 23.255 14.465 24 12 24 5.377 24 0 18.623 0 12S5.377 0 12 0s12 5.377 12 12c0 3.583-1.574 6.801-4.067 9.001L9.219 7.2H7.2v9.596h1.615V9.251l9.85 12.727Zm-3.332-8.533 1.6 2.061V7.2h-1.6v6.245Z"],"nestjs":["E0234E","M14.131.047c-.173 0-.334.037-.483.087.316.21.49.49.576.806.007.043.019.074.025.117a.681.681 0 0 1 .013.112c.024.545-.143.614-.26.936-.18.415-.13.861.086 1.22a.74.74 0 0 0 .074.137c-.235-1.568 1.073-1.803 1.314-2.293.019-.428-.334-.713-.613-.911a1.37 1.37 0 0 0-.732-.21zM16.102.4c-.024.143-.006.106-.012.18-.006.05-.006.112-.012.161-.013.05-.025.1-.044.149-.012.05-.03.1-.05.149l-.067.142c-.02.025-.031.05-.05.075l-.037.055a2.152 2.152 0 0 1-.093.124c-.037.038-.068.081-.112.112v.006c-.037.031-.074.068-.118.1-.13.099-.278.173-.415.266-.043.03-.087.056-.124.093a.906.906 0 0 0-.118.099c-.043.037-.074.074-.111.118-.031.037-.068.08-.093.124a1.582 1.582 0 0 0-.087.13c-.025.05-.043.093-.068.142-.019.05-.037.093-.05.143a2.007 2.007 0 0 0-.043.155c-.006.025-.006.056-.012.08-.007.025-.007.05-.013.075 0 .05-.006.105-.006.155 0 .037 0 .074.006.111 0 .05.006.1.019.155.006.05.018.1.03.15.02.049.032.098.05.148.013.03.031.062.044.087l-1.426-.552c-.241-.068-.477-.13-.719-.186l-.39-.093c-.372-.074-.75-.13-1.128-.167-.013 0-.019-.006-.031-.006A11.082 11.082 0 0 0 8.9 2.855c-.378.025-.756.074-1.134.136a12.45 12.45 0 0 0-.837.174l-.279.074c-.092.037-.18.08-.266.118l-.205.093c-.012.006-.024.006-.03.012-.063.031-.118.056-.174.087a2.738 2.738 0 0 0-.236.118c-.043.018-.086.043-.124.062a.559.559 0 0 1-.055.03c-.056.032-.112.063-.162.094a1.56 1.56 0 0 0-.148.093c-.044.03-.087.055-.124.086-.006.007-.013.007-.019.013-.037.025-.08.056-.118.087l-.012.012-.093.074c-.012.007-.025.019-.037.025-.031.025-.062.056-.093.08-.006.013-.019.02-.025.025-.037.038-.074.069-.111.106-.007 0-.007.006-.013.012a1.742 1.742 0 0 0-.111.106c-.007.006-.007.012-.013.012a1.454 1.454 0 0 0-.093.1c-.012.012-.03.024-.043.036a1.374 1.374 0 0 1-.106.112c-.006.012-.018.019-.024.03-.05.05-.093.1-.143.15l-.018.018c-.1.106-.205.211-.317.304-.111.1-.229.192-.347.273a3.777 3.777 0 0 1-.762.421c-.13.056-.267.106-.403.149-.26.056-.527.161-.756.18-.05 0-.105.012-.155.018l-.155.037-.149.056c-.05.019-.099.044-.148.068-.044.031-.093.056-.137.087a1.011 1.011 0 0 0-.124.106c-.043.03-.087.074-.124.111-.037.043-.074.08-.105.124-.031.05-.068.093-.093.143a1.092 1.092 0 0 0-.087.142c-.025.056-.05.106-.068.161-.019.05-.037.106-.056.161-.012.05-.025.1-.03.15 0 .005-.007.012-.007.018-.012.056-.012.13-.019.167C.006 7.95 0 7.986 0 8.03a.657.657 0 0 0 .074.31v.006c.019.037.044.075.069.112.024.037.05.074.08.111.031.031.068.069.106.1a.906.906 0 0 0 .117.099c.149.13.186.173.378.272.031.019.062.031.1.05.006 0 .012.006.018.006 0 .013 0 .019.006.031a1.272 1.272 0 0 0 .08.298c.02.037.032.074.05.111.007.013.013.025.02.031.024.05.049.093.073.137l.093.13c.031.037.069.08.106.118.037.037.074.068.118.105 0 0 .006.006.012.006.037.031.074.062.112.087a.986.986 0 0 0 .136.08c.043.025.093.05.142.069a.73.73 0 0 0 .124.043c.007.006.013.006.025.012.025.007.056.013.08.019-.018.335-.024.65.026.762.055.124.328-.254.6-.688-.036.428-.061.93 0 1.079.069.155.44-.329.763-.862 4.395-1.016 8.405 2.02 8.826 6.31-.08-.67-.905-1.041-1.283-.948-.186.458-.502 1.047-1.01 1.413.043-.41.025-.83-.062-1.24a4.009 4.009 0 0 1-.769 1.562c-.588.043-1.177-.242-1.487-.67-.025-.018-.031-.055-.05-.08-.018-.043-.037-.087-.05-.13a.515.515 0 0 1-.037-.13c-.006-.044-.006-.087-.006-.137v-.093a.992.992 0 0 1 .031-.13c.013-.043.025-.086.044-.13.024-.043.043-.087.074-.13.105-.298.105-.54-.087-.682a.706.706 0 0 0-.118-.062c-.024-.006-.055-.018-.08-.025l-.05-.018a.847.847 0 0 0-.13-.031.472.472 0 0 0-.13-.019 1.01 1.01 0 0 0-.136-.012c-.031 0-.062.006-.093.006a.484.484 0 0 0-.137.019c-.043.006-.086.012-.13.024a1.068 1.068 0 0 0-.13.044c-.043.018-.08.037-.124.056-.037.018-.074.043-.118.062-1.444.942-.582 3.148.403 3.787-.372.068-.75.148-.855.229l-.013.012c.267.161.546.298.837.416.397.13.818.247 1.004.297v.006a5.996 5.996 0 0 0 1.562.112c2.746-.192 4.996-2.281 5.405-5.033l.037.161c.019.112.043.23.056.347v.006c.012.056.018.112.025.162v.024c.006.056.012.112.012.162.006.068.012.136.012.204v.1c0 .03.007.067.007.098 0 .038-.007.075-.007.112v.087c0 .043-.006.08-.006.124 0 .025 0 .05-.006.08 0 .044-.006.087-.006.137-.006.018-.006.037-.006.055l-.02.143c0 .019 0 .037-.005.056-.007.062-.019.118-.025.18v.012l-.037.174v.018l-.037.167c0 .007-.007.02-.007.025a1.663 1.663 0 0 1-.043.168v.018c-.019.062-.037.118-.05.174-.006.006-.006.012-.006.012l-.056.186c-.024.062-.043.118-.068.18-.025.062-.043.124-.068.18-.025.062-.05.117-.074.18h-.007c-.024.055-.05.117-.08.173a.302.302 0 0 1-.019.043c-.006.006-.006.013-.012.019a5.867 5.867 0 0 1-1.742 2.082c-.05.031-.099.069-.149.106-.012.012-.03.018-.043.03a2.603 2.603 0 0 1-.136.094l.018.037h.007l.26-.037h.006c.161-.025.322-.056.483-.087.044-.006.093-.019.137-.031l.087-.019c.043-.006.086-.018.13-.024.037-.013.074-.02.111-.031.62-.15 1.221-.354 1.798-.595a9.926 9.926 0 0 1-3.85 3.142c.714-.05 1.426-.167 2.114-.366a9.903 9.903 0 0 0 5.857-4.68 9.893 9.893 0 0 1-1.667 3.986 9.758 9.758 0 0 0 1.655-1.376 9.824 9.824 0 0 0 2.61-5.268c.21.98.272 1.99.18 2.987 4.474-6.241.371-12.712-1.346-14.416-.006-.013-.012-.019-.012-.031-.006.006-.006.006-.006.012 0-.006 0-.006-.007-.012 0 .074-.006.148-.012.223a8.34 8.34 0 0 1-.062.415c-.03.136-.068.273-.105.41-.044.13-.093.266-.15.396a5.322 5.322 0 0 1-.185.378 4.735 4.735 0 0 1-.477.688c-.093.111-.192.21-.292.31a3.994 3.994 0 0 1-.18.155l-.142.124a3.459 3.459 0 0 1-.347.241 4.295 4.295 0 0 1-.366.211c-.13.062-.26.118-.39.174a4.364 4.364 0 0 1-.818.223c-.143.025-.285.037-.422.05a4.914 4.914 0 0 1-.297.012 4.66 4.66 0 0 1-.422-.025 3.137 3.137 0 0 1-.421-.062 3.136 3.136 0 0 1-.415-.105h-.007c.137-.013.273-.025.41-.05a4.493 4.493 0 0 0 .818-.223c.136-.05.266-.112.39-.174.13-.062.248-.13.372-.204.118-.08.235-.161.347-.248.112-.087.217-.18.316-.279.105-.093.198-.198.291-.304.093-.111.18-.223.26-.334.013-.019.026-.044.038-.062.062-.1.124-.199.18-.298a4.272 4.272 0 0 0 .334-.775c.044-.13.075-.266.106-.403.025-.142.05-.278.062-.415.012-.142.025-.285.025-.421 0-.1-.007-.199-.013-.298a6.726 6.726 0 0 0-.05-.415 4.493 4.493 0 0 0-.092-.415c-.044-.13-.087-.267-.137-.397-.05-.13-.111-.26-.173-.384-.069-.124-.137-.248-.211-.366a6.843 6.843 0 0 0-.248-.34c-.093-.106-.186-.212-.285-.317a3.878 3.878 0 0 0-.161-.155c-.28-.217-.57-.421-.862-.607a1.154 1.154 0 0 0-.124-.062 2.415 2.415 0 0 0-.589-.26Z"],"fastapi":["009688","M12 0C5.375 0 0 5.375 0 12c0 6.627 5.375 12 12 12 6.626 0 12-5.373 12-12 0-6.625-5.373-12-12-12zm-.624 21.62v-7.528H7.19L13.203 2.38v7.528h4.029L11.376 21.62z"],"figma":["F24E1E","M15.852 8.981h-4.588V0h4.588c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.491-4.49 4.491zM12.735 7.51h3.117c1.665 0 3.019-1.355 3.019-3.019s-1.355-3.019-3.019-3.019h-3.117V7.51zm0 1.471H8.148c-2.476 0-4.49-2.014-4.49-4.49S5.672 0 8.148 0h4.588v8.981zm-4.587-7.51c-1.665 0-3.019 1.355-3.019 3.019s1.354 3.02 3.019 3.02h3.117V1.471H8.148zm4.587 15.019H8.148c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h4.588v8.98zM8.148 8.981c-1.665 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019h3.117V8.981H8.148zM8.172 24c-2.489 0-4.515-2.014-4.515-4.49s2.014-4.49 4.49-4.49h4.588v4.441c0 2.503-2.047 4.539-4.563 4.539zm-.024-7.51a3.023 3.023 0 0 0-3.019 3.019c0 1.665 1.365 3.019 3.044 3.019 1.705 0 3.093-1.376 3.093-3.068v-2.97H8.148zm7.704 0h-.098c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h.098c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.49-4.49 4.49zm-.097-7.509c-1.665 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019h.098c1.665 0 3.019-1.355 3.019-3.019s-1.355-3.019-3.019-3.019h-.098z"],"canva":["00C4CC","M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zM6.962 7.68c.754 0 1.337.549 1.405 1.2.069.583-.171 1.097-.822 1.406-.343.171-.48.172-.549.069-.034-.069 0-.137.069-.206.617-.514.617-.926.548-1.508-.034-.378-.308-.618-.583-.618-1.2 0-2.914 2.674-2.674 4.629.103.754.549 1.646 1.509 1.646.308 0 .65-.103.96-.24.5-.264.799-.47 1.097-.8-.073-.885.704-2.046 1.851-2.046.515 0 .926.205.96.583.068.514-.377.582-.514.582s-.378-.034-.378-.17c-.034-.138.309-.07.275-.378-.035-.206-.24-.274-.446-.274-.72 0-1.131.994-1.029 1.611.035.275.172.549.447.549.205 0 .514-.31.617-.755.068-.308.343-.514.583-.514.102 0 .17.034.205.171v.138c-.034.137-.137.548-.102.651 0 .069.034.171.17.171.092 0 .436-.18.777-.459.117-.59.253-1.298.253-1.357.034-.24.137-.48.617-.48.103 0 .171.034.205.171v.138l-.136.617c.445-.583 1.097-.994 1.508-.994.172 0 .309.102.309.274 0 .103 0 .274-.069.446-.137.377-.309.96-.412 1.474 0 .137.035.274.207.274.171 0 .685-.206 1.096-.754l.007-.004c-.002-.068-.007-.134-.007-.202 0-.411.035-.754.104-.994.068-.274.411-.514.617-.514.103 0 .205.069.205.171 0 .035 0 .103-.034.137-.137.446-.24.857-.24 1.269 0 .24.034.582.102.788 0 .034.035.069.07.069.068 0 .548-.445.89-1.028-.308-.206-.48-.549-.48-.96 0-.72.446-1.097.858-1.097.343 0 .617.24.617.72 0 .308-.103.65-.274.96h.102a.77.77 0 0 0 .584-.24.293.293 0 0 1 .134-.117c.335-.425.83-.74 1.41-.74.48 0 .924.205.959.582.068.515-.378.618-.515.618l-.002-.002c-.138 0-.377-.035-.377-.172 0-.137.309-.068.274-.376-.034-.206-.24-.275-.446-.275-.686 0-1.13.891-1.028 1.611.034.275.171.583.445.583.206 0 .515-.308.652-.754.068-.274.343-.514.583-.514.103 0 .17.034.205.171 0 .069 0 .206-.137.652-.17.308-.171.48-.137.617.034.274.171.48.309.583.034.034.068.102.068.102 0 .069-.034.138-.137.138-.034 0-.068 0-.103-.035-.514-.205-.72-.548-.789-.891-.205.24-.445.377-.72.377-.445 0-.89-.411-.96-.926a1.609 1.609 0 0 1 .075-.649c-.203.13-.422.203-.623.203h-.17c-.447.652-.927 1.098-1.27 1.303a.896.896 0 0 1-.377.104c-.068 0-.171-.035-.205-.104-.095-.152-.156-.392-.193-.667-.481.527-1.145.805-1.453.805-.343 0-.548-.206-.582-.55v-.376c.102-.754.377-1.2.377-1.337a.074.074 0 0 0-.069-.07c-.24 0-1.028.824-1.166 1.373l-.103.445c-.068.309-.377.515-.582.515-.103 0-.172-.035-.206-.172v-.137l.046-.233c-.435.31-.87.508-1.075.508-.308 0-.48-.172-.514-.412-.206.274-.445.412-.754.412-.352 0-.696-.24-.862-.593-.244.275-.523.553-.852.764-.48.309-1.028.549-1.68.549-.582 0-1.097-.309-1.371-.583-.412-.377-.651-.96-.686-1.509-.205-1.68.823-3.84 2.4-4.8.378-.205.755-.343 1.132-.343zm9.77 3.291c-.104 0-.172.172-.172.343 0 .274.137.583.309.755a1.74 1.74 0 0 0 .102-.583c0-.343-.137-.515-.24-.515z"],"adobephotoshop":["31A8FF","M9.85 8.42c-.37-.15-.77-.21-1.18-.2-.26 0-.49 0-.68.01-.2-.01-.34 0-.41.01v3.36c.14.01.27.02.39.02h.53c.39 0 .78-.06 1.15-.18.32-.09.6-.28.82-.53.21-.25.31-.59.31-1.03.01-.31-.07-.62-.23-.89-.17-.26-.41-.46-.7-.57zM19.75.3H4.25C1.9.3 0 2.2 0 4.55v14.899c0 2.35 1.9 4.25 4.25 4.25h15.5c2.35 0 4.25-1.9 4.25-4.25V4.55C24 2.2 22.1.3 19.75.3zm-7.391 11.65c-.399.56-.959.98-1.609 1.22-.68.25-1.43.34-2.25.34-.24 0-.4 0-.5-.01s-.24-.01-.43-.01v3.209c.01.07-.04.131-.11.141H5.52c-.08 0-.12-.041-.12-.131V6.42c0-.07.03-.11.1-.11.17 0 .33 0 .56-.01.24-.01.49-.01.76-.02s.56-.01.87-.02c.31-.01.61-.01.91-.01.82 0 1.5.1 2.06.31.5.17.96.45 1.34.82.32.32.57.71.73 1.14.149.42.229.85.229 1.3.001.86-.199 1.57-.6 2.13zm7.091 3.89c-.28.4-.671.709-1.12.891-.49.209-1.09.318-1.811.318-.459 0-.91-.039-1.359-.129-.35-.061-.7-.17-1.02-.32-.07-.039-.121-.109-.111-.189v-1.74c0-.029.011-.07.041-.09.029-.02.06-.01.09.01.39.23.8.391 1.24.49.379.1.779.15 1.18.15.38 0 .65-.051.83-.141.16-.07.27-.24.27-.42 0-.141-.08-.27-.24-.4-.16-.129-.489-.279-.979-.471-.51-.18-.979-.42-1.42-.719-.31-.221-.569-.51-.761-.85-.159-.32-.239-.67-.229-1.021 0-.43.12-.84.341-1.21.25-.4.619-.72 1.049-.92.469-.239 1.059-.349 1.769-.349.41 0 .83.03 1.24.09.3.04.59.12.86.23.039.01.08.05.1.09.01.04.02.08.02.12v1.63c0 .04-.02.08-.05.1-.09.02-.14.02-.18 0-.3-.16-.62-.27-.96-.34-.37-.08-.74-.13-1.12-.13-.2-.01-.41.02-.601.07-.129.03-.24.1-.31.2-.05.08-.08.18-.08.27s.04.18.101.26c.09.11.209.2.34.27.229.12.47.23.709.33.541.18 1.061.43 1.541.73.33.209.6.49.789.83.16.318.24.67.23 1.029.011.471-.129.94-.389 1.331z"],"adobeillustrator":["FF9A00","M10.53 10.73c-.1-.31-.19-.61-.29-.92-.1-.31-.19-.6-.27-.89-.08-.28-.15-.54-.22-.78h-.02c-.09.43-.2.86-.34 1.29-.15.48-.3.98-.46 1.48-.14.51-.29.98-.44 1.4h2.54c-.06-.211-.14-.46-.23-.721-.09-.269-.18-.559-.27-.859zM19.75.3H4.25C1.9.3 0 2.2 0 4.55v14.9c0 2.35 1.9 4.25 4.25 4.25h15.5c2.35 0 4.25-1.9 4.25-4.25V4.55C24 2.2 22.1.3 19.75.3zM14.7 16.83h-2.091c-.069.01-.139-.04-.159-.11l-.82-2.38H7.91l-.76 2.35c-.02.09-.1.15-.19.141H5.08c-.11 0-.14-.061-.11-.18L8.19 7.38c.03-.1.06-.21.1-.33.04-.21.06-.43.06-.65-.01-.05.03-.1.08-.11h2.59c.08 0 .12.03.13.08l3.65 10.3c.03.109 0 .16-.1.16zm3.4-.15c0 .11-.039.16-.129.16H16.01c-.1 0-.15-.061-.15-.16v-7.7c0-.1.041-.14.131-.14h1.98c.09 0 .129.05.129.14v7.7zm-.209-9.03c-.231.24-.571.37-.911.35-.33.01-.65-.12-.891-.35-.23-.25-.35-.58-.34-.92-.01-.34.12-.66.359-.89.242-.23.562-.35.892-.35.391 0 .689.12.91.35.22.24.34.56.33.89.01.34-.11.67-.349.92z"],"javascript":["F7DF1E","M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755-1.125-.27-.42-.404-.601-.586-.78-.63-.705-1.469-1.065-2.834-1.034l-.705.089c-.676.165-1.32.525-1.71 1.005-1.14 1.291-.811 3.541.569 4.471 1.365 1.02 3.361 1.244 3.616 2.205.24 1.17-.87 1.545-1.966 1.41-.811-.18-1.26-.586-1.755-1.336l-1.83 1.051c.21.48.45.689.81 1.109 1.74 1.756 6.09 1.666 6.871-1.004.029-.09.24-.705.074-1.65l.046.067zm-8.983-7.245h-2.248c0 1.938-.009 3.864-.009 5.805 0 1.232.063 2.363-.138 2.711-.33.689-1.18.601-1.566.48-.396-.196-.597-.466-.83-.855-.063-.105-.11-.196-.127-.196l-1.825 1.125c.305.63.75 1.172 1.324 1.517.855.51 2.004.675 3.207.405.783-.226 1.458-.691 1.811-1.411.51-.93.402-2.07.397-3.346.012-2.054 0-4.109 0-6.179l.004-.056z"],"cplusplus":["00599C","M22.394 6c-.167-.29-.398-.543-.652-.69L12.926.22c-.509-.294-1.34-.294-1.848 0L2.26 5.31c-.508.293-.923 1.013-.923 1.6v10.18c0 .294.104.62.271.91.167.29.398.543.652.69l8.816 5.09c.508.293 1.34.293 1.848 0l8.816-5.09c.254-.147.485-.4.652-.69.167-.29.27-.616.27-.91V6.91c.003-.294-.1-.62-.268-.91zM12 19.11c-3.92 0-7.109-3.19-7.109-7.11 0-3.92 3.19-7.11 7.11-7.11a7.133 7.133 0 016.156 3.553l-3.076 1.78a3.567 3.567 0 00-3.08-1.78A3.56 3.56 0 008.444 12 3.56 3.56 0 0012 15.555a3.57 3.57 0 003.08-1.778l3.078 1.78A7.135 7.135 0 0112 19.11zm7.11-6.715h-.79v.79h-.79v-.79h-.79v-.79h.79v-.79h.79v.79h.79zm2.962 0h-.79v.79h-.79v-.79h-.79v-.79h.79v-.79h.79v.79h.79z"],"openjdk":["000000","M11.915 0 11.7.215C9.515 2.4 7.47 6.39 6.046 10.483c-1.064 1.024-3.633 2.81-3.711 3.551-.093.87 1.746 2.611 1.55 3.235-.198.625-1.304 1.408-1.014 1.939.1.188.823.011 1.277-.491a13.389 13.389 0 0 0-.017 2.14c.076.906.27 1.668.643 2.232.372.563.956.911 1.667.911.397 0 .727-.114 1.024-.264.298-.149.571-.33.91-.5.68-.34 1.634-.666 3.53-.604 1.903.062 2.872.39 3.559.704.687.314 1.15.664 1.925.664.767 0 1.395-.336 1.807-.9.412-.563.631-1.33.72-2.24.06-.623.055-1.32 0-2.066.454.45 1.117.604 1.213.424.29-.53-.816-1.314-1.013-1.937-.198-.624 1.642-2.366 1.549-3.236-.08-.748-2.707-2.568-3.748-3.586C16.428 6.374 14.308 2.394 12.13.215zm.175 6.038a2.95 2.95 0 0 1 2.943 2.942 2.95 2.95 0 0 1-2.943 2.943A2.95 2.95 0 0 1 9.148 8.98a2.95 2.95 0 0 1 2.942-2.942zM8.685 7.983a3.515 3.515 0 0 0-.145.997c0 1.951 1.6 3.55 3.55 3.55 1.95 0 3.55-1.598 3.55-3.55 0-.329-.046-.648-.132-.951.334.095.64.208.915.336a42.699 42.699 0 0 1 2.042 5.829c.678 2.545 1.01 4.92.846 6.607-.082.844-.29 1.51-.606 1.94-.315.431-.713.651-1.315.651-.593 0-.932-.27-1.673-.61-.741-.338-1.825-.694-3.792-.758-1.974-.064-3.073.293-3.821.669-.375.188-.659.373-.911.5s-.466.2-.752.2c-.53 0-.876-.209-1.16-.64-.285-.43-.474-1.101-.545-1.948-.141-1.693.176-4.069.823-6.614a43.155 43.155 0 0 1 1.934-5.783c.348-.167.749-.31 1.192-.425zm-3.382 4.362a.216.216 0 0 1 .13.031c-.166.56-.323 1.116-.463 1.665a33.849 33.849 0 0 0-.547 2.555 3.9 3.9 0 0 0-.2-.39c-.58-1.012-.914-1.642-1.16-2.08.315-.24 1.679-1.755 2.24-1.781zm13.394.01c.562.027 1.926 1.543 2.24 1.783-.246.438-.58 1.068-1.16 2.08a4.428 4.428 0 0 0-.163.309 32.354 32.354 0 0 0-.562-2.49 40.579 40.579 0 0 0-.482-1.652.216.216 0 0 1 .127-.03z"],"mysql":["4479A1","M16.405 5.501c-.115 0-.193.014-.274.033v.013h.014c.054.104.146.18.214.273.054.107.1.214.154.32l.014-.015c.094-.066.14-.172.14-.333-.04-.047-.046-.094-.08-.14-.04-.067-.126-.1-.18-.153zM5.77 18.695h-.927a50.854 50.854 0 00-.27-4.41h-.008l-1.41 4.41H2.45l-1.4-4.41h-.01a72.892 72.892 0 00-.195 4.41H0c.055-1.966.192-3.81.41-5.53h1.15l1.335 4.064h.008l1.347-4.064h1.095c.242 2.015.384 3.86.428 5.53zm4.017-4.08c-.378 2.045-.876 3.533-1.492 4.46-.482.716-1.01 1.073-1.583 1.073-.153 0-.34-.046-.566-.138v-.494c.11.017.24.026.386.026.268 0 .483-.075.647-.222.197-.18.295-.382.295-.605 0-.155-.077-.47-.23-.944L6.23 14.615h.91l.727 2.36c.164.536.233.91.205 1.123.4-1.064.678-2.227.835-3.483zm12.325 4.08h-2.63v-5.53h.885v4.85h1.745zm-3.32.135l-1.016-.5c.09-.076.177-.158.255-.25.433-.506.648-1.258.648-2.253 0-1.83-.718-2.746-2.155-2.746-.704 0-1.254.232-1.65.697-.43.508-.646 1.256-.646 2.245 0 .972.19 1.686.574 2.14.35.41.877.615 1.583.615.264 0 .506-.033.725-.098l1.325.772.36-.622zM15.5 17.588c-.225-.36-.337-.94-.337-1.736 0-1.393.424-2.09 1.27-2.09.443 0 .77.167.977.5.224.362.336.936.336 1.723 0 1.404-.424 2.108-1.27 2.108-.445 0-.77-.167-.978-.5zm-1.658-.425c0 .47-.172.856-.516 1.156-.344.3-.803.45-1.384.45-.543 0-1.064-.172-1.573-.515l.237-.476c.438.22.833.328 1.19.328.332 0 .593-.073.783-.22a.754.754 0 00.3-.615c0-.33-.23-.61-.648-.845-.388-.213-1.163-.657-1.163-.657-.422-.307-.632-.636-.632-1.177 0-.45.157-.81.47-1.085.315-.278.72-.415 1.22-.415.512 0 .98.136 1.4.41l-.213.476a2.726 2.726 0 00-1.064-.23c-.283 0-.502.068-.654.206a.685.685 0 00-.248.524c0 .328.234.61.666.85.393.215 1.187.67 1.187.67.433.305.648.63.648 1.168zm9.382-5.852c-.535-.014-.95.04-1.297.188-.1.04-.26.04-.274.167.055.053.063.14.11.214.08.134.218.313.346.407.14.11.28.216.427.31.26.16.555.255.81.416.145.094.293.213.44.313.073.05.12.14.214.172v-.02c-.046-.06-.06-.147-.105-.214-.067-.067-.134-.127-.2-.193a3.223 3.223 0 00-.695-.675c-.214-.146-.682-.35-.77-.595l-.013-.014c.146-.013.32-.066.46-.106.227-.06.435-.047.67-.106.106-.027.213-.06.32-.094v-.06c-.12-.12-.21-.283-.334-.395a8.867 8.867 0 00-1.104-.823c-.21-.134-.476-.22-.697-.334-.08-.04-.214-.06-.26-.127-.12-.146-.19-.34-.275-.514a17.69 17.69 0 01-.547-1.163c-.12-.262-.193-.523-.34-.763-.69-1.137-1.437-1.826-2.586-2.5-.247-.14-.543-.2-.856-.274-.167-.008-.334-.02-.5-.027-.11-.047-.216-.174-.31-.235-.38-.24-1.364-.76-1.644-.072-.18.434.267.862.422 1.082.115.153.26.328.34.5.047.116.06.235.107.356.106.294.207.622.347.897.073.14.153.287.247.413.054.073.146.107.167.227-.094.136-.1.334-.154.5-.24.757-.146 1.693.194 2.25.107.166.362.534.703.393.3-.12.234-.5.32-.835.02-.08.007-.133.048-.187v.015c.094.188.188.367.274.555.206.328.566.668.867.895.16.12.287.328.487.402v-.02h-.015c-.043-.058-.1-.086-.154-.133a3.445 3.445 0 01-.35-.4 8.76 8.76 0 01-.747-1.218c-.11-.21-.202-.436-.29-.643-.04-.08-.04-.2-.107-.24-.1.146-.247.273-.32.453-.127.288-.14.642-.188 1.01-.027.007-.014 0-.027.014-.214-.052-.287-.274-.367-.46-.2-.475-.233-1.238-.06-1.785.047-.14.247-.582.167-.716-.042-.127-.174-.2-.247-.303a2.478 2.478 0 01-.24-.427c-.16-.374-.24-.788-.414-1.162-.08-.173-.22-.354-.334-.513-.127-.18-.267-.307-.368-.52-.033-.073-.08-.194-.027-.274.014-.054.042-.075.094-.09.088-.072.335.022.422.062.247.1.455.194.662.334.094.066.195.193.315.226h.14c.214.047.455.014.655.073.355.114.675.28.962.46a5.953 5.953 0 012.085 2.286c.08.154.115.295.188.455.14.33.313.663.455.982.14.315.275.636.476.897.1.14.502.213.682.286.133.06.34.115.46.188.23.14.454.3.67.454.11.076.443.243.463.378z"],"scikitlearn":["F7931E","M15.601 5.53c-1.91.035-3.981.91-5.63 2.56-2.93 2.93-2.083 8.53-1.088 9.525.805.804 6.595 1.843 9.526-1.088a9.74 9.74 0 0 0 .584-.643c.043-.292.205-.66.489-1.106a1.848 1.848 0 0 1-.537.176c-.144.265-.37.55-.676.855-.354.335-.607.554-.76.656a.795.795 0 0 1-.437.152c-.35 0-.514-.308-.494-.924-.22.316-.425.549-.612.7a.914.914 0 0 1-.578.224c-.194 0-.36-.09-.496-.273a1.03 1.03 0 0 1-.193-.507 4.016 4.016 0 0 1-.726.583c-.224.132-.47.197-.74.197-.3 0-.543-.096-.727-.288a.978.978 0 0 1-.257-.524v.004c-.3.276-.564.48-.79.611a1.295 1.295 0 0 1-.649.197.693.693 0 0 1-.571-.275c-.145-.183-.218-.43-.218-.739 0-.464.101-1.02.302-1.67.201-.65.445-1.25.733-1.797l.842-.312a.21.21 0 0 1 .06-.013c.063 0 .116.047.157.14.04.095.061.221.061.38 0 .451-.104.888-.312 1.31-.207.422-.532.873-.974 1.352-.018.23-.027.388-.027.474 0 .193.036.345.106.458.071.113.165.169.282.169a.71.71 0 0 0 .382-.13c.132-.084.333-.26.602-.523.028-.418.187-.798.482-1.142.324-.38.685-.569 1.08-.569.206 0 .37.054.494.16a.524.524 0 0 1 .186.417c0 .458-.486.829-1.459 1.114.088.43.32.646.693.646a.807.807 0 0 0 .417-.117c.129-.076.321-.243.575-.497.032-.252.118-.495.259-.728.182-.3.416-.544.701-.73.285-.185.537-.278.756-.278.276 0 .47.127.58.381l.677-.374h.186l-.292.971c-.15.488-.226.823-.226 1.004 0 .19.067.285.202.285.086 0 .181-.045.285-.137.104-.092.25-.232.437-.42v.001c.143-.155.274-.32.392-.494-.19-.084-.285-.21-.285-.375 0-.17.058-.352.174-.545.116-.194.275-.29.479-.29.172 0 .258.088.258.265 0 .139-.05.338-.149.596.367-.04.687-.32.961-.842l.228-.01c1.059-2.438.828-5.075-.83-6.732-1.019-1.02-2.408-1.5-3.895-1.471zm4.725 8.203a8.938 8.938 0 0 1-1.333 2.151 1.09 1.09 0 0 0-.012.147c0 .168.047.309.14.423.092.113.206.17.34.17.296 0 .714-.264 1.254-.787-.001.04-.003.08-.003.121 0 .146.012.368.036.666l.733-.172c0-.2.003-.357.01-.474.01-.157.033-.33.066-.517.02-.11.07-.216.152-.315l.186-.216a5.276 5.276 0 0 1 .378-.397c.062-.055.116-.099.162-.13a.26.26 0 0 1 .123-.046c.055 0 .083.035.083.106 0 .07-.052.236-.156.497-.194.486-.292.848-.292 1.084 0 .175.046.314.136.418a.45.45 0 0 0 .358.155c.365 0 .803-.269 1.313-.808v-.381c-.361.426-.623.64-.784.64-.109 0-.163-.067-.163-.2 0-.1.065-.316.195-.65.19-.486.285-.836.285-1.048a.464.464 0 0 0-.112-.319.36.36 0 0 0-.282-.127c-.165 0-.354.077-.567.233-.213.156-.5.436-.863.84.053-.262.165-.622.335-1.08l-.809.156a6.54 6.54 0 0 0-.399 1.074c-.04.156-.07.316-.092.48a7.447 7.447 0 0 1-.49.45.38.38 0 0 1-.229.08.208.208 0 0 1-.174-.082.352.352 0 0 1-.064-.222c0-.1.019-.214.056-.343.038-.13.12-.373.249-.731l.308-.849zm-17.21-2.927c-.863-.016-1.67.263-2.261.854-1.352 1.352-1.07 3.827.631 5.527 1.7 1.701 4.95 1.21 5.527.632.467-.466 1.07-3.827-.631-5.527-.957-.957-2.158-1.465-3.267-1.486zm12.285.358h.166v.21H15.4zm.427 0h.166v.865l.46-.455h.195l-.364.362.428.684h-.198l-.357-.575-.164.166v.41h-.166zm1.016 0h.166v.21h-.166zm.481.122h.166v.288h.172v.135h-.172v.717c0 .037.006.062.02.075.012.013.037.02.074.02a.23.23 0 0 0 .078-.01v.141a.802.802 0 0 1-.136.014.23.23 0 0 1-.15-.043.15.15 0 0 1-.052-.123v-.79h-.141v-.136h.141zm-3.562.258c.081 0 .15.012.207.038.057.024.1.061.13.11s.045.106.045.173h-.176c-.006-.111-.075-.167-.208-.167a.285.285 0 0 0-.164.041.134.134 0 0 0-.06.117c0 .035.015.065.045.088.03.024.08.044.15.06l.16.039a.47.47 0 0 1 .224.105c.047.046.07.108.07.186a.3.3 0 0 1-.052.175.327.327 0 0 1-.152.116.585.585 0 0 1-.226.041c-.136 0-.24-.03-.309-.088-.069-.059-.105-.149-.109-.269h.176c.004.037.01.065.017.084a.166.166 0 0 0 .034.054c.044.043.112.065.204.065a.31.31 0 0 0 .177-.045.139.139 0 0 0 .067-.119.116.116 0 0 0-.038-.09.287.287 0 0 0-.124-.055l-.156-.038a1.248 1.248 0 0 1-.159-.05.359.359 0 0 1-.098-.061.22.22 0 0 1-.058-.083.32.32 0 0 1-.016-.108c0-.096.036-.174.109-.232a.45.45 0 0 1 .29-.087zm1.035 0a.46.46 0 0 1 .202.043.351.351 0 0 1 .187.212.577.577 0 0 1 .023.126h-.168a.256.256 0 0 0-.078-.168.242.242 0 0 0-.17-.06.248.248 0 0 0-.155.05.306.306 0 0 0-.1.144.662.662 0 0 0-.034.224.58.58 0 0 0 .035.214.299.299 0 0 0 .101.135.261.261 0 0 0 .157.048c.142 0 .227-.084.256-.252h.167a.519.519 0 0 1-.065.22.35.35 0 0 1-.146.138.464.464 0 0 1-.216.048.448.448 0 0 1-.246-.066.441.441 0 0 1-.161-.192.703.703 0 0 1-.057-.293c0-.085.01-.163.032-.233a.522.522 0 0 1 .095-.182.403.403 0 0 1 .15-.117.453.453 0 0 1 .191-.04zm.603.03h.166v1.046H15.4zm1.443 0h.166v1.046h-.166zm-5.05.618c-.08 0-.2.204-.356.611-.155.407-.308.977-.459 1.71.281-.312.509-.662.683-1.05.175-.387.262-.72.262-.999a.455.455 0 0 0-.036-.197c-.025-.05-.056-.075-.093-.075zm4.662 1.797c-.221 0-.431.188-.629.563-.197.376-.296.722-.296 1.038 0 .12.029.216.088.29a.273.273 0 0 0 .223.111c.221 0 .43-.188.625-.565.196-.377.294-.725.294-1.043a.457.457 0 0 0-.083-.29.269.269 0 0 0-.222-.104zm-2.848.007c-.146 0-.285.11-.417.333-.133.222-.2.51-.2.866.566-.159.849-.452.849-.881 0-.212-.077-.318-.232-.318Z"],"numpy":["013243","M10.315 4.876L6.3048 2.8517l-4.401 2.1965 4.1186 2.0683zm1.8381.9277l4.2045 2.1223-4.3622 2.1906-4.125-2.0718zm5.6153-2.9213l4.3193 2.1658-3.863 1.9402-4.2131-2.1252zm-1.859-.9329L12.021 0 8.1742 1.9193l4.0068 2.0208zm-3.0401 16.7443V24l4.7107-2.3507-.0053-5.3085zm4.7037-4.2057l-.0052-5.2528-4.6985 2.3356v5.2546zm5.6553-.9845v5.327l-4.0178 2.0052-.0029-5.3028zm0-1.8626V6.4214l-4.0253 2.001.0034 5.2633zM11.2062 11.571L8.0333 9.9756v6.895s-3.8804-8.2564-4.2399-8.998c-.0463-.0957-.2371-.2007-.2858-.2262C2.8118 7.2812.773 6.2485.773 6.2485V18.43l2.8204 1.5076v-6.3674s3.8392 7.3775 3.878 7.458c.0389.0807.4245.8582.8362 1.1314.5485.363 2.8992 1.7766 2.8992 1.7766z"],"pandas":["150458","M16.922 0h2.623v18.104h-2.623zm-4.126 12.94h2.623v2.57h-2.623zm0-7.037h2.623v5.446h-2.623zm0 11.197h2.623v5.446h-2.623zM4.456 5.896h2.622V24H4.455zm4.213 2.559h2.623v2.57H8.67zm0 4.151h2.623v5.447H8.67zm0-11.187h2.623v5.446H8.67Z"],"graphql":["E10098","M12.002 0a2.138 2.138 0 1 0 0 4.277 2.138 2.138 0 1 0 0-4.277zm8.54 4.931a2.138 2.138 0 1 0 0 4.277 2.138 2.138 0 1 0 0-4.277zm0 9.862a2.138 2.138 0 1 0 0 4.277 2.138 2.138 0 1 0 0-4.277zm-8.54 4.931a2.138 2.138 0 1 0 0 4.276 2.138 2.138 0 1 0 0-4.276zm-8.542-4.93a2.138 2.138 0 1 0 0 4.276 2.138 2.138 0 1 0 0-4.277zm0-9.863a2.138 2.138 0 1 0 0 4.277 2.138 2.138 0 1 0 0-4.277zm8.542-3.378L2.953 6.777v10.448l9.049 5.224 9.047-5.224V6.777zm0 1.601 7.66 13.27H4.34zm-1.387.371L3.97 15.037V7.363zm2.774 0 6.646 3.838v7.674zM5.355 17.44h13.293l-6.646 3.836z"],"express":["000000","M24 18.588a1.529 1.529 0 01-1.895-.72l-3.45-4.771-.5-.667-4.003 5.444a1.466 1.466 0 01-1.802.708l5.158-6.92-4.798-6.251a1.595 1.595 0 011.9.666l3.576 4.83 3.596-4.81a1.435 1.435 0 011.788-.668L21.708 7.9l-2.522 3.283a.666.666 0 000 .994l4.804 6.412zM.002 11.576l.42-2.075c1.154-4.103 5.858-5.81 9.094-3.27 1.895 1.489 2.368 3.597 2.275 5.973H1.116C.943 16.447 4.005 19.009 7.92 17.7a4.078 4.078 0 002.582-2.876c.207-.666.548-.78 1.174-.588a5.417 5.417 0 01-2.589 3.957 6.272 6.272 0 01-7.306-.933 6.575 6.575 0 01-1.64-3.858c0-.235-.08-.455-.134-.666A88.33 88.33 0 010 11.577zm1.127-.286h9.654c-.06-3.076-2.001-5.258-4.59-5.278-2.882-.04-4.944 2.094-5.071 5.264z"],"flutter":["02569B","M14.314 0L2.3 12 6 15.7 21.684.013h-7.357zm.014 11.072L7.857 17.53l6.47 6.47H21.7l-6.46-6.468 6.46-6.46h-7.37z"],"android":["34A853","M18.4395 5.5586c-.675 1.1664-1.352 2.3318-2.0274 3.498-.0366-.0155-.0742-.0286-.1113-.043-1.8249-.6957-3.484-.8-4.42-.787-1.8551.0185-3.3544.4643-4.2597.8203-.084-.1494-1.7526-3.021-2.0215-3.4864a1.1451 1.1451 0 0 0-.1406-.1914c-.3312-.364-.9054-.4859-1.379-.203-.475.282-.7136.9361-.3886 1.5019 1.9466 3.3696-.0966-.2158 1.9473 3.3593.0172.031-.4946.2642-1.3926 1.0177C2.8987 12.176.452 14.772 0 18.9902h24c-.119-1.1108-.3686-2.099-.7461-3.0683-.7438-1.9118-1.8435-3.2928-2.7402-4.1836a12.1048 12.1048 0 0 0-2.1309-1.6875c.6594-1.122 1.312-2.2559 1.9649-3.3848.2077-.3615.1886-.7956-.0079-1.1191a1.1001 1.1001 0 0 0-.8515-.5332c-.5225-.0536-.9392.3128-1.0488.5449zm-.0391 8.461c.3944.5926.324 1.3306-.1563 1.6503-.4799.3197-1.188.0985-1.582-.4941-.3944-.5927-.324-1.3307.1563-1.6504.4727-.315 1.1812-.1086 1.582.4941zM7.207 13.5273c.4803.3197.5506 1.0577.1563 1.6504-.394.5926-1.1038.8138-1.584.4941-.48-.3197-.5503-1.0577-.1563-1.6504.4008-.6021 1.1087-.8106 1.584-.4941z"],"html5":["E34F26","M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.23-2.622L5.412 4.41l.698 8.01h9.126l-.326 3.426-2.91.804-2.955-.81-.188-2.11H6.248l.33 4.171L12 19.351l5.379-1.443.744-8.157H8.531z"],"css3":["1572B6","M1.5 0h21l-1.91 21.563L11.977 24l-8.565-2.438L1.5 0zm17.09 4.413L5.41 4.41l.213 2.622 10.125.002-.255 2.716h-6.64l.24 2.573h6.182l-.366 3.523-2.91.804-2.956-.81-.188-2.11h-2.61l.29 3.855L12 19.288l5.373-1.53L18.59 4.414z"],"coursera":["0056D2","M11.374 23.977c-4.183-.21-8.006-2.626-9.959-6.347-2.097-3.858-1.871-8.864.732-12.454C4.748 1.338 9.497-.698 14.281.23c4.583.857 8.351 4.494 9.358 8.911 1.122 4.344-.423 9.173-3.925 12.04-2.289 1.953-5.295 2.956-8.34 2.797zm7.705-8.05a588.737 588.737 0 0 0-3.171-1.887c-.903 1.483-2.885 2.248-4.57 1.665-2.024-.639-3.394-2.987-2.488-5.134.801-2.009 2.79-2.707 4.357-2.464a4.19 4.19 0 0 1 2.623 1.669c1.077-.631 2.128-1.218 3.173-1.855-2.03-3.118-6.151-4.294-9.656-2.754-3.13 1.423-4.89 4.68-4.388 7.919.54 3.598 3.73 6.486 7.716 6.404a7.664 7.664 0 0 0 6.404-3.563z"]};
+/* Organizations without a public icon get a monogram tile: key -> [text, hex] */
+const MONO = {
+  wateen:["W","D7252A"], nanotechx:["NX","1E4FA3"], maju:["MAJU","1B3A6B"], bytewise:["BW","5B3FD1"], xpert:["360","0E8FD6"],
+  swoc:["SWoC","EA6A1F"], gssoc:["GS","E6900F"], wob:["WoB","5457E0"], mckinsey:["McK","0B2A4A"], stanford:["S","8C1515"],
+  mit:["MIT","A31F34"], neuromatch:["NMA","0F766E"], deeplearning:["DL","D6264F"], greatlearning:["GL","0B5394"],
+  openclassrooms:["OC","7451EB"], hec:["HEC","1F6B45"], icpc:["ICPC","1D4ED8"], pug:["PUG","0F6CBD"], maventech:["MT","A8322D"],
+  itcn:["ITCN","0F766E"], oneguide:["OG","15803D"], jinnah:["JL","1B3A6B"], acm:["ACM","0085CA"], hacktoberfest:["HF","8B3A62"],
+  mlsc:["MLSC","0F6CBD"], netlify:["NF","0F8A8A"], phone:["☎","3A4A63"], mail:["@","1F3A8A"]
+};
+const ALIAS = { aws:"amazonaws", node:"nodedotjs", next:"nextdotjs", dev:"devdotto", cpp:"cplusplus", java:"openjdk", js:"javascript", azure:"microsoftazure", sklearn:"scikitlearn" };
+
+function luma(h){ const n = parseInt(h, 16), r = (n >> 16 & 255) / 255, g = (n >> 8 & 255) / 255, b = (n & 255) / 255; return .2126 * r + .7152 * g + .0722 * b; }
+function logo(key, size){
+  key = ALIAS[key] || key; const s = size || 40;
+  if (ICONS[key]) {
+    const hex = ICONS[key][0], L = luma(hex);
+    return `<span class="lg${L < .12 ? " dark" : ""}" style="--s:${s}px;--c:#${hex};--ink:${L > .62 ? "#111" : "#fff"}" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="${ICONS[key][1]}"/></svg></span>`;
+  }
+  const m = MONO[key] || [key.slice(0, 2).toUpperCase(), "3A4A63"];
+  return `<span class="lg" style="--s:${s}px;--c:#${m[1]}" aria-hidden="true"><b style="${m[0].length > 3 ? "font-size:calc(var(--s)*.24)" : ""}">${m[0]}</b></span>`;
+}
+function icon(key){ key = ALIAS[key] || key; return ICONS[key] ? `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="${ICONS[key][1]}"/></svg>` : ""; }
+
+/* ---------- Content: edit this object to update the site ---------- */
 const D = {
+  orbitInner: ["microsoft","google","github","cisco","amazonaws","fortinet"],
+  orbitOuter: ["wateen","meta","postman","react","python","pytorch","linux","mckinsey","stanford","icpc"],
+  orgs: [["wateen","Wateen Telecom"],["nanotechx","NanoTechx"],["microsoft","Microsoft"],["google","Google"],["github","GitHub"],["cisco","Cisco"],["amazonaws","AWS"],["fortinet","Fortinet"],["mckinsey","McKinsey & Company"],["meta","Meta"],["stanford","Stanford"],["icpc","ICPC"],["bytewise","Bytewise"],["xpert","360XpertSolutions"],["swoc","Social Winter of Code"],["gssoc","GirlScript Summer of Code"],["postman","Postman"],["hackerrank","HackerRank"]],
   trace: [
-    ["MAJU · BS Computer Science", "2021"],
-    ["GDSC MAJU · Android Lead", "2023"],
-    ["GirlScript SoC · Open Source", "2023"],
-    ["Microsoft Learn Student Ambassador", "2023"],
-    ["360XpertSolutions · Front-end Intern", "2024"],
-    ["Bytewise · React Native Mentor", "2024"],
-    ["McKinsey Forward Program", "2024"],
-    ["NanoTechx · SOC Analyst", "2025"],
-    ["Wateen Telecom · Resident Engineer", "2026"]
+    ["MAJU · BS Computer Science","2021"],["GDSC MAJU · Android Lead","2023"],["GirlScript SoC · Open Source","2023"],["Microsoft Learn Student Ambassador","2023"],
+    ["360XpertSolutions · Front-end Intern","2024"],["Bytewise · React Native Mentor","2024"],["McKinsey Forward Program","2024"],["NanoTechx · SOC Analyst","2025"],["Wateen Telecom · Resident Engineer","2026"]
   ],
-  stats: [
-    ["3.46", "/4", "CGPA, BS Computer Science"],
-    ["3", "×", "Dean's List of Honor"],
-    ["CERTS", "+", "certifications & courses"],
-    ["150", "+", "members in MLSA Karachi community"],
-    ["12", "+", "tech events organized & attended"],
-    ["10", "+", "merged PRs in GirlScript SoC"]
-  ],
+  stats: [["3.46","/4","CGPA, BS Computer Science"],["3","×","Dean's List of Honor"],["CERTS","+","certifications & courses"],["150","+","members in MLSA Karachi community"],["EVENTS","+","tech events organized & attended"],["10","+","merged PRs in GirlScript SoC"]],
   jobs: [
-    { title:"Resident Engineer, Network Operations Center", org:"Wateen Telecom Limited", type:"Full-time · On-site · Karachi", when:"Aug 2026 – Present", dur:"Current", current:true,
+    { logo:"wateen", title:"Resident Engineer, Network Operations Center", org:"Wateen Telecom Limited", type:"Full-time · On-site · Karachi", when:"Aug 2026 – Present", current:true,
       pts:["Design, implement and maintain <strong>LAN/WAN systems</strong> and network protocols to keep enterprise services running smoothly.",
            "Troubleshoot and resolve network incidents promptly, <strong>minimizing downtime</strong> and optimizing network performance.",
            "Hands-on work with enterprise network infrastructure and secure services: distributed systems, infrastructure reliability and fault isolation."],
       tags:["LAN/WAN","Routing & switching","NOC operations","Troubleshooting","Fault isolation"] },
-    { title:"SOC Analyst", org:"NanoTechx", type:"Full-time", when:"Jun 2025 – Jul 2026", dur:"1 yr 2 mos",
+    { logo:"nanotechx", title:"SOC Analyst", org:"NanoTechx", type:"Full-time", when:"Jun 2025 – Jul 2026 · 1 yr 2 mos",
       pts:["Worked in the <strong>Security Operations Center</strong>, monitoring and responding to security events across client environments."],
       tags:["Security operations","Threat monitoring","Incident response"] },
-    { title:"Mentor", org:"Winter of Blockchain", type:"Open-source program by Script Foundation", when:"Aug 2024 – Nov 2024", dur:"4 mos",
+    { logo:"wob", title:"Mentor", org:"Winter of Blockchain", type:"Open-source program by Script Foundation", when:"Aug 2024 – Nov 2024",
       pts:["Mentored students entering open-source development in a program built around <strong>unified, real-time problem solving</strong>."],
-      tags:["Mentorship","Open source","Code review"], link:["https://lnkd.in/p/d4QC8DyV","View post"] },
-    { title:"Open Source Contributor", org:"Social Winter of Code", type:"Remote", when:"Sep 2024 – Nov 2024", dur:"3 mos",
-      pts:["Contributed to <strong>LLM-based applications</strong> by integrating APIs and databases for real-time data access.",
-           "Worked with <strong>CI/CD pipelines</strong> and Git-based workflows for collaborative development, testing and code updates.",
-           "Developed and integrated <strong>RESTful APIs</strong> connecting machine learning models with application components."],
-      tags:["LLM apps","REST APIs","CI/CD","Git"] },
-    { title:"McKinsey Forward Program", org:"McKinsey & Company", type:"Apprenticeship", when:"Apr 2024 – Nov 2024", dur:"8 mos",
+      tags:["Mentorship","Open source","Code review"], link:"https://lnkd.in/p/d4QC8DyV" },
+    { logo:"mckinsey", title:"McKinsey Forward Program", org:"McKinsey & Company", type:"Apprenticeship", when:"Apr 2024 – Nov 2024",
       pts:["Completed McKinsey's Forward program on structured problem solving, adaptability, communication and digital skills."],
       tags:["Problem solving","Communication","Leadership"] },
-    { title:"React Native Track Lead & Mentor", org:"Bytewise Limited", type:"Bytewise Fellowship · Remote", when:"Jan 2024 – Apr 2024", dur:"4 mos",
+    { logo:"bytewise", title:"React Native Track Lead & Mentor", org:"Bytewise Limited", type:"Bytewise Fellowship · Remote", when:"Jan 2024 – Apr 2024",
       pts:["Led the <strong>React Native track</strong>, mentoring fellows to become mobile developers.",
            "Provided learning material, answered queries, ran <strong>code reviews</strong>, helped debug and held online classes.",
            "Designed skill-building tasks and supported fellows through projects to successful outcomes."],
-      tags:["React Native","Mentorship","Code review","Teaching"], link:["https://lnkd.in/p/d9JhyVMw","View post"] },
-    { title:"Front-end Developer Intern", org:"360XpertSolutions", type:"Internship · On-site · Karachi", when:"Jan 2024 – Mar 2024", dur:"3 mos",
+      tags:["react:React Native","Mentorship","Code review","Teaching"], link:"https://lnkd.in/p/d9JhyVMw" },
+    { logo:"xpert", title:"Front-end Developer Intern", org:"360XpertSolutions", type:"Internship · On-site · Karachi", when:"Jan 2024 – Mar 2024",
       pts:["Built reusable, responsive UI components with <strong>React and Next.js</strong>.",
            "Assisted backend work with <strong>Nest.js, Node.js and FastAPI</strong>, including REST and GraphQL API integration.",
            "Worked with the team to troubleshoot issues, improve performance and ship features across frontend and backend."],
-      tags:["React","Next.js","Nest.js","Node.js","FastAPI","GraphQL"], link:["https://lnkd.in/p/dGYRACNR","View post"] },
-    { title:"Open Source Contributor · Top Contributor", org:"Social Winter of Code, Season 4", type:"Contract · Remote (India)", when:"Dec 2023 – Feb 2024", dur:"3 mos",
-      pts:["Selected among the <strong>top 100 contributors</strong> in the front-end domain (HTML, CSS, JS).",
-           "Contributed to multiple web projects under experienced mentors, handled pull requests and helped new contributors get started with GitHub."],
-      tags:["HTML","CSS","JavaScript","GitHub"], link:["https://lnkd.in/p/d9N72p5W","View post"] },
-    { title:"Open Source Contributor", org:"GirlScript Summer of Code", type:"Contract · Remote (India)", when:"May 2023 – Aug 2023", dur:"4 mos",
-      pts:["Created <strong>10+ pull requests that were merged</strong> into front-end open-source projects.",
-           "Collaborated with developers worldwide, following the SDLC and GitHub workflows."],
-      tags:["Front-end","GitHub","SDLC"] }
+      tags:["react:React","next:Next.js","nestjs:Nest.js","node:Node.js","fastapi:FastAPI","graphql:GraphQL"], link:"https://lnkd.in/p/dGYRACNR" }
   ],
   projects: [
     { name:"VisionGlyco", sub:"Microsoft Imagine Cup 2024", wide:true, metric:["< 1 s","iris inference"],
       text:"End-to-end non-invasive glucose monitoring from eye images captured on a smartphone. A trained convolutional neural network runs a real-time iris image inference pipeline in under one second.",
-      tags:["CNN","Computer vision","Mobile","Healthcare"] },
+      tags:["tensorflow:CNN","opencv:Computer vision","Mobile","Healthcare"] },
     { name:"BrainCare", sub:"Final year project", wide:true, metric:["2","user panels"],
       text:"React Native app for caregivers of dementia patients. Caretakers track the patient's location, manage medication and access e-medical support; the patient panel has SOS, medication reminders and brain-exercise games.",
-      tags:["React Native","Location tracking","Healthcare"] },
+      tags:["react:React Native","firebase:Firebase","Location tracking","Healthcare"] },
     { name:"Low-Light Image Enhancement", sub:"Generative AI coursework", metric:["27.82 dB","PSNR"],
-      text:"Lightweight UNet with an attention mechanism for real-time low-light image enhancement.",
-      tags:["PyTorch","UNet","Attention"] },
+      text:"Lightweight UNet with an attention mechanism for real-time low-light image enhancement.", tags:["pytorch:PyTorch","UNet","Attention"] },
     { name:"HDR Tone-Mapping Quality", sub:"Human-computer interaction coursework", metric:["8","algorithms evaluated"],
-      text:"Objective quality assessment of HDR tone-mapped images using multi-scale structural similarity and natural image statistics on the TMQI dataset.",
-      tags:["Image quality","MS-SSIM","TMQI"] },
+      text:"Objective quality assessment of HDR tone-mapped images using multi-scale structural similarity and natural image statistics on the TMQI dataset.", tags:["python:Python","MS-SSIM","TMQI"] },
     { name:"PointNet 3D Segmentation", sub:"Machine learning coursework", metric:["S3DIS","3D point clouds"],
-      text:"Re-implemented the PointNet paper in PyTorch for direct per-point semantic segmentation and classification of 3D point clouds.",
-      tags:["PyTorch","3D vision","Segmentation"] }
+      text:"Re-implemented the PointNet paper in PyTorch for direct per-point semantic segmentation and classification of 3D point clouds.", tags:["pytorch:PyTorch","3D vision","Segmentation"] }
   ],
   skills: [
-    ["Networking & Infrastructure", ["LAN / WAN","Network protocols","IPv4 addressing","Troubleshooting","Fault isolation","Cisco Packet Tracer","Linux"]],
-    ["Security", ["SOC operations","Threat monitoring","Next-Generation Firewall","Fortinet","Cloud security basics"]],
-    ["Languages", ["Python","C++","JavaScript","Java","MATLAB","SQL"]],
-    ["AI / ML", ["PyTorch","TensorFlow","OpenCV","scikit-learn","NumPy","Pandas","CNNs","UNet"]],
-    ["Web & Mobile", ["React","Next.js","React Native","Node.js","Express.js","Nest.js","FastAPI","REST & GraphQL","HTML5 / CSS3"]],
-    ["Data & Cloud", ["PostgreSQL","MySQL","MongoDB","Firebase","AWS","Microsoft Azure","Git & GitHub","CI/CD","Postman"]],
+    ["Networking & Infrastructure", ["LAN / WAN","Network protocols","IPv4 addressing","Troubleshooting","Fault isolation","cisco:Cisco Packet Tracer","linux:Linux"]],
+    ["Security", ["SOC operations","Threat monitoring","fortinet:Next-Generation Firewall","fortinet:Fortinet","Cloud security"]],
+    ["Languages", ["python:Python","cpp:C++","js:JavaScript","java:Java","MATLAB","SQL"]],
+    ["AI / ML", ["pytorch:PyTorch","tensorflow:TensorFlow","opencv:OpenCV","sklearn:scikit-learn","numpy:NumPy","pandas:Pandas","CNNs","UNet"]],
+    ["Web & Mobile", ["react:React","next:Next.js","react:React Native","node:Node.js","express:Express.js","nestjs:Nest.js","fastapi:FastAPI","graphql:GraphQL","html5:HTML5","css3:CSS3"]],
+    ["Data & Cloud", ["postgresql:PostgreSQL","mysql:MySQL","mongodb:MongoDB","firebase:Firebase","aws:AWS","azure:Azure","git:Git","github:GitHub","postman:Postman"]],
     ["Leadership", ["Community building","Public speaking","Event management","Team coordination","Strategy implementation","Mentorship"]],
-    ["Design tools", ["Figma","Canva","Adobe Photoshop","Adobe Illustrator"]],
-    ["Problem solving", ["Data structures","Algorithms","Competitive programming","OOP"]]
+    ["Design tools", ["figma:Figma","canva:Canva","adobephotoshop:Photoshop","adobeillustrator:Illustrator"]],
+    ["Problem solving", ["Data structures","Algorithms","Competitive programming","OOP","hackerrank:HackerRank"]]
   ],
   courses: ["Generative AI (LLMs)","Machine Learning","Computer Vision","Human-Computer Interaction","Data Structures & Algorithms","Design & Analysis of Algorithms","Parallel Computing","Probability & Statistics","Linear Algebra","Numerical Computing","Applied Physics"],
-  // cat: sec | cloud | ai | dev | cp ; feat = highlighted
+  /* [name, issuer, logo, date, category, featured] */
   certs: [
-    ["Introduction to the Next Generation Firewall 1.0","Fortinet","Oct 2026","sec",1],
-    ["Fortinet Cybersecurity and Cloud Fundamentals 1.0 (NSE)","Fortinet","Oct 2026","sec",1],
-    ["Networking Basics","Cisco Networking Academy","Oct 2026","sec",1],
-    ["Linux Essentials","Cisco Networking Academy","Dec 2023","sec"],
-    ["AWS Cloud Quest: Cloud Practitioner","Amazon Web Services","Apr 2024","cloud",1],
-    ["AWS Knowledge: Cloud Essentials","Amazon Web Services","Apr 2024","cloud"],
-    ["AWS Cloud Practitioner Essentials","Amazon Web Services","Apr 2024","cloud"],
-    ["Microsoft Cloud Skills Challenge: Git & GitHub","Microsoft Imagine Cup","Oct 2023","cloud"],
-    ["A Data Engineering Mastery Workshop","Microsoft Imagine Cup","Nov 2023","cloud"],
-    ["Google AI Essentials","Google","","ai",1],
-    ["Machine Learning Specialization","DeepLearning.AI & Stanford Online","94 hours","ai",1],
-    ["NeuroAI","Neuromatch Academy","","ai",1],
-    ["The Human Brain (ongoing)","MIT OpenCourseWare","","ai"],
-    ["Machine Learning","Microsoft Imagine Cup","","ai"],
-    ["Generative AI & LLMs","Microsoft Imagine Cup","","ai"],
-    ["Code in Place","Stanford University","2025","dev",1],
-    ["Postman API Fundamentals Student Expert","Postman","Apr 2024","dev",1],
-    ["Career Essentials in Software Development","Microsoft & LinkedIn","Sep 2023","dev"],
-    ["Introduction to Git and GitHub","Google","Nov 2024","dev"],
-    ["Foundations of Git","GitKraken","Aug 2024","dev"],
-    ["Introduction to Android Mobile Application Development","Meta","Apr 2023","dev"],
-    ["React JS Workshop (3 days)","Mohammad Ali Jinnah University","Mar 2023","dev"],
-    ["Programming in HTML5 with JavaScript and CSS3","OpenClassrooms","Jun 2022","dev"],
-    ["Python for Beginners","Microsoft Imagine Cup","Oct 2023","dev"],
-    ["Introduction to SQL","DataCamp","Mar 2023","dev"],
-    ["Intermediate SQL","DataCamp","","dev"],
-    ["Programming Foundations: Fundamentals","LinkedIn","Sep 2023","dev"],
-    ["Programming Foundations: Beyond the Fundamentals","LinkedIn","Sep 2023","dev"],
-    ["Introduction to Career Skills in Software Development","LinkedIn","Aug 2023","dev"],
-    ["Learning C++","LinkedIn","Apr 2023","dev"],
-    ["CPA: Programming Essentials in C++","Cisco","Dec 2022","dev"],
-    ["Data Structures and Algorithms in C++","Great Learning","Sep 2023","cp"],
-    ["Problem Solving (Basic)","HackerRank","May 2023","cp"],
-    ["ICPC Asia Topi Preliminary: Certificate of Achievement","ICPC","Nov 2024","cp",1],
-    ["Imagine Cup 2024 Participation","HEC Pakistan","Aug 2024","cp",1],
-    ["Google Solution Challenge 2024 Submission","Google","Mar 2024","cp"],
-    ["Open Source Contributor","Social Winter of Code","Nov 2023","cp"],
-    ["Microsoft Learn Student Ambassador","Microsoft","Nov 2023","cp"]
+    ["Introduction to the Next Generation Firewall 1.0","Fortinet","fortinet","Oct 2026","sec",1],
+    ["Fortinet Cybersecurity and Cloud Fundamentals 1.0 (NSE)","Fortinet","fortinet","Oct 2026","sec",1],
+    ["Networking Basics","Cisco Networking Academy","cisco","Oct 2026","sec",1],
+    ["Linux Essentials","Cisco Networking Academy","cisco","Dec 2023","sec"],
+    ["AWS Cloud Quest: Cloud Practitioner","Amazon Web Services","aws","Apr 2024","cloud",1],
+    ["AWS Knowledge: Cloud Essentials","Amazon Web Services","aws","Apr 2024","cloud"],
+    ["AWS Cloud Practitioner Essentials","Amazon Web Services","aws","Apr 2024","cloud"],
+    ["Microsoft Cloud Skills Challenge: Git & GitHub","Microsoft Imagine Cup","microsoft","Oct 2023","cloud"],
+    ["A Data Engineering Mastery Workshop","Microsoft Imagine Cup","microsoft","Nov 2023","cloud"],
+    ["Google AI Essentials","Google","google","","ai",1],
+    ["Machine Learning Specialization","DeepLearning.AI & Stanford Online","deeplearning","94 hours","ai",1],
+    ["NeuroAI","Neuromatch Academy","neuromatch","","ai",1],
+    ["The Human Brain (ongoing)","MIT OpenCourseWare","mit","","ai"],
+    ["Machine Learning","Microsoft Imagine Cup","microsoft","","ai"],
+    ["Generative AI & LLMs","Microsoft Imagine Cup","microsoft","","ai"],
+    ["Code in Place","Stanford University","stanford","2025","dev",1],
+    ["Postman API Fundamentals Student Expert","Postman","postman","Apr 2024","dev",1],
+    ["Career Essentials in Software Development","Microsoft & LinkedIn","microsoft","Sep 2023","dev"],
+    ["Introduction to Git and GitHub","Google","google","Nov 2024","dev"],
+    ["Foundations of Git","GitKraken","gitkraken","Aug 2024","dev"],
+    ["Introduction to Android Mobile Application Development","Meta","meta","Apr 2023","dev"],
+    ["React JS Workshop (3 days)","Mohammad Ali Jinnah University","maju","Mar 2023","dev"],
+    ["Programming in HTML5 with JavaScript and CSS3","OpenClassrooms","openclassrooms","Jun 2022","dev"],
+    ["Python for Beginners","Microsoft Imagine Cup","microsoft","Oct 2023","dev"],
+    ["Introduction to SQL","DataCamp","datacamp","Mar 2023","dev"],
+    ["Intermediate SQL","DataCamp","datacamp","","dev"],
+    ["Programming Foundations: Fundamentals","LinkedIn","linkedin","Sep 2023","dev"],
+    ["Programming Foundations: Beyond the Fundamentals","LinkedIn","linkedin","Sep 2023","dev"],
+    ["Introduction to Career Skills in Software Development","LinkedIn","linkedin","Aug 2023","dev"],
+    ["Learning C++","LinkedIn","linkedin","Apr 2023","dev"],
+    ["CPA: Programming Essentials in C++","Cisco","cisco","Dec 2022","dev"],
+    ["Data Structures and Algorithms in C++","Great Learning","greatlearning","Sep 2023","cp"],
+    ["Problem Solving (Basic)","HackerRank","hackerrank","May 2023","cp"],
+    ["ICPC Asia Topi Preliminary: Certificate of Achievement","ICPC","icpc","Nov 2024","cp",1],
+    ["Imagine Cup 2024 Participation","HEC Pakistan","hec","Aug 2024","cp",1],
+    ["Google Solution Challenge 2024 Submission","Google","google","Mar 2024","cp"],
+    ["Open Source Contributor","Social Winter of Code","swoc","Nov 2023","cp"],
+    ["Microsoft Learn Student Ambassador","Microsoft","microsoft","Nov 2023","cp"]
   ],
   certCats: { all:"All", sec:"Security & Networking", cloud:"Cloud & Data", ai:"AI / ML", dev:"Development", cp:"Competitions & Programs" },
+  /* [date, title, text, logo, highlighted, link] */
   awards: [
-    ["2021–25","Merit-based scholarship","Awarded for the full BS Computer Science program at Mohammad Ali Jinnah University.",1],
-    ["2024","Dean's List of Honor","Dean's Award for Outstanding Academic Performance, MAJU. Presented by Prof. Dr. Shaukat Wasi.",1,"https://lnkd.in/p/dv8HpYAT"],
-    ["2023","Dean's List of Honor, Spring 2023","Dean's Award for Outstanding Academic Performance, MAJU. Presented by Dean Muhammad Khaliq-ur-Rahman Raazi Syed.",1,"https://lnkd.in/p/dMYK-wh9"],
-    ["2023","Dean's List of Honor, Spring 2022","Dean's Award for Outstanding Academic Performance, MAJU. Presented by Dean Muhammad Khaliq-ur-Rahman Raazi Syed.",1,"https://lnkd.in/p/dCasqeqB"],
-    ["2024","Top Contributor, Social Winter of Code","Selected as a top contributor in the front-end domain (HTML, CSS, JS) in SWOC's three-month open-source program.",1],
-    ["2024–25","ICPC Asia Topi Preliminary","Certificate of Achievement in the International Collegiate Programming Contest, Asia Topi preliminary round.",1],
-    ["2025","Selected for Stanford Code in Place","Selected for Stanford University's Code in Place program."],
-    ["2024","Microsoft Imagine Cup 2024","Competed with VisionGlyco, a non-invasive glucose monitoring system (HEC Pakistan certificate)."],
-    ["2024","Google Solution Challenge 2024","Submitted a project to Google's global Solution Challenge."],
-    ["2024","Beta Microsoft Learn Student Ambassador","Promoted to Beta MLSA for community impact.",0,"https://lnkd.in/p/dNfkpB6d"],
-    ["2023","Microsoft Learn Student Ambassador","Selected into Microsoft's global program for student campus leaders."],
-    ["2023","3rd Position, Jinnah League","Competitive programming competition."],
-    ["2023","7th Rank, Speed Programming (ACM-MAJU)","Rapid coding with algorithms and data structures under time pressure."],
-    ["2023","Silver level, HackerRank Problem Solving","Recognized for algorithmic problem-solving proficiency."],
-    ["2023","Meta Hacker Cup 2023, Round 1 qualifier","Qualified to Round 1 and solved problem C1."],
-    ["2024","Hacktoberfest 2024","Completed open-source contributions during Hacktoberfest.",0,"https://lnkd.in/p/dggvtezn"]
+    ["2021–25","Merit-based scholarship","Awarded for the full BS Computer Science program at Mohammad Ali Jinnah University.","maju",1],
+    ["Dec 2024","Dean's List of Honor","Dean's Award for Outstanding Academic Performance, MAJU. Presented by Prof. Dr. Shaukat Wasi.","maju",1,"https://lnkd.in/p/dv8HpYAT"],
+    ["Dec 2023","Dean's List of Honor, Spring 2023","Dean's Award for Outstanding Academic Performance, MAJU. Presented by Dean Muhammad Khaliq-ur-Rahman Raazi Syed.","maju",1,"https://lnkd.in/p/dMYK-wh9"],
+    ["Jun 2023","Dean's List of Honor, Spring 2022","Dean's Award for Outstanding Academic Performance, MAJU. Presented by Dean Muhammad Khaliq-ur-Rahman Raazi Syed.","maju",1,"https://lnkd.in/p/dCasqeqB"],
+    ["Mar 2024","Top Contributor, Social Winter of Code","Selected as a top contributor in the front-end domain (HTML, CSS, JS) of SWOC's three-month open-source program.","swoc",1,"https://lnkd.in/p/d9N72p5W"],
+    ["2024–25","ICPC Asia Topi Preliminary","Certificate of Achievement in the International Collegiate Programming Contest, Asia Topi preliminary round.","icpc",1],
+    ["Dec 2023","Founded MLSA-MAJU","Founded the Microsoft Learn Student Community at Mohammad Ali Jinnah University.","microsoft",0,"https://lnkd.in/p/dA8VShuB"],
+    ["Apr 2024","Became Beta Microsoft Learn Student Ambassador","Promoted to Beta MLSA for community impact.","microsoft",0,"https://lnkd.in/p/dNfkpB6d"],
+    ["Nov 2023","Microsoft Learn Student Ambassador","Selected into Microsoft's global program for student campus leaders.","microsoft"],
+    ["2025","Selected for Stanford Code in Place","Selected for Stanford University's Code in Place program.","stanford"],
+    ["2024","Microsoft Imagine Cup 2024","Competed with VisionGlyco, a non-invasive glucose monitoring system (HEC Pakistan certificate).","hec"],
+    ["2024","Google Solution Challenge 2024","Submitted a project to Google's global Solution Challenge.","google"],
+    ["2023","3rd Position, Jinnah League","Competitive programming competition.","jinnah"],
+    ["May 2023","7th Rank, Speed Programming (ACM-MAJU)","Rapid coding with algorithms and data structures under time pressure.","acm"],
+    ["Apr 2023","Silver level, HackerRank Problem Solving","Recognized for algorithmic problem-solving proficiency.","hackerrank"],
+    ["2023","Meta Hacker Cup 2023, Round 1 qualifier","Qualified to Round 1 and solved problem C1.","meta"]
   ],
   comm: [
-    ["5.9K","followers","Microsoft Student Ambassadors · Karachi","150+ community members","https://www.linkedin.com/company/mlsakarachi/posts/"],
-    ["1.7K","followers","Microsoft Learn Student Community · MAJU","Founded the chapter · 20 core members","https://www.linkedin.com/company/mlsa-maju/posts/"],
-    ["1.2K","followers","Google Developer Group · MAJU","Android Team Lead & core member · 10+ team","https://www.linkedin.com/company/gdgocmaju/posts/"]
+    ["microsoft","5.9K","followers","Microsoft Student Ambassadors · Karachi","150+ community members","https://www.linkedin.com/company/mlsakarachi/posts/"],
+    ["mlsc","1.7K","followers","Microsoft Learn Student Community · MAJU","Founded the chapter · 20 core members","https://www.linkedin.com/company/mlsa-maju/posts/"],
+    ["google","1.2K","followers","Google Developer Group · MAJU","Android Team Lead & core member · 10+ team","https://www.linkedin.com/company/gdgocmaju/posts/"]
   ],
-  roles: [
-    ["Nov 2023 – Jun 2025","Founder & Community Manager","Microsoft Learn Student Community, MAJU",
-      "Organized tech events with practical knowledge and career opportunities, set strategies, roadmaps and success metrics, built partnerships with companies and brands, led the core team and public speaking.","https://lnkd.in/p/dA8VShuB"],
-    ["Oct 2023 – Sep 2025","Microsoft Learn Student Ambassador · Alpha & Beta","Microsoft",
-      "Part of Microsoft's global group of campus leaders helping students build tech communities and career skills. Alpha Ambassador (Dec 2023 – Sep 2025) and Beta Ambassador (Feb 2024 – Jun 2025)."],
-    ["Jul 2023 – Jun 2025","GitHub Global Campus Student","GitHub",
-      "Organized and joined events, workshops and seminars to teach peers GitHub and promote GitHub tools in the academic community."],
-    ["Jan 2023 – Jul 2023","Android Team Lead & Core Team Member","Google Developer Student Club, MAJU",
-      "Led Android, organized coding workshops and partnered with companies and other clubs for career-focused events. Core member again for 2023–24 (Sep 2023 – Mar 2024)."],
-    ["Ongoing","Mentor","OneGuide Club, MAJU",
-      "Guide and motivate junior students through their studies and early careers."],
-    ["Dec 2023 – Jan 2024","Community Outreach","Pakistan User Group · Maventech · Cisco Community Pakistan",
-      "Represented MLSA at the Power Platform conference, helped organize the Information Security Summit 2023, and organized the Pakistan Cisco Networking Academy Instructor & Partner Conference at MAJU (Jan 16, 2024)."]
-  ],
+  /* Extracurricular: category -> [logo, when, title, org, text or [points], link] */
+  activities: {
+    "Leadership & Communities": [
+      ["microsoft","Nov 2023 – Jun 2025","Founder & Community Manager","Microsoft Learn Student Community, MAJU",
+        ["Organized tech events focused on practical knowledge and career opportunities.","Set strategies, roadmaps and success metrics for every event.","Built partnerships with companies and brands to open new opportunities for students.","Led the core team and public speaking, using Canva, Figma, Photoshop and Illustrator for community design."],"https://lnkd.in/p/dA8VShuB"],
+      ["microsoft","Oct 2023 – Sep 2025","Microsoft Learn Student Ambassador · Alpha & Beta","Microsoft",
+        "Part of Microsoft's global group of campus leaders who help students build tech communities and career skills. Alpha Ambassador (Dec 2023 – Sep 2025) and Beta Ambassador (Feb 2024 – Jun 2025).","https://lnkd.in/p/dNfkpB6d"],
+      ["github","Jul 2023 – Jun 2025","GitHub Global Campus Student","GitHub",
+        "Organized and joined events, workshops and seminars to teach peers GitHub and promote GitHub tools in the academic community."],
+      ["google","Jan 2023 – Jul 2023","Android Team Lead & Core Team Member","Google Developer Student Club, MAJU",
+        "Led Android, organized coding workshops and partnered with companies and other clubs for career-focused events."],
+      ["google","Sep 2023 – Mar 2024","Core Team Member 2023–24","Google Developer Student Club, MAJU",
+        "Organized coding workshops and collaborated with other clubs to run campus events."],
+      ["oneguide","Ongoing","Mentor","OneGuide Club, MAJU","Guide and motivate junior students through their studies and early careers."]
+    ],
+    "Open Source": [
+      ["swoc","Dec 2023 – Feb 2024","Open Source Contributor · Top Contributor","Social Winter of Code, Season 4",
+        ["Selected among the top 100 contributors in the front-end domain (HTML, CSS, JS).","Handled pull requests and helped new contributors get familiar with GitHub."],"https://lnkd.in/p/d9N72p5W"],
+      ["swoc","Sep 2024 – Nov 2024","Open Source Contributor","Social Winter of Code",
+        ["Contributed to LLM-based applications by integrating APIs and databases for real-time data access.","Worked with CI/CD pipelines and Git workflows; built REST APIs connecting ML models to apps."]],
+      ["gssoc","May 2023 – Aug 2023","Open Source Contributor","GirlScript Summer of Code",
+        ["Created 10+ pull requests that were merged into front-end open-source projects.","Collaborated with developers worldwide following SDLC and GitHub workflows."]],
+      ["hacktoberfest","Oct 2024","Hacktoberfest 2024","Open-source contribution month","Completed open-source contributions during Hacktoberfest 2024.","https://lnkd.in/p/dggvtezn"]
+    ],
+    "Competitions": [
+      ["icpc","2024 & 2025","ICPC Asia Topi Preliminary","International Collegiate Programming Contest","Certificate of Achievement in the Asia Topi preliminary contest."],
+      ["microsoft","2024","Microsoft Imagine Cup 2024","Microsoft · HEC Pakistan","Competed with VisionGlyco, a CNN-powered non-invasive glucose monitor."],
+      ["google","Mar 2024","Google Solution Challenge 2024","Google Developer Student Clubs","Submitted a project for Google's global Solution Challenge."],
+      ["meta","2023","Meta Hacker Cup 2023","Meta","Qualified to Round 1 and solved problem C1."],
+      ["jinnah","2023","Jinnah League: 3rd Position","Competitive programming competition","Placed third in the Jinnah League competitive programming contest."],
+      ["acm","May 2023","Speed Programming: 7th Rank","ACM-MAJU","Ranked 7th in speed programming using algorithms and data structures."]
+    ],
+    "Volunteering & Outreach": [
+      ["pug","Dec 2023","Community Outreach","Pakistan User Group","Represented the Microsoft Learn Student Ambassadors community at the Power Platform conference.","https://lnkd.in/p/dPhMmXSG"],
+      ["maventech","Dec 2023","Organizer, Information Security Summit 2023","Maventech (SMC-PVT) LTD · at MAJU","Played a key role organizing a cybersecurity summit featuring leading security professionals.","https://lnkd.in/p/dDJJqvr3"],
+      ["cisco","Jan 2024","Organizer, Pakistan Cisco Networking Academy Instructor & Partner Conference","Cisco Community Pakistan · at MAJU","Organized the national conference held at MAJU, Karachi on January 16, 2024.","https://lnkd.in/p/dzS9phWU"]
+    ]
+  },
+  /* Events: [date, title, kind, logo, hue, link]. Add a photo at assets/events/<yyyy-mm-dd>.jpg and it replaces the cover art. */
   events: [
-    ["2023-12-15","Pakistan User Group Summit","https://lnkd.in/p/dPhMmXSG"],
-    ["2023-12-18","Information Security Summit 2023","https://lnkd.in/p/dDJJqvr3"],
-    ["2023-12-27","GDG Kolachi DevFest 2023",""],
-    ["2024-01-10","MERN Stack Development Workshop","https://lnkd.in/p/dPXACHS3"],
-    ["2024-01-16","Pakistan Cisco Networking Academy Instructor & Partner Conference","https://lnkd.in/p/dzS9phWU"],
-    ["2024-01-19","Microsoft Ignite After Party","https://lnkd.in/p/d88i6Hvx"],
-    ["2024-02-28","Let's Meet","https://lnkd.in/p/dnMBPKmE"],
-    ["2024-03-18","Flutter Forward Extended","https://lnkd.in/p/dAdQjHrQ"],
-    ["2024-03-21","ML and AI: Hands-on Session","https://lnkd.in/p/dvnuDrMf"],
-    ["2024-05-20","MLSC-MAJU Team Meetup","https://lnkd.in/p/dQsnF5ci"],
-    ["2024-05-22","Mastering Git & GitHub","https://lnkd.in/p/djNQm4qD"],
-    ["2024-08-31","ITCN Asia 2024","https://lnkd.in/p/dzn5pAxf"]
+    ["2023-12-15","Pakistan User Group Summit","Summit","microsoft",215,"https://lnkd.in/p/dPhMmXSG"],
+    ["2023-12-18","Information Security Summit 2023","Summit","maventech",355,"https://lnkd.in/p/dDJJqvr3"],
+    ["2023-12-27","GDG Kolachi DevFest 2023","Conference","google",140,""],
+    ["2024-01-10","MERN Stack Development Workshop","Workshop","mongodb",125,"https://lnkd.in/p/dPXACHS3"],
+    ["2024-01-16","Pakistan Cisco Networking Academy Instructor & Partner Conference","Conference","cisco",195,"https://lnkd.in/p/dzS9phWU"],
+    ["2024-01-19","Microsoft Ignite After Party","Meetup","microsoft",250,"https://lnkd.in/p/d88i6Hvx"],
+    ["2024-02-28","Let's Meet","Meetup","mlsc",225,"https://lnkd.in/p/dnMBPKmE"],
+    ["2024-03-18","Flutter Forward Extended","Conference","flutter",205,"https://lnkd.in/p/dAdQjHrQ"],
+    ["2024-03-21","ML and AI: Hands-on Session","Workshop","tensorflow",30,"https://lnkd.in/p/dvnuDrMf"],
+    ["2024-05-20","MLSC-MAJU Team Meetup","Meetup","mlsc",235,"https://lnkd.in/p/dQsnF5ci"],
+    ["2024-05-22","Mastering Git & GitHub","Workshop","github",260,"https://lnkd.in/p/djNQm4qD"],
+    ["2024-08-31","ITCN Asia 2024","Expo","itcn",175,"https://lnkd.in/p/dzn5pAxf"]
   ],
   posts: [
-    ["Dec 2023","GitHub for Beginners","LinkedIn","https://www.linkedin.com/pulse/github-beginners-syed-mustafa-hassan-fvctf/"],
-    ["Apr 2024","A Beginner's Exploration of Cloud Computing","LinkedIn","https://www.linkedin.com/pulse/beginners-exploration-cloud-computing-syed-mustafa-hassan-kaqwf/"],
-    ["Apr 2024","Beginner's Guide to AWS: Creating Your First VPC","DEV Community","https://dev.to/mustafahassan2001/beginners-guide-to-aws-creating-your-first-virtual-private-cloud-vpc-356e"]
+    ["Dec 2023","GitHub for Beginners","LinkedIn","github","https://www.linkedin.com/pulse/github-beginners-syed-mustafa-hassan-fvctf/"],
+    ["Apr 2024","A Beginner's Exploration of Cloud Computing","LinkedIn","azure","https://www.linkedin.com/pulse/beginners-exploration-cloud-computing-syed-mustafa-hassan-kaqwf/"],
+    ["Apr 2024","Beginner's Guide to AWS: Creating Your First VPC","DEV Community","aws","https://dev.to/mustafahassan2001/beginners-guide-to-aws-creating-your-first-virtual-private-cloud-vpc-356e"]
   ],
   contact: [
-    ["Email","mustafahassan3404@gmail.com","mailto:mustafahassan3404@gmail.com"],
-    ["Phone","+92 336 2163440","tel:+923362163440"],
-    ["LinkedIn","linkedin.com/in/mustafahassan2001","https://www.linkedin.com/in/mustafahassan2001"],
-    ["GitHub","github.com/mustafahassan2001","https://github.com/mustafahassan2001"],
-    ["DEV Community","dev.to/mustafahassan2001","https://dev.to/mustafahassan2001"],
-    ["Website","syedmustafahassan.netlify.app","https://syedmustafahassan.netlify.app"]
+    ["mail","Email","mustafahassan3404@gmail.com","mailto:mustafahassan3404@gmail.com"],
+    ["phone","Phone","+92 336 2163440","tel:+923362163440"],
+    ["linkedin","LinkedIn","linkedin.com/in/mustafahassan2001","https://www.linkedin.com/in/mustafahassan2001"],
+    ["github","GitHub","github.com/mustafahassan2001","https://github.com/mustafahassan2001"],
+    ["dev","DEV Community","dev.to/mustafahassan2001","https://dev.to/mustafahassan2001"],
+    ["netlify","Website","syedmustafahassan.netlify.app","https://syedmustafahassan.netlify.app"]
   ]
 };
 
@@ -634,89 +733,122 @@ const D = {
 const $ = s => document.querySelector(s);
 const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const ext = 'target="_blank" rel="noopener"';
+const tag = t => { const i = t.indexOf(":"); return i > 0 && !/\s/.test(t.slice(0, i)) ? `<span class="tag">${icon(t.slice(0, i))}${esc(t.slice(i + 1))}</span>` : `<span class="tag">${esc(t)}</span>`; };
+
+document.querySelectorAll("[data-logo]").forEach(el => el.outerHTML = logo(el.dataset.logo, +el.dataset.size || 22));
+
+function placeRing(el, keys){
+  el.innerHTML = keys.map((k, i) => { const a = i / keys.length * Math.PI * 2 - Math.PI / 2;
+    return `<div class="sat" style="transform:translate(calc(${Math.cos(a).toFixed(4)} * var(--R)), calc(${Math.sin(a).toFixed(4)} * var(--R)))">${logo(k)}</div>`; }).join("");
+}
+$("#r1").style.setProperty("--R", "var(--R1)"); $("#r2").style.setProperty("--R", "var(--R2)");
+placeRing($("#r1"), D.orbitInner); placeRing($("#r2"), D.orbitOuter);
+
+$("#orgs").innerHTML = [...D.orgs, ...D.orgs].map(([k, n]) => `<span class="chip">${logo(k, 30)}${esc(n)}</span>`).join("");
 
 $("#trace").innerHTML = '<div class="cmd">traceroute career.mustafa-hassan</div>' +
   D.trace.map(([n, y], i) => `<div class="hop${i === D.trace.length - 1 ? " dest" : ""}" style="animation-delay:${i * 90}ms"><span>${i + 1}</span><b>${esc(n)}</b><span class="ms">${y}</span></div>`).join("") +
-  '<div class="hop" style="animation-delay:900ms"><span></span><span style="color:var(--ok)">✓ destination reached · link up</span><span></span></div>';
+  '<div class="hop" style="animation-delay:900ms"><span></span><span style="color:var(--live)">✓ destination reached · link up</span><span></span></div>';
 
 $("#stats").innerHTML = D.stats.map(([n, s, t]) =>
-  `<div class="stat"><div class="n">${n === "CERTS" ? D.certs.length : n}<small>${s}</small></div><div class="t">${t}</div></div>`).join("");
+  `<div class="stat"><div class="n">${n === "CERTS" ? D.certs.length : n === "EVENTS" ? D.events.length : n}<small>${s}</small></div><div class="t">${t}</div></div>`).join("");
 
 $("#jobs").innerHTML = D.jobs.map(j => `
-  <article class="job${j.current ? " current" : ""}">
-    <div class="when"><b>${j.when}</b>${j.dur}</div>
+  <article class="job fx reveal${j.current ? " current" : ""}">
+    ${logo(j.logo, 52)}
     <div>
-      <h3>${esc(j.title)} ${j.current ? '<span class="pill now">Current</span>' : ""}</h3>
+      <div class="top"><h3>${esc(j.title)} ${j.current ? '<span class="pill live">Current</span>' : ""}</h3><span class="when">${j.when}</span></div>
       <div class="org"><strong>${esc(j.org)}</strong> · ${esc(j.type)}</div>
       <ul>${j.pts.map(p => `<li>${p}</li>`).join("")}</ul>
-      <div class="tags">${j.tags.map(t => `<span class="tag">${esc(t)}</span>`).join("")}</div>
-      ${j.link ? `<a class="more" href="${j.link[0]}" ${ext}>${j.link[1]} ↗</a>` : ""}
+      <div class="tags">${j.tags.map(tag).join("")}</div>
+      ${j.link ? `<a class="more" href="${j.link}" ${ext}>View post ↗</a>` : ""}
     </div>
   </article>`).join("");
 
 $("#projectList").innerHTML = D.projects.map(p => `
-  <article class="proj${p.wide ? " wide" : ""}">
+  <article class="proj fx tilt reveal${p.wide ? " wide" : ""}">
     <div class="label">${esc(p.sub)}</div>
-    <div class="k"><h3>${esc(p.name)}</h3><div class="metric" style="text-align:right">${p.metric[0]}<small>${p.metric[1]}</small></div></div>
+    <div class="k"><h3>${esc(p.name)}</h3><div class="metric">${p.metric[0]}<small>${p.metric[1]}</small></div></div>
     <p>${esc(p.text)}</p>
-    <div class="tags">${p.tags.map(t => `<span class="tag">${esc(t)}</span>`).join("")}</div>
+    <div class="tags">${p.tags.map(tag).join("")}</div>
   </article>`).join("");
 
 $("#skillList").innerHTML = D.skills.map(([h, xs]) =>
-  `<div class="sk"><h3>${esc(h)}</h3><div class="tags" style="margin:0">${xs.map(x => `<span class="tag">${esc(x)}</span>`).join("")}</div></div>`).join("");
+  `<div class="sk fx reveal"><h3>${esc(h)}</h3><div class="tags" style="margin:0">${xs.map(tag).join("")}</div></div>`).join("");
+$("#courses").innerHTML = D.courses.map(tag).join("");
 
-$("#courses").innerHTML = D.courses.map(c => `<span class="tag">${esc(c)}</span>`).join("");
-
-/* certifications with filter */
+/* certifications */
 $("#certCount").textContent = D.certs.length;
-const initials = s => s.replace(/[^A-Za-z& ]/g, "").split(/\s+/).filter(Boolean).slice(0, 2).map(w => w[0]).join("").toUpperCase();
+const issuerKeys = [...new Map(D.certs.map(c => [c[2], c[1]])).entries()];
+$("#issuers").innerHTML = issuerKeys.map(([k, n]) => `<span title="${esc(n)}">${logo(k, 44)}</span>`).join("");
 let cat = "all";
 try { cat = localStorage.getItem("certCat") || "all"; } catch (e) {}
 if (!D.certCats[cat]) cat = "all";
-function renderCerts() {
+function renderCerts(){
   $("#filters").innerHTML = Object.entries(D.certCats).map(([k, v]) => {
-    const n = k === "all" ? D.certs.length : D.certs.filter(c => c[3] === k).length;
-    return `<button type="button" id="f-${k}" data-k="${k}" aria-pressed="${k === cat}">${v}<span>${n}</span></button>`;
-  }).join("");
-  const list = D.certs.filter(c => cat === "all" || c[3] === cat).sort((a, b) => (b[4] || 0) - (a[4] || 0));
-  $("#certList").innerHTML = list.map(([n, o, d, , f]) => `
-    <div class="cert"><div class="ico" aria-hidden="true">${initials(o)}</div>
+    const n = k === "all" ? D.certs.length : D.certs.filter(c => c[4] === k).length;
+    return `<button type="button" id="f-${k}" data-k="${k}" aria-pressed="${k === cat}">${v}<span>${n}</span></button>`; }).join("");
+  const list = D.certs.filter(c => cat === "all" || c[4] === cat).sort((a, b) => (b[5] || 0) - (a[5] || 0));
+  $("#certList").innerHTML = list.map(([n, o, k, d, , f], i) => `
+    <div class="cert fx" style="animation:fadeUp .4s ${Math.min(i, 12) * 30}ms both">${logo(k, 42)}
       <div style="min-width:0"><h3>${esc(n)}</h3><div class="meta">${esc(o)}${d ? " · " + esc(d) : ""}${f ? ' · <span class="feat">★ featured</span>' : ""}</div></div>
     </div>`).join("");
 }
-$("#filters").addEventListener("click", e => {
-  const b = e.target.closest("button"); if (!b) return;
-  cat = b.dataset.k; try { localStorage.setItem("certCat", cat); } catch (e) {}
-  renderCerts();
-});
+$("#filters").addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return; cat = b.dataset.k; try { localStorage.setItem("certCat", cat); } catch (e) {} renderCerts(); });
 renderCerts();
 
-$("#awardList").innerHTML = D.awards.map(([y, t, d, g, l]) => `
-  <article class="award${g ? " gold" : ""}"><div class="yr">${y}</div>
-    <div style="min-width:0"><h3>${esc(t)}</h3><p>${esc(d)}</p>${l ? `<a class="more" href="${l}" ${ext}>View certificate post ↗</a>` : ""}</div>
+$("#awardList").innerHTML = D.awards.map(([y, t, d, k, g, l]) => `
+  <article class="award fx reveal${g ? " gold" : ""}">${logo(k, 44)}
+    <div style="min-width:0"><div class="yr">${y}</div><h3>${esc(t)}</h3><p>${esc(d)}</p>${l ? `<a class="more" href="${l}" ${ext}>View post ↗</a>` : ""}</div>
   </article>`).join("");
 
-$("#commStats").innerHTML = D.comm.map(([n, u, t, s, l]) => `
-  <a class="card" href="${l}" ${ext} style="text-decoration:none">
-    <div class="big">${n}<small> ${u}</small></div><h3>${esc(t)}</h3><p>${esc(s)}</p><span class="more" style="margin-top:6px">Visit page ↗</span>
+/* extracurricular */
+$("#commStats").innerHTML = D.comm.map(([k, n, u, t, s, l]) => `
+  <a class="card fx tilt reveal" href="${l}" ${ext}>
+    <div class="row">${logo(k, 48)}<span class="more" style="margin:0">Visit ↗</span></div>
+    <div class="big">${n}<small>${u}</small></div><h3>${esc(t)}</h3><p>${esc(s)}</p>
   </a>`).join("");
+const tabNames = Object.keys(D.activities);
+let tab = tabNames[0];
+function renderTabs(){
+  $("#tabs").innerHTML = tabNames.map((t, i) => `<button type="button" role="tab" id="tab-${i}" aria-selected="${t === tab}" data-t="${esc(t)}">${esc(t)}<span>${D.activities[t].length}</span></button>`).join("");
+  $("#tabPanel").innerHTML = `<div class="panel">${D.activities[tab].map(([k, w, t, o, d, l]) => `
+    <article class="act fx">${logo(k, 48)}
+      <div><div class="when">${w}</div><h3>${esc(t)}</h3><div class="org"><strong>${esc(o)}</strong></div>
+      ${Array.isArray(d) ? `<ul>${d.map(x => `<li>${esc(x)}</li>`).join("")}</ul>` : `<p class="d">${esc(d)}</p>`}
+      ${l ? `<a class="more" href="${l}" ${ext}>View post ↗</a>` : ""}</div>
+    </article>`).join("")}</div>`;
+}
+$("#tabs").addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return; tab = b.dataset.t; renderTabs(); });
+renderTabs();
 
-$("#roles").innerHTML = D.roles.map(([w, t, o, d, l]) => `
-  <article class="job"><div class="when"><b>${w}</b></div>
-    <div><h3 style="font-size:19px">${esc(t)}</h3><div class="org"><strong>${esc(o)}</strong></div>
-    <p style="margin-top:10px;color:var(--muted);font-size:15px">${esc(d)}</p>${l ? `<a class="more" href="${l}" ${ext}>View post ↗</a>` : ""}</div>
-  </article>`).join("");
+/* events gallery */
+const years = ["All", ...new Set(D.events.map(e => e[0].slice(0, 4)))];
+let evYear = "All";
+function renderEvents(){
+  $("#evFilters").innerHTML = years.map(y => `<button type="button" id="ey-${y}" data-y="${y}" aria-pressed="${y === evYear}">${y}<span>${y === "All" ? D.events.length : D.events.filter(e => e[0].startsWith(y)).length}</span></button>`).join("");
+  $("#eventList").innerHTML = D.events.filter(e => evYear === "All" || e[0].startsWith(evYear)).map(([d, t, kind, k, h, l], i) => {
+    const dt = new Date(d + "T00:00:00"), mon = dt.toLocaleDateString("en-GB", { month: "short", year: "numeric" });
+    const inner = `
+      <div class="cover" style="--h:${h}">
+        <div class="art"><div class="row"><div><div class="day">${String(dt.getDate()).padStart(2, "0")}</div><div class="mon">${mon}</div></div>${logo(k, 44)}</div>
+          <div><span class="kind">${kind}</span><div class="ttl">${esc(t)}</div></div></div>
+        <img src="assets/events/${d}.jpg" alt="${esc(t)}" loading="lazy" onerror="this.remove()">
+      </div>
+      <div class="body"><div class="meta">${dt.toLocaleDateString("en-GB", { weekday: "short", day: "numeric", month: "long", year: "numeric" })}</div><h3>${esc(t)}</h3>
+        <span class="go${l ? "" : " off"}">${l ? "View event post ↗" : "Attended"}</span></div>`;
+    const st = `style="animation:fadeUp .45s ${i * 50}ms both"`;
+    return l ? `<a class="ev fx tilt" href="${l}" ${ext} ${st}>${inner}</a>` : `<article class="ev fx tilt" ${st}>${inner}</article>`;
+  }).join("");
+}
+$("#evFilters").addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return; evYear = b.dataset.y; renderEvents(); });
+renderEvents();
 
-const fmt = iso => new Date(iso + "T00:00:00").toLocaleDateString("en-GB", { day: "2-digit", month: "short", year: "numeric" });
-$("#eventList").innerHTML = D.events.map(([d, t, l]) => l
-  ? `<a class="ev" href="${l}" ${ext}><span class="d">${fmt(d)}</span><span class="t">${esc(t)}</span><span class="go">View ↗</span></a>`
-  : `<div class="ev"><span class="d">${fmt(d)}</span><span class="t">${esc(t)}</span><span></span></div>`).join("");
+$("#postList").innerHTML = D.posts.map(([d, t, s, k, l]) => `
+  <a class="post fx tilt reveal" href="${l}" ${ext}>${logo(k, 40)}<div class="label">${d} · ${s}</div><h3>${esc(t)}</h3><span class="go">Read article ↗</span></a>`).join("");
 
-$("#postList").innerHTML = D.posts.map(([d, t, s, l]) => `
-  <a class="post" href="${l}" ${ext}><div class="label">${d} · ${s}</div><h3>${esc(t)}</h3><span class="go">Read article ↗</span></a>`).join("");
-
-$("#contactList").innerHTML = D.contact.map(([k, v, h], i) => `
-  <div class="citem"><div><div class="label">${k}</div><a href="${h}" ${h.startsWith("http") ? ext : ""}>${esc(v)}</a></div>
+$("#contactList").innerHTML = D.contact.map(([k, n, v, h], i) => `
+  <div class="citem fx">${logo(k, 38)}<div><div class="label">${n}</div><a href="${h}" ${h.startsWith("http") ? ext : ""}>${esc(v)}</a></div>
   <button class="copy" type="button" id="copy-${i}" data-v="${esc(v)}">Copy</button></div>`).join("");
 $("#contactList").addEventListener("click", e => {
   const b = e.target.closest(".copy"); if (!b) return;
@@ -724,7 +856,6 @@ $("#contactList").addEventListener("click", e => {
   const fallback = () => { const r = document.createRange(); r.selectNodeContents(b.previousElementSibling.querySelector("a")); const s = getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent = "Selected"; };
   try { navigator.clipboard.writeText(b.dataset.v).then(done, fallback); } catch (err) { fallback(); }
 });
-
 $("#yr").textContent = new Date().getFullYear();
 
 /* theme toggle */
@@ -736,47 +867,43 @@ $("#themeBtn").addEventListener("click", () => {
   try { localStorage.setItem("theme", root.dataset.theme); } catch (e) {}
 });
 
-
 /* ---------- motion ---------- */
 const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
-const orgs = ["Wateen Telecom","NanoTechx","Microsoft","Google","GitHub","Cisco","AWS","Fortinet","McKinsey & Company","Meta","Stanford","ICPC","Bytewise","360XpertSolutions","Social Winter of Code","GirlScript"];
-$("#orgs").innerHTML = [...orgs, ...orgs].map(o => `<span>${o}</span>`).join("");
 
-/* count-up stats */
 if (!reduce) document.querySelectorAll(".stat .n").forEach(el => {
   const node = el.firstChild, end = parseFloat(node.textContent), dec = (node.textContent.split(".")[1] || "").length, t0 = performance.now();
   const step = t => { const k = Math.min(1, (t - t0) / 1400), e = 1 - Math.pow(1 - k, 3); node.textContent = (end * e).toFixed(dec); if (k < 1) requestAnimationFrame(step); };
   requestAnimationFrame(step);
 });
 
-/* cursor spotlight */
 document.addEventListener("pointermove", e => {
-  const c = e.target.closest && e.target.closest(".proj,.cert,.award,.post,.sk,.comm .card"); if (!c) return;
-  const r = c.getBoundingClientRect(); c.style.setProperty("--mx", (e.clientX - r.left) + "px"); c.style.setProperty("--my", (e.clientY - r.top) + "px");
+  const c = e.target.closest && e.target.closest(".fx"); if (!c) return;
+  const r = c.getBoundingClientRect(), x = e.clientX - r.left, y = e.clientY - r.top;
+  c.style.setProperty("--mx", x + "px"); c.style.setProperty("--my", y + "px");
+  if (!reduce && c.classList.contains("tilt")) { c.style.setProperty("--ry", ((x / r.width - .5) * 8).toFixed(2) + "deg"); c.style.setProperty("--rx", ((.5 - y / r.height) * 8).toFixed(2) + "deg"); }
 });
+document.addEventListener("pointerout", e => { const c = e.target.closest && e.target.closest(".tilt"); if (c && !c.contains(e.relatedTarget)) { c.style.setProperty("--rx", "0deg"); c.style.setProperty("--ry", "0deg"); } });
 
-/* scroll progress */
 const prog = $("#progress");
 const onScroll = () => { const h = document.documentElement.scrollHeight - innerHeight; prog.style.transform = `scaleX(${h > 0 ? scrollY / h : 0})`; };
 addEventListener("scroll", onScroll, { passive: true }); onScroll();
 
-/* network topology canvas: nodes drift, links light up, packets travel */
+/* network topology canvas */
 (() => {
-  const cv = $("#net"), ctx = cv.getContext("2d"); let W, H, nodes = [], packets = [], dpr = Math.min(2, devicePixelRatio || 1);
-  const col = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
-  function size() { const r = cv.getBoundingClientRect(); W = r.width; H = r.height; cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  const cv = $("#net"), ctx = cv.getContext("2d"); let W, H, nodes = [], packets = [];
+  const dpr = Math.min(2, devicePixelRatio || 1), col = n => getComputedStyle(root).getPropertyValue(n).trim();
+  function size(){ const r = cv.getBoundingClientRect(); W = r.width; H = r.height; cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     const n = Math.round(Math.min(70, W * H / 14000)); nodes = Array.from({ length: n }, () => ({ x: Math.random() * W, y: Math.random() * H, vx: (Math.random() - .5) * .25, vy: (Math.random() - .5) * .25 })); }
-  function frame() {
+  function frame(){
     const line = col("--line"), sig = col("--signal"), ok = col("--ok"); ctx.clearRect(0, 0, W, H);
-    for (const p of nodes) { if (!reduce) { p.x += p.vx; p.y += p.vy; if (p.x < 0 || p.x > W) p.vx *= -1; if (p.y < 0 || p.y > H) p.vy *= -1; } }
+    if (!reduce) for (const p of nodes) { p.x += p.vx; p.y += p.vy; if (p.x < 0 || p.x > W) p.vx *= -1; if (p.y < 0 || p.y > H) p.vy *= -1; }
     const D2 = 140 * 140;
     for (let i = 0; i < nodes.length; i++) for (let j = i + 1; j < nodes.length; j++) {
       const a = nodes[i], b = nodes[j], d = (a.x - b.x) ** 2 + (a.y - b.y) ** 2;
       if (d < D2) { ctx.globalAlpha = 1 - d / D2; ctx.strokeStyle = line; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
         if (!reduce && Math.random() < .0009 && packets.length < 14) packets.push({ a, b, t: 0 }); }
     }
-    ctx.globalAlpha = 1;
-    for (const p of nodes) { ctx.fillStyle = ok; ctx.globalAlpha = .7; ctx.beginPath(); ctx.arc(p.x, p.y, 1.8, 0, 7); ctx.fill(); }
+    for (const p of nodes) { ctx.fillStyle = ok; ctx.globalAlpha = .6; ctx.beginPath(); ctx.arc(p.x, p.y, 1.8, 0, 7); ctx.fill(); }
     packets = packets.filter(k => (k.t += .012) < 1);
     for (const k of packets) { const x = k.a.x + (k.b.x - k.a.x) * k.t, y = k.a.y + (k.b.y - k.a.y) * k.t;
       ctx.globalAlpha = 1; ctx.fillStyle = sig; ctx.shadowColor = sig; ctx.shadowBlur = 10; ctx.beginPath(); ctx.arc(x, y, 2.6, 0, 7); ctx.fill(); ctx.shadowBlur = 0; }
@@ -786,12 +913,9 @@ addEventListener("scroll", onScroll, { passive: true }); onScroll();
   size(); addEventListener("resize", size); frame();
 })();
 
-/* active nav link */
 const links = [...document.querySelectorAll("nav.links a")];
 if ("IntersectionObserver" in window) {
-  const io = new IntersectionObserver(es => es.forEach(e => {
-    if (e.isIntersecting) links.forEach(a => a.classList.toggle("on", a.getAttribute("href") === "#" + e.target.id));
-  }), { rootMargin: "-45% 0px -50% 0px" });
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) links.forEach(a => a.classList.toggle("on", a.getAttribute("href") === "#" + e.target.id)); }), { rootMargin: "-45% 0px -50% 0px" });
   document.querySelectorAll("section[id]").forEach(s => io.observe(s));
 }
 </script>
