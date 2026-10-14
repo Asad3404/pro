@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Syed Mustafa Hassan</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Syed Mustafa Hassan: Network Resident Engineer at Wateen Telecom, former SOC Analyst, BS Computer Science (MAJU), Microsoft Learn Student Ambassador, open-source contributor and community founder.">
+<meta property="og:title" content="Syed Mustafa Hassan · Network & Security Engineer">
+<meta property="og:description" content="Network operations, security, AI/ML projects, open source and community leadership.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a network-operations console. Career told as a traceroute of hops; sections are numbered "layers" only where order matters (timeline). Dark-first. */
+:root{
+  --bg:#0c121c;         /* console ink */
+  --surface:#121a27;    /* panel */
+  --raise:#18233379;    /* hover / chips */
+  --line:#24324a;       /* hairlines */
+  --fg:#e6ebf2;         /* primary text */
+  --muted:#8d9bb0;      /* secondary text */
+  --signal:#f2a93b;     /* amber: link-up / highlight */
+  --signal-ink:#1a1206; /* text on amber */
+  --ok:#5ec8a8;         /* green status LED */
+  --glow:rgba(242,169,59,.14);
+  --f-display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --f-body:"IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --f-mono:"IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --r:10px;
+  color-scheme:dark;
+}
+@media (prefers-color-scheme: light){
+  :root:not([data-theme="dark"]){
+    --bg:#f2f4f7;--surface:#ffffff;--raise:#e9edf3;--line:#d6dce6;--fg:#141b26;--muted:#5a6678;
+    --signal:#b45f06;--signal-ink:#ffffff;--ok:#1f8a6b;--glow:rgba(180,95,6,.10);color-scheme:light;
+  }
+}
+:root[data-theme="light"]{
+  --bg:#f2f4f7;--surface:#ffffff;--raise:#e9edf3;--line:#d6dce6;--fg:#141b26;--muted:#5a6678;
+  --signal:#b45f06;--signal-ink:#ffffff;--ok:#1f8a6b;--glow:rgba(180,95,6,.10);color-scheme:light;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 16px/1.6 var(--f-body);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:2px solid var(--signal);outline-offset:3px;border-radius:4px}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0;line-height:1.1}
+p{margin:0}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+.mono{font-family:var(--f-mono)}
+.label{font:500 12px/1.4 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.hl{color:var(--signal)}
+mark{background:var(--glow);color:var(--fg);padding:0 .2em;border-radius:3px;font-weight:600}
+
+/* header */
+header.top{position:sticky;top:env(safe-area-inset-top, 0px);z-index:20;background:color-mix(in srgb, var(--bg) 86%, transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;gap:20px;min-height:60px}
+.brand{font:700 18px var(--f-display);text-decoration:none;display:flex;align-items:center;gap:10px;white-space:nowrap}
+.led{width:9px;height:9px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 3px color-mix(in srgb, var(--ok) 25%, transparent);flex:none}
+@media (prefers-reduced-motion: no-preference){.led{animation:pulse 2.4s ease-in-out infinite}}
+@keyframes pulse{50%{box-shadow:0 0 0 6px transparent}}
+nav.links{display:flex;gap:4px;margin-left:auto;overflow-x:auto;scrollbar-width:none}
+nav.links::-webkit-scrollbar{display:none}
+nav.links a{font:500 13px var(--f-mono);text-decoration:none;color:var(--muted);padding:6px 10px;border-radius:6px;white-space:nowrap}
+nav.links a:hover,nav.links a.on{color:var(--fg);background:var(--raise)}
+.theme{flex:none;background:none;border:1px solid var(--line);color:var(--fg);border-radius:8px;width:36px;height:36px;cursor:pointer;font:16px var(--f-mono)}
+@media (max-width: 860px){nav.links{display:none}.theme{margin-left:auto}}
+
+/* hero */
+.hero{padding-block:72px 56px;display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
+.hero > *{min-width:0}
+.status{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:999px;padding:6px 14px 6px 12px;font:500 13px var(--f-mono);color:var(--muted)}
+.status b{color:var(--fg);font-weight:500}
+.hero h1{font-size:clamp(44px, 7.4vw, 88px);font-weight:800;letter-spacing:-.025em;margin-top:22px}
+.hero h1 span{display:block;color:var(--signal)}
+.role{font:500 clamp(17px,2vw,20px)/1.5 var(--f-body);margin-top:20px;max-width:34em}
+.lede{color:var(--muted);margin-top:14px;max-width:38em}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.btn{display:inline-flex;align-items:center;gap:8px;font:600 14px var(--f-body);text-decoration:none;padding:11px 18px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--fg);cursor:pointer}
+.btn.primary{background:var(--signal);color:var(--signal-ink);border-color:var(--signal)}
+.btn:hover{transform:translateY(-1px)}
+.btn{transition:transform .15s}
+
+/* traceroute console */
+.console{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 30px 60px -30px rgba(0,0,0,.45)}
+.console .bar{display:flex;align-items:center;gap:8px;padding:10px 14px;border-bottom:1px solid var(--line);font:500 12px var(--f-mono);color:var(--muted)}
+.console .bar i{width:10px;height:10px;border-radius:50%;background:var(--line)}
+.console .bar span{margin-left:6px}
+.trace{padding:16px 18px 18px;font:400 13px/1.85 var(--f-mono);overflow-x:auto}
+.trace .cmd{color:var(--fg)}
+.trace .cmd::before{content:"$ ";color:var(--signal)}
+.hop{display:grid;grid-template-columns:2ch 1fr auto;gap:12px;white-space:nowrap;color:var(--muted)}
+.hop b{color:var(--fg);font-weight:500}
+.hop .ms{color:var(--ok)}
+.hop.dest b{color:var(--signal)}
+@media (prefers-reduced-motion: no-preference){
+  .hop{animation:hopIn .5s both}
+  @keyframes hopIn{from{opacity:.0;transform:translateX(-6px)}}
+}
+
+/* stats strip */
+.stats{display:grid;grid-template-columns:repeat(6,1fr);border:1px solid var(--line);border-radius:var(--r);background:var(--surface)}
+.stat{padding:20px 18px;border-left:1px solid var(--line)}
+.stat:first-child{border-left:0}
+.stat .n{font:800 34px/1 var(--f-display);font-variant-numeric:tabular-nums;color:var(--fg)}
+.stat .n small{font-size:.55em;color:var(--signal)}
+.stat .t{margin-top:8px;font-size:13px;color:var(--muted);line-height:1.35}
+@media (max-width: 960px){.stats{grid-template-columns:repeat(3,1fr)}.stat:nth-child(4){border-left:0}.stat:nth-child(n+4){border-top:1px solid var(--line)}}
+@media (max-width: 520px){.stats{grid-template-columns:repeat(2,1fr)}.stat{border-left:1px solid var(--line)!important;border-top:1px solid var(--line)}.stat:nth-child(odd){border-left:0!important}.stat:nth-child(-n+2){border-top:0}}
+
+/* sections */
+section.block{padding-block:88px 0}
+.shead{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:16px;margin-bottom:36px}
+.shead h2{font-size:clamp(30px,4.2vw,46px);font-weight:700;letter-spacing:-.02em;margin-top:8px}
+.shead p{color:var(--muted);max-width:30em}
+
+/* about */
+.about{display:grid;grid-template-columns:1.3fr 1fr;gap:48px}
+.about > *{min-width:0}
+.about .text{display:grid;gap:16px;font-size:17px;max-width:62ch}
+.facts{display:grid;gap:0;border-top:1px solid var(--line)}
+.facts div{display:grid;grid-template-columns:120px 1fr;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);font-size:15px}
+.facts dt{font:500 12px/1.9 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.facts dd{margin:0;min-width:0;overflow-wrap:anywhere}
+@media (max-width: 860px){.about{grid-template-columns:1fr}}
+
+/* timeline */
+.tl{position:relative;display:grid;gap:0}
+.job{display:grid;grid-template-columns:190px 1fr;gap:32px;padding:28px 0;border-top:1px solid var(--line)}
+.job:last-child{border-bottom:1px solid var(--line)}
+.job > *{min-width:0}
+.job .when{font:500 13px/1.6 var(--f-mono);color:var(--muted)}
+.job .when b{display:block;color:var(--fg);font-weight:500}
+.job.current .when b{color:var(--signal)}
+.job h3{font-size:22px;font-weight:700}
+.job .org{margin-top:4px;color:var(--muted);font-size:15px}
+.job .org strong{color:var(--fg);font-weight:600}
+.job ul{margin:14px 0 0;padding-left:18px;display:grid;gap:6px;max-width:72ch}
+.job li::marker{color:var(--signal)}
+.pill{display:inline-flex;align-items:center;gap:6px;font:500 11px var(--f-mono);letter-spacing:.08em;text-transform:uppercase;padding:3px 9px;border-radius:999px;border:1px solid var(--line);color:var(--muted);vertical-align:middle}
+.pill.now{border-color:var(--ok);color:var(--ok)}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.tag{font:500 12px var(--f-mono);padding:4px 9px;border-radius:6px;background:var(--raise);color:var(--fg)}
+.more{display:inline-block;margin-top:12px;font:500 13px var(--f-mono);color:var(--signal);text-decoration:none}
+.more:hover{text-decoration:underline}
+@media (max-width: 720px){.job{grid-template-columns:1fr;gap:8px}}
+
+/* projects */
+.projects{display:grid;grid-template-columns:repeat(6,1fr);gap:16px}
+.proj{grid-column:span 2;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:24px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.proj.wide{grid-column:span 3}
+.proj .k{display:flex;justify-content:space-between;gap:12px;align-items:baseline}
+.proj h3{font-size:21px;font-weight:700}
+.proj p{color:var(--muted);font-size:15px}
+.metric{font:800 30px/1 var(--f-display);color:var(--signal)}
+.metric small{display:block;font:500 11px var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+.proj .tags{margin-top:auto;padding-top:6px}
+@media (max-width: 960px){.proj,.proj.wide{grid-column:span 3}}
+@media (max-width: 640px){.proj,.proj.wide{grid-column:span 6}}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.sk{border:1px solid var(--line);border-radius:var(--r);padding:20px;min-width:0}
+.sk h3{font:600 13px var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--signal);margin-bottom:14px}
+@media (max-width: 900px){.skills{grid-template-columns:1fr 1fr}}
+@media (max-width: 560px){.skills{grid-template-columns:1fr}}
+
+/* education */
+.edu{display:grid;grid-template-columns:1.4fr 1fr;gap:16px}
+.edu > *{min-width:0}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:28px}
+.gpa{display:flex;align-items:baseline;gap:6px;font:800 64px/1 var(--f-display);color:var(--signal);font-variant-numeric:tabular-nums}
+.gpa small{font:500 16px var(--f-mono);color:var(--muted)}
+.bar2{height:6px;border-radius:3px;background:var(--raise);margin-top:12px;overflow:hidden}
+.bar2 i{display:block;height:100%;background:var(--signal)}
+.courses{display:flex;flex-wrap:wrap;gap:6px;margin-top:18px}
+@media (max-width: 860px){.edu{grid-template-columns:1fr}}
+
+/* certifications */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+.filters button{font:500 13px var(--f-mono);padding:7px 12px;border-radius:999px;border:1px solid var(--line);background:none;color:var(--muted);cursor:pointer}
+.filters button[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.filters button span{opacity:.6;margin-left:4px}
+.certs{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+.cert{display:flex;gap:14px;align-items:flex-start;padding:16px;border:1px solid var(--line);border-radius:var(--r);background:var(--surface);min-width:0}
+.cert .ico{flex:none;width:38px;height:38px;border-radius:8px;display:grid;place-items:center;font:700 13px var(--f-mono);background:var(--raise);color:var(--signal)}
+.cert h3{font:600 15px/1.35 var(--f-body)}
+.cert .meta{font:400 12px var(--f-mono);color:var(--muted);margin-top:4px}
+.cert .feat{color:var(--signal)}
+
+/* awards */
+.awards{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:12px}
+.award{display:grid;grid-template-columns:auto 1fr;gap:16px;padding:20px;border:1px solid var(--line);border-radius:var(--r);min-width:0}
+.award .yr{font:700 13px var(--f-mono);color:var(--signal);padding-top:3px;font-variant-numeric:tabular-nums}
+.award h3{font:600 17px/1.3 var(--f-body)}
+.award p{color:var(--muted);font-size:14px;margin-top:6px}
+.award.gold{background:var(--glow);border-color:color-mix(in srgb, var(--signal) 40%, var(--line))}
+@media (max-width: 400px){.awards{grid-template-columns:1fr}}
+
+/* community */
+.comm{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:28px}
+.comm .card{padding:24px;display:flex;flex-direction:column;gap:6px}
+.comm .big{font:800 40px/1 var(--f-display);color:var(--fg)}
+.comm .big small{font-size:.5em;color:var(--signal)}
+.comm h3{font:600 16px/1.35 var(--f-body);margin-top:10px}
+.comm p{color:var(--muted);font-size:14px}
+@media (max-width: 860px){.comm{grid-template-columns:1fr}}
+.roles{display:grid;grid-template-columns:1fr 1fr;gap:0 32px}
+.roles .job{grid-template-columns:150px 1fr;gap:20px}
+@media (max-width: 960px){.roles{grid-template-columns:1fr}}
+@media (max-width: 520px){.roles .job{grid-template-columns:1fr;gap:6px}}
+
+/* events */
+.events{border-top:1px solid var(--line)}
+.ev{display:grid;grid-template-columns:120px 1fr auto;gap:20px;align-items:center;padding:14px 4px;border-bottom:1px solid var(--line);text-decoration:none}
+a.ev:hover{background:var(--raise)}
+.ev .d{font:500 13px var(--f-mono);color:var(--muted);font-variant-numeric:tabular-nums}
+.ev .t{font-weight:500;min-width:0}
+.ev .go{font:500 13px var(--f-mono);color:var(--signal)}
+@media (max-width: 560px){.ev{grid-template-columns:1fr auto;gap:2px 12px}.ev .d{grid-column:1/-1}}
+
+/* writing */
+.posts{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.post{display:flex;flex-direction:column;gap:10px;padding:24px;border:1px solid var(--line);border-radius:var(--r);text-decoration:none;background:var(--surface);min-width:0}
+.post:hover{border-color:var(--signal)}
+.post h3{font-size:21px;font-weight:700}
+.post .go{margin-top:auto;font:500 13px var(--f-mono);color:var(--signal)}
+@media (max-width: 860px){.posts{grid-template-columns:1fr}}
+
+/* contact */
+.contact{margin-top:88px;border-top:1px solid var(--line);padding-block:72px 40px}
+.contact h2{font-size:clamp(36px,6vw,72px);font-weight:800;letter-spacing:-.025em}
+.contact h2 span{color:var(--signal)}
+.clist{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin-top:36px}
+.citem{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 18px;border:1px solid var(--line);border-radius:var(--r);background:var(--surface);min-width:0}
+.citem div{min-width:0}
+.citem a,.citem .v{font-weight:500;text-decoration:none;overflow-wrap:anywhere;user-select:all}
+.citem a:hover{color:var(--signal)}
+.copy{flex:none;font:500 12px var(--f-mono);border:1px solid var(--line);background:none;color:var(--muted);padding:5px 9px;border-radius:6px;cursor:pointer}
+.copy:hover{color:var(--fg)}
+footer{padding-block:28px 40px;color:var(--muted);font:400 13px var(--f-mono);display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+
+@media (max-width: 520px){.status{font-size:11px;border-radius:12px}}
+@media (max-width: 860px){.hero{grid-template-columns:1fr;padding-block:48px 40px;gap:36px}section.block{padding-block:64px 0}}
+
+/* ---------- motion layer ---------- */
+.hero-wrap{position:relative;isolation:isolate}
+#net{position:absolute;inset:0;width:100%;height:100%;z-index:-1;opacity:.55;pointer-events:none;
+  -webkit-mask-image:radial-gradient(ellipse 80% 70% at 60% 40%,#000 30%,transparent 75%);mask-image:radial-gradient(ellipse 80% 70% at 60% 40%,#000 30%,transparent 75%)}
+.hero h1 span{background:linear-gradient(100deg,var(--signal) 0%,var(--ok) 50%,var(--signal) 100%);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent}
+@media (prefers-reduced-motion: no-preference){
+  .hero h1 span{animation:sheen 6s linear infinite}
+  @keyframes sheen{to{background-position:-200% 0}}
+  .hero > div:first-child > *{animation:rise .8s cubic-bezier(.2,.7,.2,1) both}
+  .hero > div:first-child > *:nth-child(2){animation-delay:.08s}
+  .hero > div:first-child > *:nth-child(3){animation-delay:.16s}
+  .hero > div:first-child > *:nth-child(4){animation-delay:.24s}
+  .hero > div:first-child > *:nth-child(5){animation-delay:.32s}
+  .console{animation:rise 1s .2s cubic-bezier(.2,.7,.2,1) both}
+  @keyframes rise{from{opacity:0;transform:translateY(18px)}}
+  @supports (animation-timeline: view()){
+    .job,.proj,.sk,.cert,.award,.comm .card,.ev,.post,.card,.stat,.citem,.shead{animation:reveal linear both;animation-timeline:view();animation-range:entry 0% entry 40%}
+    @keyframes reveal{from{opacity:.0;transform:translateY(28px) scale(.98)}}
+  }
+  .marquee-track{animation:scroll 38s linear infinite}
+  .marquee:hover .marquee-track{animation-play-state:paused}
+  @keyframes scroll{to{transform:translateX(-50%)}}
+}
+.console{position:relative}
+.console::before{content:"";position:absolute;inset:-1px;border-radius:15px;padding:1px;background:conic-gradient(from var(--a,0deg),transparent 0 70%,var(--signal) 85%,transparent 100%);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+@property --a{syntax:"<angle>";inherits:false;initial-value:0deg}
+@media (prefers-reduced-motion: no-preference){.console::before{animation:spin 5s linear infinite}@keyframes spin{to{--a:360deg}}}
+/* cursor spotlight on cards */
+.proj,.cert,.award,.post,.sk,.comm .card,.citem{position:relative;transition:transform .25s cubic-bezier(.2,.7,.2,1),border-color .25s,box-shadow .25s}
+.proj::after,.cert::after,.award::after,.post::after,.sk::after,.comm .card::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .3s;
+  background:radial-gradient(320px circle at var(--mx,50%) var(--my,50%),var(--glow),transparent 60%)}
+.proj:hover,.cert:hover,.award:hover,.post:hover,.sk:hover,.comm .card:hover{transform:translateY(-4px);border-color:color-mix(in srgb,var(--signal) 45%,var(--line));box-shadow:0 18px 40px -24px rgba(0,0,0,.5)}
+.proj:hover::after,.cert:hover::after,.award:hover::after,.post:hover::after,.sk:hover::after,.comm .card:hover::after{opacity:1}
+.tag{transition:background .2s,color .2s}
+.tag:hover{background:var(--signal);color:var(--signal-ink)}
+/* organisations marquee */
+.marquee{overflow:hidden;margin-top:28px;border-block:1px solid var(--line);padding-block:16px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
+.marquee-track{display:flex;gap:48px;width:max-content}
+.marquee span{font:700 20px var(--f-display);color:var(--muted);white-space:nowrap;letter-spacing:-.01em}
+.marquee span::before{content:"◆";color:var(--signal);font-size:10px;margin-right:48px;vertical-align:middle}
+/* progress bar */
+#progress{position:fixed;left:0;top:0;height:2px;width:100%;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,var(--signal),var(--ok));z-index:30}
+</style>
+</head>
+<body>
+<div id="progress" aria-hidden="true"></div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top"><i class="led" aria-hidden="true"></i>Mustafa Hassan</a>
+    <nav class="links" aria-label="Sections">
+      <a href="#about">About</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#education">Education</a><a href="#certifications">Certifications</a><a href="#awards">Awards</a><a href="#community">Community</a><a href="#writing">Writing</a><a href="#contact">Contact</a>
+    </nav>
+    <button class="theme" id="themeBtn" type="button" aria-label="Toggle light and dark theme">◐</button>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero-wrap"><canvas id="net" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <section class="hero">
+      <div>
+        <span class="status"><i class="led" aria-hidden="true"></i><b>Online</b> · Resident Engineer, NOC @ Wateen Telecom</span>
+        <h1>Syed Mustafa <span>Hassan</span></h1>
+        <p class="role">Network &amp; security engineer who keeps enterprise infrastructure up, with a <mark>Computer Science degree</mark>, hands-on <mark>SOC experience</mark>, applied <mark>AI / computer-vision</mark> research projects, and a record of <mark>building tech communities</mark> across Karachi.</p>
+        <p class="lede">Microsoft Learn Student Ambassador (Alpha &amp; Beta), founder of the Microsoft Learn Student Community at MAJU, top contributor in Social Winter of Code, ICPC participant and three-time Dean's List honoree.</p>
+        <div class="cta">
+          <a class="btn primary" href="#contact">Get in touch</a>
+          <a class="btn" href="#experience">View experience</a>
+          <a class="btn" href="https://www.linkedin.com/in/mustafahassan2001" target="_blank" rel="noopener">LinkedIn ↗</a>
+        </div>
+      </div>
+      <div class="console" aria-label="Career path shown as a network traceroute">
+        <div class="bar"><i></i><i></i><i></i><span>noc-console — bash</span></div>
+        <div class="trace" id="trace"></div>
+      </div>
+    </section>
+  </div></div>
+  <div class="wrap">
+    <div class="stats" id="stats"></div>
+    <div class="marquee" aria-label="Organizations worked and learned with"><div class="marquee-track" id="orgs"></div></div>
+
+    <section class="block" id="about">
+      <div class="shead"><div><div class="label">About</div><h2>From code to the core network</h2></div></div>
+      <div class="about">
+        <div class="text">
+          <p>I'm a <strong>Computer Science graduate from Mohammad Ali Jinnah University</strong> (CGPA <strong class="hl">3.46 / 4.0</strong>, merit scholar for all four years) currently working as a <strong>Resident Engineer in the Network Operations Center at Wateen Telecom Limited</strong>, where I design, implement and maintain LAN/WAN systems and resolve network incidents quickly to keep downtime low.</p>
+          <p>Before that I spent <strong>14 months as a SOC Analyst at NanoTechx</strong>, and earlier built product as a front-end intern at 360XpertSolutions, mentored React Native developers at Bytewise, and mentored contributors in Winter of Blockchain.</p>
+          <p>My academic work leans into <strong>machine learning and computer vision</strong>: a CNN-based non-invasive glucose monitor for Microsoft Imagine Cup, an attention UNet for low-light enhancement (<strong class="hl">27.82 dB PSNR</strong>), and a PyTorch re-implementation of PointNet. I keep studying NeuroAI and human visual processing in preparation for graduate study in data science and computational imaging.</p>
+          <p>Outside work I build communities: I <strong>founded the Microsoft Learn Student Community at MAJU</strong>, led Android at Google Developer Student Club, organized national conferences with Cisco and Microsoft communities, and write beginner guides on Git, cloud and AWS.</p>
+        </div>
+        <dl class="facts">
+          <div><dt>Based in</dt><dd>Karachi, Sindh, Pakistan</dd></div>
+          <div><dt>Current</dt><dd>Resident Engineer, NOC · Wateen Telecom</dd></div>
+          <div><dt>Focus</dt><dd>Networking, security operations, cloud, AI / computer vision</dd></div>
+          <div><dt>Degree</dt><dd>BS Computer Science · MAJU · 2025</dd></div>
+          <div><dt>HSC</dt><dd>A1 grade (91.81%) · Govt. Degree College Latifabad No. 11</dd></div>
+          <div><dt>Languages</dt><dd>Urdu (native), English (professional)</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="block" id="experience">
+      <div class="shead"><div><div class="label">Experience</div><h2>Professional experience</h2></div><p>Network operations, security operations, software engineering and technical mentorship.</p></div>
+      <div class="tl" id="jobs"></div>
+    </section>
+
+    <section class="block" id="projects">
+      <div class="shead"><div><div class="label">Projects</div><h2>Selected projects</h2></div><p>Final-year and coursework projects in mobile health, computer vision and generative AI.</p></div>
+      <div class="projects" id="projectList"></div>
+    </section>
+
+    <section class="block" id="skills">
+      <div class="shead"><div><div class="label">Skills</div><h2>Technical toolkit</h2></div></div>
+      <div class="skills" id="skillList"></div>
+    </section>
+
+    <section class="block" id="education">
+      <div class="shead"><div><div class="label">Education</div><h2>Education &amp; study</h2></div></div>
+      <div class="edu">
+        <div class="card">
+          <div class="label">Oct 2021 – Jun 2025 · Karachi</div>
+          <h3 style="font-size:26px;margin-top:10px">Bachelor of Science, Computer Science</h3>
+          <p style="color:var(--muted);margin-top:4px">Mohammad Ali Jinnah University (MAJU)</p>
+          <div style="margin-top:24px"><div class="gpa">3.46<small>/ 4.0 CGPA</small></div><div class="bar2"><i style="width:86.5%"></i></div></div>
+          <div class="tags" style="margin-top:20px"><span class="pill now">Merit scholarship 2021–2025</span><span class="pill now">Dean's List of Honor ×3</span></div>
+          <div class="label" style="margin-top:24px">Highlighted courses</div>
+          <div class="courses" id="courses"></div>
+        </div>
+        <div style="display:grid;gap:16px;min-width:0">
+          <div class="card">
+            <div class="label">Sep 2025 – Jul 2026</div>
+            <h3 style="font-size:20px;margin-top:10px">Graduate preparation &amp; independent study</h3>
+            <ul style="margin:12px 0 0;padding-left:18px;color:var(--muted);font-size:15px;display:grid;gap:6px">
+              <li>Machine learning, computer vision, NeuroAI and human visual processing, aimed at graduate study in data science and computational imaging.</li>
+              <li>Hands-on Python, PyTorch, TensorFlow, OpenCV, NumPy, Pandas and SQL.</li>
+              <li>Networks, cloud infrastructure and Linux through Cisco and AWS coursework.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="label">Jan 2019 – Jul 2021 · Hyderabad</div>
+            <h3 style="font-size:20px;margin-top:10px">Higher Secondary Certificate</h3>
+            <p style="color:var(--muted);margin-top:4px">Govt. Degree College Latifabad No. 11</p>
+            <div class="gpa" style="font-size:40px;margin-top:14px">A1<small>91.81%</small></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="certifications">
+      <div class="shead"><div><div class="label">Licenses &amp; certifications</div><h2><span id="certCount"></span> certifications &amp; courses</h2></div><p>From Fortinet, Cisco, AWS, Google, Microsoft, Meta, Stanford, DeepLearning.AI, Postman and more.</p></div>
+      <div class="filters" id="filters" role="group" aria-label="Filter certifications"></div>
+      <div class="certs" id="certList"></div>
+    </section>
+
+    <section class="block" id="awards">
+      <div class="shead"><div><div class="label">Honors &amp; awards</div><h2>Honors, awards &amp; competitions</h2></div><p>Academic distinction, competitive programming and open-source recognition.</p></div>
+      <div class="awards" id="awardList"></div>
+    </section>
+
+    <section class="block" id="community">
+      <div class="shead"><div><div class="label">Leadership &amp; community</div><h2>Community leadership</h2></div><p>Founding, growing and running student tech communities with Microsoft, Google and GitHub.</p></div>
+      <div class="comm" id="commStats"></div>
+      <div class="roles" id="roles"></div>
+
+      <div class="shead" style="margin-top:64px"><div><div class="label">Events organized &amp; attended</div><h2 style="font-size:clamp(24px,3vw,32px)">Events &amp; outreach</h2></div></div>
+      <div class="events" id="eventList"></div>
+    </section>
+
+    <section class="block" id="writing">
+      <div class="shead"><div><div class="label">Writing</div><h2>Articles</h2></div><p>Beginner-friendly guides on developer tools and the cloud.</p></div>
+      <div class="posts" id="postList"></div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="label">Contact</div>
+      <h2 style="margin-top:10px">Let's build reliable,<br><span>secure systems.</span></h2>
+      <p style="color:var(--muted);margin-top:16px;max-width:40em">Open to roles and collaborations in network engineering, security operations, cloud and applied AI, and to research opportunities in computer vision.</p>
+      <div class="clist" id="contactList"></div>
+    </section>
+  </div>
+</main>
+
+<div class="wrap"><footer><span>© <span id="yr"></span> Syed Mustafa Hassan</span><span>Karachi, Pakistan</span></footer></div>
+
+<script>
+/* ---------- All content lives here. Edit this object to update the site. ---------- */
+const D = {
+  trace: [
+    ["MAJU · BS Computer Science", "2021"],
+    ["GDSC MAJU · Android Lead", "2023"],
+    ["GirlScript SoC · Open Source", "2023"],
+    ["Microsoft Learn Student Ambassador", "2023"],
+    ["360XpertSolutions · Front-end Intern", "2024"],
+    ["Bytewise · React Native Mentor", "2024"],
+    ["McKinsey Forward Program", "2024"],
+    ["NanoTechx · SOC Analyst", "2025"],
+    ["Wateen Telecom · Resident Engineer", "2026"]
+  ],
+  stats: [
+    ["3.46", "/4", "CGPA, BS Computer Science"],
+    ["3", "×", "Dean's List of Honor"],
+    ["CERTS", "+", "certifications & courses"],
+    ["150", "+", "members in MLSA Karachi community"],
+    ["12", "+", "tech events organized & attended"],
+    ["10", "+", "merged PRs in GirlScript SoC"]
+  ],
+  jobs: [
+    { title:"Resident Engineer, Network Operations Center", org:"Wateen Telecom Limited", type:"Full-time · On-site · Karachi", when:"Aug 2026 – Present", dur:"Current", current:true,
+      pts:["Design, implement and maintain <strong>LAN/WAN systems</strong> and network protocols to keep enterprise services running smoothly.",
+           "Troubleshoot and resolve network incidents promptly, <strong>minimizing downtime</strong> and optimizing network performance.",
+           "Hands-on work with enterprise network infrastructure and secure services: distributed systems, infrastructure reliability and fault isolation."],
+      tags:["LAN/WAN","Routing & switching","NOC operations","Troubleshooting","Fault isolation"] },
+    { title:"SOC Analyst", org:"NanoTechx", type:"Full-time", when:"Jun 2025 – Jul 2026", dur:"1 yr 2 mos",
+      pts:["Worked in the <strong>Security Operations Center</strong>, monitoring and responding to security events across client environments."],
+      tags:["Security operations","Threat monitoring","Incident response"] },
+    { title:"Mentor", org:"Winter of Blockchain", type:"Open-source program by Script Foundation", when:"Aug 2024 – Nov 2024", dur:"4 mos",
+      pts:["Mentored students entering open-source development in a program built around <strong>unified, real-time problem solving</strong>."],
+      tags:["Mentorship","Open source","Code review"], link:["https://lnkd.in/p/d4QC8DyV","View post"] },
+    { title:"Open Source Contributor", org:"Social Winter of Code", type:"Remote", when:"Sep 2024 – Nov 2024", dur:"3 mos",
+      pts:["Contributed to <strong>LLM-based applications</strong> by integrating APIs and databases for real-time data access.",
+           "Worked with <strong>CI/CD pipelines</strong> and Git-based workflows for collaborative development, testing and code updates.",
+           "Developed and integrated <strong>RESTful APIs</strong> connecting machine learning models with application components."],
+      tags:["LLM apps","REST APIs","CI/CD","Git"] },
+    { title:"McKinsey Forward Program", org:"McKinsey & Company", type:"Apprenticeship", when:"Apr 2024 – Nov 2024", dur:"8 mos",
+      pts:["Completed McKinsey's Forward program on structured problem solving, adaptability, communication and digital skills."],
+      tags:["Problem solving","Communication","Leadership"] },
+    { title:"React Native Track Lead & Mentor", org:"Bytewise Limited", type:"Bytewise Fellowship · Remote", when:"Jan 2024 – Apr 2024", dur:"4 mos",
+      pts:["Led the <strong>React Native track</strong>, mentoring fellows to become mobile developers.",
+           "Provided learning material, answered queries, ran <strong>code reviews</strong>, helped debug and held online classes.",
+           "Designed skill-building tasks and supported fellows through projects to successful outcomes."],
+      tags:["React Native","Mentorship","Code review","Teaching"], link:["https://lnkd.in/p/d9JhyVMw","View post"] },
+    { title:"Front-end Developer Intern", org:"360XpertSolutions", type:"Internship · On-site · Karachi", when:"Jan 2024 – Mar 2024", dur:"3 mos",
+      pts:["Built reusable, responsive UI components with <strong>React and Next.js</strong>.",
+           "Assisted backend work with <strong>Nest.js, Node.js and FastAPI</strong>, including REST and GraphQL API integration.",
+           "Worked with the team to troubleshoot issues, improve performance and ship features across frontend and backend."],
+      tags:["React","Next.js","Nest.js","Node.js","FastAPI","GraphQL"], link:["https://lnkd.in/p/dGYRACNR","View post"] },
+    { title:"Open Source Contributor · Top Contributor", org:"Social Winter of Code, Season 4", type:"Contract · Remote (India)", when:"Dec 2023 – Feb 2024", dur:"3 mos",
+      pts:["Selected among the <strong>top 100 contributors</strong> in the front-end domain (HTML, CSS, JS).",
+           "Contributed to multiple web projects under experienced mentors, handled pull requests and helped new contributors get started with GitHub."],
+      tags:["HTML","CSS","JavaScript","GitHub"], link:["https://lnkd.in/p/d9N72p5W","View post"] },
+    { title:"Open Source Contributor", org:"GirlScript Summer of Code", type:"Contract · Remote (India)", when:"May 2023 – Aug 2023", dur:"4 mos",
+      pts:["Created <strong>10+ pull requests that were merged</strong> into front-end open-source projects.",
+           "Collaborated with developers worldwide, following the SDLC and GitHub workflows."],
+      tags:["Front-end","GitHub","SDLC"] }
+  ],
+  projects: [
+    { name:"VisionGlyco", sub:"Microsoft Imagine Cup 2024", wide:true, metric:["< 1 s","iris inference"],
+      text:"End-to-end non-invasive glucose monitoring from eye images captured on a smartphone. A trained convolutional neural network runs a real-time iris image inference pipeline in under one second.",
+      tags:["CNN","Computer vision","Mobile","Healthcare"] },
+    { name:"BrainCare", sub:"Final year project", wide:true, metric:["2","user panels"],
+      text:"React Native app for caregivers of dementia patients. Caretakers track the patient's location, manage medication and access e-medical support; the patient panel has SOS, medication reminders and brain-exercise games.",
+      tags:["React Native","Location tracking","Healthcare"] },
+    { name:"Low-Light Image Enhancement", sub:"Generative AI coursework", metric:["27.82 dB","PSNR"],
+      text:"Lightweight UNet with an attention mechanism for real-time low-light image enhancement.",
+      tags:["PyTorch","UNet","Attention"] },
+    { name:"HDR Tone-Mapping Quality", sub:"Human-computer interaction coursework", metric:["8","algorithms evaluated"],
+      text:"Objective quality assessment of HDR tone-mapped images using multi-scale structural similarity and natural image statistics on the TMQI dataset.",
+      tags:["Image quality","MS-SSIM","TMQI"] },
+    { name:"PointNet 3D Segmentation", sub:"Machine learning coursework", metric:["S3DIS","3D point clouds"],
+      text:"Re-implemented the PointNet paper in PyTorch for direct per-point semantic segmentation and classification of 3D point clouds.",
+      tags:["PyTorch","3D vision","Segmentation"] }
+  ],
+  skills: [
+    ["Networking & Infrastructure", ["LAN / WAN","Network protocols","IPv4 addressing","Troubleshooting","Fault isolation","Cisco Packet Tracer","Linux"]],
+    ["Security", ["SOC operations","Threat monitoring","Next-Generation Firewall","Fortinet","Cloud security basics"]],
+    ["Languages", ["Python","C++","JavaScript","Java","MATLAB","SQL"]],
+    ["AI / ML", ["PyTorch","TensorFlow","OpenCV","scikit-learn","NumPy","Pandas","CNNs","UNet"]],
+    ["Web & Mobile", ["React","Next.js","React Native","Node.js","Express.js","Nest.js","FastAPI","REST & GraphQL","HTML5 / CSS3"]],
+    ["Data & Cloud", ["PostgreSQL","MySQL","MongoDB","Firebase","AWS","Microsoft Azure","Git & GitHub","CI/CD","Postman"]],
+    ["Leadership", ["Community building","Public speaking","Event management","Team coordination","Strategy implementation","Mentorship"]],
+    ["Design tools", ["Figma","Canva","Adobe Photoshop","Adobe Illustrator"]],
+    ["Problem solving", ["Data structures","Algorithms","Competitive programming","OOP"]]
+  ],
+  courses: ["Generative AI (LLMs)","Machine Learning","Computer Vision","Human-Computer Interaction","Data Structures & Algorithms","Design & Analysis of Algorithms","Parallel Computing","Probability & Statistics","Linear Algebra","Numerical Computing","Applied Physics"],
+  // cat: sec | cloud | ai | dev | cp ; feat = highlighted
+  certs: [
+    ["Introduction to the Next Generation Firewall 1.0","Fortinet","Oct 2026","sec",1],
+    ["Fortinet Cybersecurity and Cloud Fundamentals 1.0 (NSE)","Fortinet","Oct 2026","sec",1],
+    ["Networking Basics","Cisco Networking Academy","Oct 2026","sec",1],
+    ["Linux Essentials","Cisco Networking Academy","Dec 2023","sec"],
+    ["AWS Cloud Quest: Cloud Practitioner","Amazon Web Services","Apr 2024","cloud",1],
+    ["AWS Knowledge: Cloud Essentials","Amazon Web Services","Apr 2024","cloud"],
+    ["AWS Cloud Practitioner Essentials","Amazon Web Services","Apr 2024","cloud"],
+    ["Microsoft Cloud Skills Challenge: Git & GitHub","Microsoft Imagine Cup","Oct 2023","cloud"],
+    ["A Data Engineering Mastery Workshop","Microsoft Imagine Cup","Nov 2023","cloud"],
+    ["Google AI Essentials","Google","","ai",1],
+    ["Machine Learning Specialization","DeepLearning.AI & Stanford Online","94 hours","ai",1],
+    ["NeuroAI","Neuromatch Academy","","ai",1],
+    ["The Human Brain (ongoing)","MIT OpenCourseWare","","ai"],
+    ["Machine Learning","Microsoft Imagine Cup","","ai"],
+    ["Generative AI & LLMs","Microsoft Imagine Cup","","ai"],
+    ["Code in Place","Stanford University","2025","dev",1],
+    ["Postman API Fundamentals Student Expert","Postman","Apr 2024","dev",1],
+    ["Career Essentials in Software Development","Microsoft & LinkedIn","Sep 2023","dev"],
+    ["Introduction to Git and GitHub","Google","Nov 2024","dev"],
+    ["Foundations of Git","GitKraken","Aug 2024","dev"],
+    ["Introduction to Android Mobile Application Development","Meta","Apr 2023","dev"],
+    ["React JS Workshop (3 days)","Mohammad Ali Jinnah University","Mar 2023","dev"],
+    ["Programming in HTML5 with JavaScript and CSS3","OpenClassrooms","Jun 2022","dev"],
+    ["Python for Beginners","Microsoft Imagine Cup","Oct 2023","dev"],
+    ["Introduction to SQL","DataCamp","Mar 2023","dev"],
+    ["Intermediate SQL","DataCamp","","dev"],
+    ["Programming Foundations: Fundamentals","LinkedIn","Sep 2023","dev"],
+    ["Programming Foundations: Beyond the Fundamentals","LinkedIn","Sep 2023","dev"],
+    ["Introduction to Career Skills in Software Development","LinkedIn","Aug 2023","dev"],
+    ["Learning C++","LinkedIn","Apr 2023","dev"],
+    ["CPA: Programming Essentials in C++","Cisco","Dec 2022","dev"],
+    ["Data Structures and Algorithms in C++","Great Learning","Sep 2023","cp"],
+    ["Problem Solving (Basic)","HackerRank","May 2023","cp"],
+    ["ICPC Asia Topi Preliminary: Certificate of Achievement","ICPC","Nov 2024","cp",1],
+    ["Imagine Cup 2024 Participation","HEC Pakistan","Aug 2024","cp",1],
+    ["Google Solution Challenge 2024 Submission","Google","Mar 2024","cp"],
+    ["Open Source Contributor","Social Winter of Code","Nov 2023","cp"],
+    ["Microsoft Learn Student Ambassador","Microsoft","Nov 2023","cp"]
+  ],
+  certCats: { all:"All", sec:"Security & Networking", cloud:"Cloud & Data", ai:"AI / ML", dev:"Development", cp:"Competitions & Programs" },
+  awards: [
+    ["2021–25","Merit-based scholarship","Awarded for the full BS Computer Science program at Mohammad Ali Jinnah University.",1],
+    ["2024","Dean's List of Honor","Dean's Award for Outstanding Academic Performance, MAJU. Presented by Prof. Dr. Shaukat Wasi.",1,"https://lnkd.in/p/dv8HpYAT"],
+    ["2023","Dean's List of Honor, Spring 2023","Dean's Award for Outstanding Academic Performance, MAJU. Presented by Dean Muhammad Khaliq-ur-Rahman Raazi Syed.",1,"https://lnkd.in/p/dMYK-wh9"],
+    ["2023","Dean's List of Honor, Spring 2022","Dean's Award for Outstanding Academic Performance, MAJU. Presented by Dean Muhammad Khaliq-ur-Rahman Raazi Syed.",1,"https://lnkd.in/p/dCasqeqB"],
+    ["2024","Top Contributor, Social Winter of Code","Selected as a top contributor in the front-end domain (HTML, CSS, JS) in SWOC's three-month open-source program.",1],
+    ["2024–25","ICPC Asia Topi Preliminary","Certificate of Achievement in the International Collegiate Programming Contest, Asia Topi preliminary round.",1],
+    ["2025","Selected for Stanford Code in Place","Selected for Stanford University's Code in Place program."],
+    ["2024","Microsoft Imagine Cup 2024","Competed with VisionGlyco, a non-invasive glucose monitoring system (HEC Pakistan certificate)."],
+    ["2024","Google Solution Challenge 2024","Submitted a project to Google's global Solution Challenge."],
+    ["2024","Beta Microsoft Learn Student Ambassador","Promoted to Beta MLSA for community impact.",0,"https://lnkd.in/p/dNfkpB6d"],
+    ["2023","Microsoft Learn Student Ambassador","Selected into Microsoft's global program for student campus leaders."],
+    ["2023","3rd Position, Jinnah League","Competitive programming competition."],
+    ["2023","7th Rank, Speed Programming (ACM-MAJU)","Rapid coding with algorithms and data structures under time pressure."],
+    ["2023","Silver level, HackerRank Problem Solving","Recognized for algorithmic problem-solving proficiency."],
+    ["2023","Meta Hacker Cup 2023, Round 1 qualifier","Qualified to Round 1 and solved problem C1."],
+    ["2024","Hacktoberfest 2024","Completed open-source contributions during Hacktoberfest.",0,"https://lnkd.in/p/dggvtezn"]
+  ],
+  comm: [
+    ["5.9K","followers","Microsoft Student Ambassadors · Karachi","150+ community members","https://www.linkedin.com/company/mlsakarachi/posts/"],
+    ["1.7K","followers","Microsoft Learn Student Community · MAJU","Founded the chapter · 20 core members","https://www.linkedin.com/company/mlsa-maju/posts/"],
+    ["1.2K","followers","Google Developer Group · MAJU","Android Team Lead & core member · 10+ team","https://www.linkedin.com/company/gdgocmaju/posts/"]
+  ],
+  roles: [
+    ["Nov 2023 – Jun 2025","Founder & Community Manager","Microsoft Learn Student Community, MAJU",
+      "Organized tech events with practical knowledge and career opportunities, set strategies, roadmaps and success metrics, built partnerships with companies and brands, led the core team and public speaking.","https://lnkd.in/p/dA8VShuB"],
+    ["Oct 2023 – Sep 2025","Microsoft Learn Student Ambassador · Alpha & Beta","Microsoft",
+      "Part of Microsoft's global group of campus leaders helping students build tech communities and career skills. Alpha Ambassador (Dec 2023 – Sep 2025) and Beta Ambassador (Feb 2024 – Jun 2025)."],
+    ["Jul 2023 – Jun 2025","GitHub Global Campus Student","GitHub",
+      "Organized and joined events, workshops and seminars to teach peers GitHub and promote GitHub tools in the academic community."],
+    ["Jan 2023 – Jul 2023","Android Team Lead & Core Team Member","Google Developer Student Club, MAJU",
+      "Led Android, organized coding workshops and partnered with companies and other clubs for career-focused events. Core member again for 2023–24 (Sep 2023 – Mar 2024)."],
+    ["Ongoing","Mentor","OneGuide Club, MAJU",
+      "Guide and motivate junior students through their studies and early careers."],
+    ["Dec 2023 – Jan 2024","Community Outreach","Pakistan User Group · Maventech · Cisco Community Pakistan",
+      "Represented MLSA at the Power Platform conference, helped organize the Information Security Summit 2023, and organized the Pakistan Cisco Networking Academy Instructor & Partner Conference at MAJU (Jan 16, 2024)."]
+  ],
+  events: [
+    ["2023-12-15","Pakistan User Group Summit","https://lnkd.in/p/dPhMmXSG"],
+    ["2023-12-18","Information Security Summit 2023","https://lnkd.in/p/dDJJqvr3"],
+    ["2023-12-27","GDG Kolachi DevFest 2023",""],
+    ["2024-01-10","MERN Stack Development Workshop","https://lnkd.in/p/dPXACHS3"],
+    ["2024-01-16","Pakistan Cisco Networking Academy Instructor & Partner Conference","https://lnkd.in/p/dzS9phWU"],
+    ["2024-01-19","Microsoft Ignite After Party","https://lnkd.in/p/d88i6Hvx"],
+    ["2024-02-28","Let's Meet","https://lnkd.in/p/dnMBPKmE"],
+    ["2024-03-18","Flutter Forward Extended","https://lnkd.in/p/dAdQjHrQ"],
+    ["2024-03-21","ML and AI: Hands-on Session","https://lnkd.in/p/dvnuDrMf"],
+    ["2024-05-20","MLSC-MAJU Team Meetup","https://lnkd.in/p/dQsnF5ci"],
+    ["2024-05-22","Mastering Git & GitHub","https://lnkd.in/p/djNQm4qD"],
+    ["2024-08-31","ITCN Asia 2024","https://lnkd.in/p/dzn5pAxf"]
+  ],
+  posts: [
+    ["Dec 2023","GitHub for Beginners","LinkedIn","https://www.linkedin.com/pulse/github-beginners-syed-mustafa-hassan-fvctf/"],
+    ["Apr 2024","A Beginner's Exploration of Cloud Computing","LinkedIn","https://www.linkedin.com/pulse/beginners-exploration-cloud-computing-syed-mustafa-hassan-kaqwf/"],
+    ["Apr 2024","Beginner's Guide to AWS: Creating Your First VPC","DEV Community","https://dev.to/mustafahassan2001/beginners-guide-to-aws-creating-your-first-virtual-private-cloud-vpc-356e"]
+  ],
+  contact: [
+    ["Email","mustafahassan3404@gmail.com","mailto:mustafahassan3404@gmail.com"],
+    ["Phone","+92 336 2163440","tel:+923362163440"],
+    ["LinkedIn","linkedin.com/in/mustafahassan2001","https://www.linkedin.com/in/mustafahassan2001"],
+    ["GitHub","github.com/mustafahassan2001","https://github.com/mustafahassan2001"],
+    ["DEV Community","dev.to/mustafahassan2001","https://dev.to/mustafahassan2001"],
+    ["Website","syedmustafahassan.netlify.app","https://syedmustafahassan.netlify.app"]
+  ]
+};
+
+/* ---------- Rendering ---------- */
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const ext = 'target="_blank" rel="noopener"';
+
+$("#trace").innerHTML = '<div class="cmd">traceroute career.mustafa-hassan</div>' +
+  D.trace.map(([n, y], i) => `<div class="hop${i === D.trace.length - 1 ? " dest" : ""}" style="animation-delay:${i * 90}ms"><span>${i + 1}</span><b>${esc(n)}</b><span class="ms">${y}</span></div>`).join("") +
+  '<div class="hop" style="animation-delay:900ms"><span></span><span style="color:var(--ok)">✓ destination reached · link up</span><span></span></div>';
+
+$("#stats").innerHTML = D.stats.map(([n, s, t]) =>
+  `<div class="stat"><div class="n">${n === "CERTS" ? D.certs.length : n}<small>${s}</small></div><div class="t">${t}</div></div>`).join("");
+
+$("#jobs").innerHTML = D.jobs.map(j => `
+  <article class="job${j.current ? " current" : ""}">
+    <div class="when"><b>${j.when}</b>${j.dur}</div>
+    <div>
+      <h3>${esc(j.title)} ${j.current ? '<span class="pill now">Current</span>' : ""}</h3>
+      <div class="org"><strong>${esc(j.org)}</strong> · ${esc(j.type)}</div>
+      <ul>${j.pts.map(p => `<li>${p}</li>`).join("")}</ul>
+      <div class="tags">${j.tags.map(t => `<span class="tag">${esc(t)}</span>`).join("")}</div>
+      ${j.link ? `<a class="more" href="${j.link[0]}" ${ext}>${j.link[1]} ↗</a>` : ""}
+    </div>
+  </article>`).join("");
+
+$("#projectList").innerHTML = D.projects.map(p => `
+  <article class="proj${p.wide ? " wide" : ""}">
+    <div class="label">${esc(p.sub)}</div>
+    <div class="k"><h3>${esc(p.name)}</h3><div class="metric" style="text-align:right">${p.metric[0]}<small>${p.metric[1]}</small></div></div>
+    <p>${esc(p.text)}</p>
+    <div class="tags">${p.tags.map(t => `<span class="tag">${esc(t)}</span>`).join("")}</div>
+  </article>`).join("");
+
+$("#skillList").innerHTML = D.skills.map(([h, xs]) =>
+  `<div class="sk"><h3>${esc(h)}</h3><div class="tags" style="margin:0">${xs.map(x => `<span class="tag">${esc(x)}</span>`).join("")}</div></div>`).join("");
+
+$("#courses").innerHTML = D.courses.map(c => `<span class="tag">${esc(c)}</span>`).join("");
+
+/* certifications with filter */
+$("#certCount").textContent = D.certs.length;
+const initials = s => s.replace(/[^A-Za-z& ]/g, "").split(/\s+/).filter(Boolean).slice(0, 2).map(w => w[0]).join("").toUpperCase();
+let cat = "all";
+try { cat = localStorage.getItem("certCat") || "all"; } catch (e) {}
+if (!D.certCats[cat]) cat = "all";
+function renderCerts() {
+  $("#filters").innerHTML = Object.entries(D.certCats).map(([k, v]) => {
+    const n = k === "all" ? D.certs.length : D.certs.filter(c => c[3] === k).length;
+    return `<button type="button" id="f-${k}" data-k="${k}" aria-pressed="${k === cat}">${v}<span>${n}</span></button>`;
+  }).join("");
+  const list = D.certs.filter(c => cat === "all" || c[3] === cat).sort((a, b) => (b[4] || 0) - (a[4] || 0));
+  $("#certList").innerHTML = list.map(([n, o, d, , f]) => `
+    <div class="cert"><div class="ico" aria-hidden="true">${initials(o)}</div>
+      <div style="min-width:0"><h3>${esc(n)}</h3><div class="meta">${esc(o)}${d ? " · " + esc(d) : ""}${f ? ' · <span class="feat">★ featured</span>' : ""}</div></div>
+    </div>`).join("");
+}
+$("#filters").addEventListener("click", e => {
+  const b = e.target.closest("button"); if (!b) return;
+  cat = b.dataset.k; try { localStorage.setItem("certCat", cat); } catch (e) {}
+  renderCerts();
+});
+renderCerts();
+
+$("#awardList").innerHTML = D.awards.map(([y, t, d, g, l]) => `
+  <article class="award${g ? " gold" : ""}"><div class="yr">${y}</div>
+    <div style="min-width:0"><h3>${esc(t)}</h3><p>${esc(d)}</p>${l ? `<a class="more" href="${l}" ${ext}>View certificate post ↗</a>` : ""}</div>
+  </article>`).join("");
+
+$("#commStats").innerHTML = D.comm.map(([n, u, t, s, l]) => `
+  <a class="card" href="${l}" ${ext} style="text-decoration:none">
+    <div class="big">${n}<small> ${u}</small></div><h3>${esc(t)}</h3><p>${esc(s)}</p><span class="more" style="margin-top:6px">Visit page ↗</span>
+  </a>`).join("");
+
+$("#roles").innerHTML = D.roles.map(([w, t, o, d, l]) => `
+  <article class="job"><div class="when"><b>${w}</b></div>
+    <div><h3 style="font-size:19px">${esc(t)}</h3><div class="org"><strong>${esc(o)}</strong></div>
+    <p style="margin-top:10px;color:var(--muted);font-size:15px">${esc(d)}</p>${l ? `<a class="more" href="${l}" ${ext}>View post ↗</a>` : ""}</div>
+  </article>`).join("");
+
+const fmt = iso => new Date(iso + "T00:00:00").toLocaleDateString("en-GB", { day: "2-digit", month: "short", year: "numeric" });
+$("#eventList").innerHTML = D.events.map(([d, t, l]) => l
+  ? `<a class="ev" href="${l}" ${ext}><span class="d">${fmt(d)}</span><span class="t">${esc(t)}</span><span class="go">View ↗</span></a>`
+  : `<div class="ev"><span class="d">${fmt(d)}</span><span class="t">${esc(t)}</span><span></span></div>`).join("");
+
+$("#postList").innerHTML = D.posts.map(([d, t, s, l]) => `
+  <a class="post" href="${l}" ${ext}><div class="label">${d} · ${s}</div><h3>${esc(t)}</h3><span class="go">Read article ↗</span></a>`).join("");
+
+$("#contactList").innerHTML = D.contact.map(([k, v, h], i) => `
+  <div class="citem"><div><div class="label">${k}</div><a href="${h}" ${h.startsWith("http") ? ext : ""}>${esc(v)}</a></div>
+  <button class="copy" type="button" id="copy-${i}" data-v="${esc(v)}">Copy</button></div>`).join("");
+$("#contactList").addEventListener("click", e => {
+  const b = e.target.closest(".copy"); if (!b) return;
+  const done = () => { b.textContent = "Copied"; setTimeout(() => b.textContent = "Copy", 1600); };
+  const fallback = () => { const r = document.createRange(); r.selectNodeContents(b.previousElementSibling.querySelector("a")); const s = getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent = "Selected"; };
+  try { navigator.clipboard.writeText(b.dataset.v).then(done, fallback); } catch (err) { fallback(); }
+});
+
+$("#yr").textContent = new Date().getFullYear();
+
+/* theme toggle */
+const root = document.documentElement;
+try { const t = localStorage.getItem("theme"); if (t) root.dataset.theme = t; } catch (e) {}
+$("#themeBtn").addEventListener("click", () => {
+  const dark = root.dataset.theme ? root.dataset.theme === "dark" : !matchMedia("(prefers-color-scheme: light)").matches;
+  root.dataset.theme = dark ? "light" : "dark";
+  try { localStorage.setItem("theme", root.dataset.theme); } catch (e) {}
+});
+
+
+/* ---------- motion ---------- */
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const orgs = ["Wateen Telecom","NanoTechx","Microsoft","Google","GitHub","Cisco","AWS","Fortinet","McKinsey & Company","Meta","Stanford","ICPC","Bytewise","360XpertSolutions","Social Winter of Code","GirlScript"];
+$("#orgs").innerHTML = [...orgs, ...orgs].map(o => `<span>${o}</span>`).join("");
+
+/* count-up stats */
+if (!reduce) document.querySelectorAll(".stat .n").forEach(el => {
+  const node = el.firstChild, end = parseFloat(node.textContent), dec = (node.textContent.split(".")[1] || "").length, t0 = performance.now();
+  const step = t => { const k = Math.min(1, (t - t0) / 1400), e = 1 - Math.pow(1 - k, 3); node.textContent = (end * e).toFixed(dec); if (k < 1) requestAnimationFrame(step); };
+  requestAnimationFrame(step);
+});
+
+/* cursor spotlight */
+document.addEventListener("pointermove", e => {
+  const c = e.target.closest && e.target.closest(".proj,.cert,.award,.post,.sk,.comm .card"); if (!c) return;
+  const r = c.getBoundingClientRect(); c.style.setProperty("--mx", (e.clientX - r.left) + "px"); c.style.setProperty("--my", (e.clientY - r.top) + "px");
+});
+
+/* scroll progress */
+const prog = $("#progress");
+const onScroll = () => { const h = document.documentElement.scrollHeight - innerHeight; prog.style.transform = `scaleX(${h > 0 ? scrollY / h : 0})`; };
+addEventListener("scroll", onScroll, { passive: true }); onScroll();
+
+/* network topology canvas: nodes drift, links light up, packets travel */
+(() => {
+  const cv = $("#net"), ctx = cv.getContext("2d"); let W, H, nodes = [], packets = [], dpr = Math.min(2, devicePixelRatio || 1);
+  const col = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+  function size() { const r = cv.getBoundingClientRect(); W = r.width; H = r.height; cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    const n = Math.round(Math.min(70, W * H / 14000)); nodes = Array.from({ length: n }, () => ({ x: Math.random() * W, y: Math.random() * H, vx: (Math.random() - .5) * .25, vy: (Math.random() - .5) * .25 })); }
+  function frame() {
+    const line = col("--line"), sig = col("--signal"), ok = col("--ok"); ctx.clearRect(0, 0, W, H);
+    for (const p of nodes) { if (!reduce) { p.x += p.vx; p.y += p.vy; if (p.x < 0 || p.x > W) p.vx *= -1; if (p.y < 0 || p.y > H) p.vy *= -1; } }
+    const D2 = 140 * 140;
+    for (let i = 0; i < nodes.length; i++) for (let j = i + 1; j < nodes.length; j++) {
+      const a = nodes[i], b = nodes[j], d = (a.x - b.x) ** 2 + (a.y - b.y) ** 2;
+      if (d < D2) { ctx.globalAlpha = 1 - d / D2; ctx.strokeStyle = line; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
+        if (!reduce && Math.random() < .0009 && packets.length < 14) packets.push({ a, b, t: 0 }); }
+    }
+    ctx.globalAlpha = 1;
+    for (const p of nodes) { ctx.fillStyle = ok; ctx.globalAlpha = .7; ctx.beginPath(); ctx.arc(p.x, p.y, 1.8, 0, 7); ctx.fill(); }
+    packets = packets.filter(k => (k.t += .012) < 1);
+    for (const k of packets) { const x = k.a.x + (k.b.x - k.a.x) * k.t, y = k.a.y + (k.b.y - k.a.y) * k.t;
+      ctx.globalAlpha = 1; ctx.fillStyle = sig; ctx.shadowColor = sig; ctx.shadowBlur = 10; ctx.beginPath(); ctx.arc(x, y, 2.6, 0, 7); ctx.fill(); ctx.shadowBlur = 0; }
+    ctx.globalAlpha = 1;
+    if (!reduce) requestAnimationFrame(frame);
+  }
+  size(); addEventListener("resize", size); frame();
+})();
+
+/* active nav link */
+const links = [...document.querySelectorAll("nav.links a")];
+if ("IntersectionObserver" in window) {
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) links.forEach(a => a.classList.toggle("on", a.getAttribute("href") === "#" + e.target.id));
+  }), { rootMargin: "-45% 0px -50% 0px" });
+  document.querySelectorAll("section[id]").forEach(s => io.observe(s));
+}
+</script>
+</body>
+</html>
