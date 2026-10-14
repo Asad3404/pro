@@ -110,14 +110,13 @@ nav.links a:hover,nav.links a.on{color:var(--fg);background:var(--raise)}
 @media (max-width: 520px){.orbit{--R1:112px;--R2:165px}.ring .sat .lg{--s:34px}.ring.r2 .sat .lg{--s:30px}.avatar{width:160px;height:160px}}
 
 /* stats */
-.stats{display:grid;grid-template-columns:repeat(6,1fr);border:1px solid var(--line);border-radius:var(--r);background:var(--surface)}
-.stat{padding:20px 18px;border-left:1px solid var(--line)}
-.stat:first-child{border-left:0}
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.stat{padding:20px 18px;background:var(--surface)}
 .stat .n{font:800 34px/1 var(--f-display);font-variant-numeric:tabular-nums}
 .stat .n small{font-size:.55em;color:var(--signal)}
 .stat .t{margin-top:8px;font-size:13px;color:var(--muted);line-height:1.35}
-@media (max-width: 960px){.stats{grid-template-columns:repeat(3,1fr)}.stat:nth-child(4){border-left:0}.stat:nth-child(n+4){border-top:1px solid var(--line)}}
-@media (max-width: 520px){.stats{grid-template-columns:repeat(2,1fr)}.stat{border-left:1px solid var(--line)!important;border-top:1px solid var(--line)}.stat:nth-child(odd){border-left:0!important}.stat:nth-child(-n+2){border-top:0}}
+@media (max-width: 960px){.stats{grid-template-columns:repeat(6,1fr)}.stat{grid-column:span 2}.stat:nth-child(-n+2){grid-column:span 3}}
+@media (max-width: 520px){.stats{grid-template-columns:1fr 1fr}.stat,.stat:nth-child(-n+2){grid-column:span 1}.stat:last-child{grid-column:span 2}}
 
 /* marquee */
 .marquee{overflow:hidden;margin-top:24px;padding-block:14px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
@@ -542,7 +541,7 @@ const D = {
     ["MAJU · BS Computer Science","2021"],["GDSC MAJU · Android Lead","2023"],["GirlScript SoC · Open Source","2023"],["Microsoft Learn Student Ambassador","2023"],
     ["360XpertSolutions · Front-end Intern","2024"],["Bytewise · React Native Mentor","2024"],["McKinsey Forward Program","2024"],["NanoTechx · SOC Analyst","2025"],["Wateen Telecom · Resident Engineer","2026"]
   ],
-  stats: [["3.46","/4","CGPA, BS Computer Science"],["3","×","Dean's List of Honor"],["CERTS","+","certifications & courses"],["150","+","members in MLSA Karachi community"],["EVENTS","+","tech events organized & attended"],["10","+","merged PRs in GirlScript SoC"]],
+  stats: [["3.46","/4","CGPA, BS Computer Science"],["3","×","Dean's List of Honor"],["CERTS","+","certifications & courses"],["150","+","members in MLSA Karachi community"],["EVENTS","+","tech events organized & attended"]],
   jobs: [
     { logo:"wateen", title:"Resident Engineer, Network Operations Center", org:"Wateen Telecom Limited", type:"Full-time · On-site · Karachi", when:"Aug 2026 – Present", current:true,
       pts:["Design, implement and maintain <strong>LAN/WAN systems</strong> and network protocols to keep enterprise services running smoothly.",
