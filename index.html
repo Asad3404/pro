@@ -133,28 +133,6 @@ section.block{padding-block:96px 0}
 .shead h2{font-size:clamp(30px,4.2vw,48px);font-weight:700;letter-spacing:-.02em;margin-top:8px}
 .shead p{color:var(--muted);max-width:30em}
 
-/* about */
-.about3{display:grid;gap:22px;max-width:1000px}
-.ab-big{font:700 clamp(30px,4.6vw,56px)/1.15 var(--f-display);letter-spacing:-.025em;text-wrap:balance;margin-top:6px}
-.ab-big span{color:var(--fg)}
-.ab-big em{font-style:normal;color:var(--signal)}
-.ab-sub{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:10px}
-.ab-sub li{font-size:15px;color:var(--fg);padding:7px 14px;border:1px solid var(--line);border-radius:999px;background:var(--surface)}
-.ab-nums{display:grid;grid-template-columns:repeat(4,1fr);margin-top:22px;border-top:1px solid var(--line)}
-.ab-nums div{padding:22px 20px 4px 0;display:grid;gap:6px;min-width:0}
-.ab-nums div + div{padding-left:20px;border-left:1px solid var(--line)}
-.ab-nums b{font:800 clamp(34px,4vw,48px)/1 var(--f-display);font-variant-numeric:tabular-nums;letter-spacing:-.02em}
-.ab-nums small{font-size:.5em;color:var(--signal);margin-left:2px}
-.ab-nums span{font-size:14px;color:var(--muted)}
-@media (max-width: 720px){.ab-nums{grid-template-columns:1fr 1fr}.ab-nums div:nth-child(3){padding-left:0;border-left:0}.ab-nums div:nth-child(n+3){border-top:1px solid var(--line);margin-top:18px}}
-@supports (animation-timeline: view()){
-  @media (prefers-reduced-motion: no-preference){
-    .ab-big span{background:linear-gradient(90deg,var(--fg) 0 50%,color-mix(in srgb,var(--fg) 22%,transparent) 50% 100%);background-size:200% 100%;background-position:100% 0;-webkit-background-clip:text;background-clip:text;color:transparent;box-decoration-break:clone;-webkit-box-decoration-break:clone;animation:fill linear both;animation-timeline:view();animation-range:entry 30% cover 55%}
-    .ab-big em{color:inherit}
-    @keyframes fill{to{background-position:0 0}}
-  }
-}
-
 /* experience timeline */
 .tl{position:relative;display:grid;gap:16px;padding-left:28px}
 .tl::before{content:"";position:absolute;left:7px;top:8px;bottom:8px;width:2px;background:linear-gradient(var(--signal),var(--ok) 40%,var(--line))}
@@ -378,7 +356,7 @@ footer{padding-block:28px 40px;color:var(--muted);font:400 13px var(--f-mono);di
   <div class="wrap">
     <a class="brand" href="#top"><img src="assets/profile.jpg" alt="" onerror="this.remove()">Mustafa Hassan</a>
     <nav class="links" aria-label="Sections">
-      <a href="#about">About</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#education">Education</a><a href="#certifications">Certifications</a><a href="#awards">Awards</a><a href="#activities">Activities</a><a href="#events">Events</a><a href="#writing">Writing</a><a href="#contact">Contact</a>
+      <a href="#education">Education</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#certifications">Certifications</a><a href="#awards">Awards</a><a href="#activities">Activities</a><a href="#events">Events</a><a href="#writing">Writing</a><a href="#contact">Contact</a>
     </nav>
     <button class="theme" id="themeBtn" type="button" aria-label="Toggle light and dark theme">◐</button>
   </div>
@@ -410,16 +388,23 @@ footer{padding-block:28px 40px;color:var(--muted);font:400 13px var(--f-mono);di
     <div class="stats reveal" id="stats"></div>
     <div class="marquee" aria-label="Organizations"><div class="marquee-track" id="orgs"></div></div>
 
-    <section class="block" id="about">
-      <div class="about3">
-        <div class="label reveal">About me</div>
-        <p class="ab-big reveal"><span>I'm a <em>network &amp; security engineer</em> from Karachi who loves <em>building communities</em> and <em>solving problems</em>.</span></p>
-        <ul class="ab-sub reveal"><li>Computer Science graduate, MAJU</li><li>Resident Engineer, Wateen Telecom</li><li>Founder, Microsoft Learn Student Community MAJU</li></ul>
-        <div class="ab-nums reveal">
-          <div><b>3.46</b><span>CGPA, BS Computer Science</span></div>
-          <div><b>14<small>mo</small></b><span>SOC Analyst experience</span></div>
-          <div><b>38<small>+</small></b><span>certifications &amp; courses</span></div>
-          <div><b>5.9K</b><span>community followers, MLSA Karachi</span></div>
+    <section class="block" id="education">
+      <div class="shead reveal"><div><div class="label">Education</div><h2>Education</h2></div></div>
+      <div class="edu">
+        <div class="card fx reveal">
+          <div class="hd"><span data-logo="maju" data-size="56"></span><div><div class="label">Oct 2021 – Jun 2025 · Karachi</div><h3 style="font-size:24px;margin-top:6px">BS Computer Science</h3><p style="color:var(--muted)">Mohammad Ali Jinnah University (MAJU)</p></div></div>
+          <div style="margin-top:26px"><div class="gpa">3.46<small>/ 4.0 CGPA</small></div><div class="bar2"><i></i></div></div>
+          <div class="tags" style="margin-top:20px"><span class="pill now">Merit scholarship 2021–2025</span><span class="pill now">Dean's List of Honor ×3</span></div>
+          <div class="label" style="margin-top:24px">Highlighted courses</div>
+          <div class="tags" id="courses"></div>
+        </div>
+        <div style="display:grid;gap:16px;min-width:0;align-self:start">
+          <div class="card fx reveal">
+            <div class="label">Jan 2019 – Jul 2021 · Hyderabad</div>
+            <h3 style="font-size:20px;margin-top:10px">Higher Secondary Certificate</h3>
+            <p style="color:var(--muted);margin-top:4px">Govt. Degree College Latifabad No. 11</p>
+            <div class="gpa" style="font-size:40px;margin-top:14px">A1<small>91.81%</small></div>
+          </div>
         </div>
       </div>
     </section>
@@ -441,27 +426,6 @@ footer{padding-block:28px 40px;color:var(--muted);font:400 13px var(--f-mono);di
         <div class="sphere-copy"><div class="label">Stack in 3D</div><h3>Tools I use to build, secure and ship</h3><p>From Cisco and Fortinet networks to PyTorch models and React apps. Every logo here is a tool or platform from my projects, jobs and certifications.</p><div class="hint">↻ Drag the sphere to spin it</div></div>
       </div>
       <div class="skills" id="skillList"></div>
-    </section>
-
-    <section class="block" id="education">
-      <div class="shead reveal"><div><div class="label">Education</div><h2>Education</h2></div></div>
-      <div class="edu">
-        <div class="card fx reveal">
-          <div class="hd"><span data-logo="maju" data-size="56"></span><div><div class="label">Oct 2021 – Jun 2025 · Karachi</div><h3 style="font-size:24px;margin-top:6px">BS Computer Science</h3><p style="color:var(--muted)">Mohammad Ali Jinnah University (MAJU)</p></div></div>
-          <div style="margin-top:26px"><div class="gpa">3.46<small>/ 4.0 CGPA</small></div><div class="bar2"><i></i></div></div>
-          <div class="tags" style="margin-top:20px"><span class="pill now">Merit scholarship 2021–2025</span><span class="pill now">Dean's List of Honor ×3</span></div>
-          <div class="label" style="margin-top:24px">Highlighted courses</div>
-          <div class="tags" id="courses"></div>
-        </div>
-        <div style="display:grid;gap:16px;min-width:0;align-self:start">
-          <div class="card fx reveal">
-            <div class="label">Jan 2019 – Jul 2021 · Hyderabad</div>
-            <h3 style="font-size:20px;margin-top:10px">Higher Secondary Certificate</h3>
-            <p style="color:var(--muted);margin-top:4px">Govt. Degree College Latifabad No. 11</p>
-            <div class="gpa" style="font-size:40px;margin-top:14px">A1<small>91.81%</small></div>
-          </div>
-        </div>
-      </div>
     </section>
 
     <section class="block" id="certifications">
@@ -736,7 +700,6 @@ $("#r1").style.setProperty("--R", "var(--R1)"); $("#r2").style.setProperty("--R"
 placeRing($("#r1"), D.orbitInner); placeRing($("#r2"), D.orbitOuter);
 
 $("#orgs").innerHTML = [...D.orgs, ...D.orgs].map(([k, n]) => `<span class="chip">${logo(k, 30)}${esc(n)}</span>`).join("");
-
 
 $("#stats").innerHTML = D.stats.map(([n, s, t]) =>
   `<div class="stat"><div class="n">${n === "CERTS" ? D.certs.length : n === "EVENTS" ? D.events.length : n}<small>${s}</small></div><div class="t">${t}</div></div>`).join("");
