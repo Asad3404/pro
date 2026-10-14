@@ -11,3 +11,9 @@ A single-file, dependency-free portfolio site (`index.html`).
 - **Event photos:** save each one as `assets/events/<date>.jpg` using the event date, e.g. `assets/events/2024-01-16.jpg` for the Cisco conference. The photo then replaces that event's designed cover.
 
 Features: light/dark theme, animated network-topology hero, traceroute career timeline, scroll-driven reveals, count-up stats, filterable certifications, cursor spotlight cards, and full `prefers-reduced-motion` support.
+
+## Logos
+Brand and technology logos are the official marks from the Iconify `logos`, `devicon` and `simple-icons` collections, embedded in `index.html`.
+Organizations without a public logo package show a monogram until you add their logo as `assets/logos/<key>.png`.
+Keys: wateen, nanotechx, maju, bytewise, xpert (360XpertSolutions), swoc, gssoc, wob (Winter of Blockchain), mckinsey, stanford, mit,
+neuromatch, deeplearning, openclassrooms, hec, icpc, pug, maventech, itcn, oneguide, jinnah, hacktoberfest, mlsc.
