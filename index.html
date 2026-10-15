@@ -349,9 +349,13 @@ section.block{padding-block:96px 0}
 .cover .mon{font:500 12px var(--f-mono);letter-spacing:.14em;text-transform:uppercase;opacity:.85;margin-top:6px}
 .cover .kind{display:inline-block;font:500 11px var(--f-mono);letter-spacing:.12em;text-transform:uppercase;padding:4px 10px;border-radius:999px;background:rgba(255,255,255,.14)}
 .cover .ttl{font:700 19px/1.15 var(--f-display);max-width:16em;text-wrap:balance;margin-top:10px}
-.cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.cover img.photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.cover .art{z-index:2}
+.cover:has(img.photo)::before{display:none}
+.cover:has(img.photo)::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(5,8,15,.72) 0%,rgba(5,8,15,.35) 30%,rgba(5,8,15,.05) 50%,rgba(5,8,15,.85) 100%)}
+.cover:has(img.photo) .day,.cover:has(img.photo) .mon,.cover:has(img.photo) .ttl{text-shadow:0 2px 12px rgba(0,0,0,.6)}
 .cover .lg{box-shadow:0 8px 20px rgba(0,0,0,.35)}
-.ev:hover .cover img,.ev:hover .cover .art{transform:scale(1.05)}
+.ev:hover .cover img.photo,.ev:hover .cover .art{transform:scale(1.05)}
 .ev .body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:6px;flex:1}
 .ev .body h3{font:600 16px/1.35 var(--f-body)}
 .ev .body .meta{font:500 12px var(--f-mono);color:var(--muted)}
@@ -970,7 +974,7 @@ function renderEvents(){
       <div class="cover" style="--h:${h}">
         <div class="art"><div class="row"><div><div class="day">${String(dt.getDate()).padStart(2, "0")}</div><div class="mon">${mon}</div></div>${logo(k, 44)}</div>
           <div><span class="kind">${kind}</span><div class="ttl">${esc(t)}</div></div></div>
-        <img src="assets/events/${d}.jpg" alt="${esc(t)}" loading="lazy" onerror="this.remove()">
+        <img class="photo" src="assets/events/${d}.jpg" alt="${esc(t)}" loading="lazy" onerror="this.remove()">
       </div>
       <div class="body"><div class="meta">${dt.toLocaleDateString("en-GB", { weekday: "short", day: "numeric", month: "long", year: "numeric" })}</div><h3>${esc(t)}</h3>
         <span class="go${l ? "" : " off"}">${l ? "View event post ↗" : "Community session"}</span></div>`;
