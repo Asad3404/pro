@@ -325,7 +325,10 @@ section.block{padding-block:96px 0}
 
 /* extracurricular */
 .comm{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:32px}
-.comm a{display:flex;flex-direction:column;gap:8px;padding:24px;text-decoration:none}
+.comm a{display:flex;flex-direction:column;gap:8px;padding:24px;text-decoration:none;overflow:hidden}
+.comm .cimg{margin:-24px -24px 10px;aspect-ratio:4/3;max-width:none;overflow:hidden;border-bottom:1px solid var(--line);background:var(--raise)}
+.comm .cimg img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.comm a:hover .cimg img{transform:scale(1.05)}
 .comm .row{display:flex;align-items:center;justify-content:space-between}
 .comm .big{font:800 44px/1 var(--f-display);margin-top:8px;font-variant-numeric:tabular-nums}
 .comm .big small{font-size:.42em;color:var(--signal);margin-left:4px}
@@ -579,7 +582,7 @@ footer{padding-block:28px 40px;color:var(--muted);font:400 13px var(--f-mono);di
     </section>
 
     <section class="block" id="extracurricular">
-      <div class="shead reveal"><div><div class="label">Extracurricular</div><h2>Extracurricular</h2></div><p>Communities I founded and led, open-source programs, competitions and volunteering.</p></div>
+      <div class="shead reveal"><div><div class="label">Community Work</div><h2>Community Work</h2></div><p>Communities I founded and led, open-source programs, competitions and volunteering.</p></div>
       <div class="comm" id="commStats"></div>
       <div class="tabs" id="tabs" role="tablist" aria-label="Extracurricular categories"></div>
       <div id="tabPanel" role="tabpanel"></div>
@@ -959,6 +962,7 @@ $("#awardList").innerHTML = D.awards.filter(x => !x[6]).map(awardCard).join("");
 /* extracurricular */
 $("#commStats").innerHTML = D.comm.map(([k, n, u, t, s, l]) => `
   <a class="card fx tilt reveal" href="${l}" ${ext}>
+    <div class="cimg"><img src="assets/community/${k}.jpg" alt="${esc(t)} team" loading="lazy" onerror="this.parentNode.remove()"></div>
     <div class="row">${logo(k, 48)}<span class="more" style="margin:0">Visit ↗</span></div>
     <div class="big">${n}<small>${u}</small></div><h3>${esc(t)}</h3><p>${esc(s)}</p>
   </a>`).join("");
