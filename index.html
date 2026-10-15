@@ -312,6 +312,15 @@ section.block{padding-block:96px 0}
 .award h3{font:600 17px/1.3 var(--f-body)}
 .award p{color:var(--muted);font-size:14px;margin-top:6px}
 .award.gold{background:linear-gradient(135deg,var(--glow),var(--surface) 60%);border-color:color-mix(in srgb,var(--signal) 40%,var(--line))}
+.awards.featured{grid-template-columns:repeat(4,1fr);margin-bottom:12px}
+@media (max-width: 1100px){.awards.featured{grid-template-columns:repeat(2,1fr)}}
+@media (max-width: 600px){.awards.featured{grid-template-columns:1fr}}
+.award.has-img{grid-template-rows:auto 1fr}
+.award .aimg{grid-column:1/-1;margin:-20px -20px 4px;aspect-ratio:16/10;max-width:none;overflow:hidden;border-radius:var(--r) var(--r) 0 0;border-bottom:1px solid var(--line);background:var(--raise)}
+.award .aimg img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.award:hover .aimg img{transform:scale(1.05)}
+.btn.abtn{margin-top:14px;padding:8px 13px;font-size:13px}
+.btn.abtn:hover{border-color:var(--signal);color:var(--signal)}
 @media (max-width: 420px){.awards{grid-template-columns:1fr}}
 
 /* extracurricular */
@@ -565,6 +574,7 @@ footer{padding-block:28px 40px;color:var(--muted);font:400 13px var(--f-mono);di
 
     <section class="block" id="awards">
       <div class="shead reveal"><div><div class="label">Honors &amp; awards</div><h2>Honors &amp; achievements</h2></div><p>Academic distinction, competitive programming and open-source recognition.</p></div>
+      <div class="awards featured" id="awardFeatured"></div>
       <div class="awards" id="awardList"></div>
     </section>
 
@@ -730,9 +740,10 @@ const D = {
   awards: [
     ["Dec 2025","IELTS Academic: Overall Band 6.5 (CEFR B2)","Listening 6.5 · Reading 6.0 · Writing 7.0 · Speaking 6.5. British Council, IDP and Cambridge English.","ielts",1,"assets/docs/ielts-trf.pdf"],
     ["2021–25","Merit-based scholarship","Awarded for the full BS Computer Science program at Mohammad Ali Jinnah University.","maju",1],
-    ["Dec 2024","Dean's List of Honor","Dean's Award for Outstanding Academic Performance, MAJU. Presented by Prof. Dr. Shaukat Wasi.","maju",1,"https://lnkd.in/p/dv8HpYAT"],
-    ["Dec 2023","Dean's List of Honor, Spring 2023","Dean's Award for Outstanding Academic Performance, MAJU. Presented by Dean Muhammad Khaliq-ur-Rahman Raazi Syed.","maju",1,"https://lnkd.in/p/dMYK-wh9"],
-    ["Jun 2023","Dean's List of Honor, Spring 2022","Dean's Award for Outstanding Academic Performance, MAJU. Presented by Dean Muhammad Khaliq-ur-Rahman Raazi Syed.","maju",1,"https://lnkd.in/p/dCasqeqB"],
+    ["Dec 2024","Dean's List of Honor 2024","Dean's Award for Outstanding Academic Performance, MAJU. Presented by Prof. Dr. Shaukat Wasi.","maju",1,"https://lnkd.in/p/dv8HpYAT","deans-2024"],
+    ["Dec 2023","Dean's List of Honor, Spring 2023","Dean's Award for Outstanding Academic Performance, MAJU. Presented by Dean Muhammad Khaliq-ur-Rahman Raazi Syed.","maju",1,"https://lnkd.in/p/dMYK-wh9","deans-spring-2023"],
+    ["Jun 2023","Dean's List of Honor, Spring 2022","Dean's Award for Outstanding Academic Performance, MAJU. Presented by Dean Muhammad Khaliq-ur-Rahman Raazi Syed.","maju",1,"https://lnkd.in/p/dCasqeqB","deans-spring-2022"],
+    ["Mar 2024","Outstanding Performance at Internship, 360XpertSolutions","Recognized with a certificate on completing the front-end developer internship at 360XpertSolutions, Karachi.","xpert",1,"https://lnkd.in/p/dGYRACNR","360xpert-internship"],
     ["Mar 2024","Top Contributor, Social Winter of Code","Selected as a top contributor in the front-end domain (HTML, CSS, JS) of SWOC's three-month open-source program.","swoc",1,"https://lnkd.in/p/d9N72p5W"],
     ["2024–25","ICPC Asia Topi Preliminary","Certificate of Achievement in the International Collegiate Programming Contest, Asia Topi preliminary round.","icpc",1],
     ["Dec 2023","Founded MLSA-MAJU","Founded the Microsoft Learn Student Community at Mohammad Ali Jinnah University.","mlsc",0,"https://lnkd.in/p/dA8VShuB"],
@@ -938,10 +949,13 @@ function renderCerts(){
 $("#filters").addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return; cat = b.dataset.k; try { localStorage.setItem("certCat", cat); } catch (e) {} renderCerts(); });
 renderCerts();
 
-$("#awardList").innerHTML = D.awards.map(([y, t, d, k, g, l]) => `
-  <article class="award fx reveal${g ? " gold" : ""}">${logo(k, 44)}
-    <div style="min-width:0"><div class="yr">${y}</div><h3>${esc(t)}</h3><p>${esc(d)}</p>${l ? `<a class="more" href="${l}" ${ext}>${l.endsWith(".pdf") ? "View test report" : "View post"} ↗</a>` : ""}</div>
-  </article>`).join("");
+const awardCard = ([y, t, d, k, g, l, img]) => `
+  <article class="award fx reveal${g ? " gold" : ""}${img ? " has-img" : ""}">
+    ${img ? `<div class="aimg"><img src="assets/awards/${img}.jpg" alt="${esc(t)}" loading="lazy"></div>` : ""}${logo(k, 44)}
+    <div style="min-width:0"><div class="yr">${y}</div><h3>${esc(t)}</h3><p>${esc(d)}</p>${l ? `<a class="btn abtn" href="${l}" ${ext}>${l.endsWith(".pdf") ? "View test report" : `${icon("linkedin")}View on LinkedIn`} ↗</a>` : ""}</div>
+  </article>`;
+$("#awardFeatured").innerHTML = D.awards.filter(x => x[6]).map(awardCard).join("");
+$("#awardList").innerHTML = D.awards.filter(x => !x[6]).map(awardCard).join("");
 
 /* extracurricular */
 $("#commStats").innerHTML = D.comm.map(([k, n, u, t, s, l]) => `
