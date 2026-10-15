@@ -294,6 +294,24 @@ section.block{padding-block:96px 0}
 .more-btn{display:flex;margin:20px auto 0}
 .more-btn[hidden]{display:none}
 
+/* testimonials */
+.tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.tgrid.small{margin-top:16px}
+.tgrid[hidden]{display:none}
+.tgrid.small .tcard blockquote{font-size:15px}
+.tcard{margin:0;display:flex;flex-direction:column;gap:18px;padding:26px;border:1px solid var(--line);border-radius:var(--r);background:radial-gradient(circle at 100% 0%,var(--glow),transparent 55%),var(--surface);min-width:0}
+.tcard .qm{width:30px;height:22px;fill:var(--signal);opacity:.85}
+.tcard blockquote{margin:0;font-size:16px;line-height:1.65;color:var(--fg);flex:1}
+.tcard figcaption{display:flex;gap:12px;align-items:center;padding-top:16px;border-top:1px solid var(--line);min-width:0}
+.tcard figcaption > div{min-width:0;display:grid;gap:2px}
+.tav{flex:none;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font:700 15px var(--f-display);color:var(--signal-ink);background:linear-gradient(135deg,var(--signal),var(--ok))}
+.tcard b{font:600 15px var(--f-body)}
+.tcard small{font-size:12px;color:var(--muted);line-height:1.4}
+.tcard em{font:500 11px var(--f-mono);font-style:normal;color:var(--signal);letter-spacing:.04em}
+.tcard:hover{transform:translateY(-4px)}
+@media (max-width: 1000px){.tgrid{grid-template-columns:1fr 1fr}}
+@media (max-width: 640px){.tgrid{grid-template-columns:1fr}}
+
 /* skills */
 .skills{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .sk{border:1px solid var(--line);border-radius:var(--r);padding:20px;min-width:0;background:var(--surface)}
@@ -502,7 +520,7 @@ footer{padding-block:28px 40px;color:var(--muted);font:400 13px var(--f-mono);di
     <button class="menu" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mnav"><i></i><i></i><i></i></button>
   </div>
   <nav class="mnav" id="mnav" aria-label="Sections" hidden>
-    <div class="wrap"><a href="#top" class="on">Home</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#awards">Awards</a><a href="#speaking">Speaking</a><a href="#publications">Publications</a><a href="#extracurricular">Extracurricular</a><a href="#education">Education</a><a href="#certifications">Certifications</a><a href="#contact">Contact</a><a href="assets/docs/Syed_Mustafa_Hassan_CV.pdf" target="_blank" rel="noopener">Download CV ↓</a></div>
+    <div class="wrap"><a href="#top" class="on">Home</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#awards">Awards</a><a href="#speaking">Speaking</a><a href="#publications">Publications</a><a href="#extracurricular">Extracurricular</a><a href="#education">Education</a><a href="#certifications">Certifications</a><a href="#testimonials">Recommendations</a><a href="#contact">Contact</a><a href="assets/docs/Syed_Mustafa_Hassan_CV.pdf" target="_blank" rel="noopener">Download CV ↓</a></div>
   </nav>
 </header>
 
@@ -620,6 +638,13 @@ footer{padding-block:28px 40px;color:var(--muted);font:400 13px var(--f-mono);di
       <div class="comm" id="commStats"></div>
       <div class="tabs" id="tabs" role="tablist" aria-label="Extracurricular categories"></div>
       <div id="tabPanel" role="tabpanel"></div>
+    </section>
+
+    <section class="block" id="testimonials">
+      <div class="shead reveal"><div><div class="label">Recommendations</div><h2>What people say</h2></div><div class="shead-side"><p><b id="tCount"></b> recommendations from managers, teachers, mentors and teammates on LinkedIn.</p><a class="btn li" href="https://www.linkedin.com/in/mustafahassan2001/details/recommendations/" target="_blank" rel="noopener"><span data-logo="linkedin" data-size="22"></span>Read on LinkedIn ↗</a></div></div>
+      <div class="tgrid" id="tFeatured"></div>
+      <div class="tgrid small" id="tRest" hidden></div>
+      <button class="btn more-btn" id="tMore" type="button">Show all recommendations</button>
     </section>
 
     <section class="block" id="speaking">
@@ -852,6 +877,7 @@ const D = {
     ["2024-05-22","Mastering Git & GitHub","Workshop","github",260,"https://lnkd.in/p/djNQm4qD"],
     ["2024-08-31","ITCN Asia 2024","Expo","itcn",175,"https://lnkd.in/p/dzn5pAxf"]
   ],
+  testimonials: [["Mortaza Hassani", "Graduate Research Assistant @ UMass · Cybersecurity Researcher", "Managed Mustafa directly", "Jun 2024", "Mustafa played a great role as android team lead in GDSC Maju chapter 22-23. As the lead of the chapter I found Mustafa very motivated, passionate and eager to fulfill the given tasks and responsibilities. His contribution and hard work is remarkable. He has very profound team working skills and can match in any team.", 1], ["Hafiz Muhammad Attaullah", "AI Security & Penetration Testing · PhD (AI Systems Security) · OSCP", "Mustafa's teacher", "May 2024", "I have found Mustafa to be a hard-working student who has the ability to complete all the tasks assigned to him with diligence and responsibility. I have always found him pragmatic in his approach towards problem solving. Academically, I found him very good in the course I taught him (OS and CYS). … His skills are very sharp and hands on. He is very serious to his career and always meets his deadlines while accomplishing goals and milestones.", 1], ["Muhammad Haris Irfan", "Senior SQA Automation Analyst @ Contour Software · former Junior Lecturer, MAJU", "Mustafa's mentor", "Aug 2024", "As a student ambassador for the Microsoft Student Learn Ambassador program, Syed has exhibited strong leadership skills and a passion for fostering learning and innovation within the student community. His proactive approach to personal and professional development is commendable, and he consistently strives for excellence in all his endeavors.", 1], ["Muhammad Rebaal", "ML Engineer · β-MLSA @ Microsoft · GDGoC @ Google", "Worked on the same team", "May 2024", "I have observed his exceptional confidence and passion for technology. His dedication to learning and mastering technical concepts is truly commendable. … His confidence in tackling complex problems and finding innovative solutions is impressive. His ability to communicate technical concepts clearly and effectively makes him a valuable asset to any team.", 1], ["Farhan Ali", "Network Support Engineer, Mohammad Ali Jinnah University", "Mustafa's mentor", "Dec 2023", "Mustafa consistently demonstrates a strong work ethic, effectively completing all assigned tasks with diligence and responsibility. His approach to problem-solving is characterized by pragmatism, showcasing a practical and effective mindset.", 1], ["Asghar Ali", "AI SaaS Developer · Full Stack Engineer", "Worked on the same team", "Apr 2024", "He is a very fast learner who can grasp concepts very quickly. He possesses the ability to apply his knowledge to real-world projects. He always uses a proactive approach to solve problems and demonstrates a positive attitude. I wholeheartedly recommend him!", 1], ["Aukasha Ahmed Khan", "Senior Software Developer · .NET · React · AI Integration", "Mustafa's mentor", "Jul 2024", "Mustafa is a diligent, hardworking student. He is quick to understand complex notions, and have creative, efficient ideas in solving problems. He does not shy away from teamwork as he socializes very well with teammates and has a knack for working with other people.", 0], ["Faiz Ullah", "Senior Lecturer, Mohammad Ali Jinnah University", "Mustafa's mentor", "Dec 2023", "I have found Mustafa to be a hard-working student who has the ability to complete all the tasks assigned to him with diligence and responsibility. I have always found him pragmatic in his approach towards problem-solving.", 0], ["Fozia Khan", "Lecturer", "Mustafa's teacher", "May 2023", "Syed Mustafa Hassan is highly motivated and dedicated person. Whatever tasks assigned to him during mine supervision period, he gave his best and tried to achieve the goals having utmost deliverables.", 0], ["Mahrukh Aqeel", "FYDP AI Researcher @ ESCV-NED", "Worked on the same team", "May 2023", "Syed Mustafa Hassan is renowned for his unwavering dedication and tireless work ethic. His commitment and perseverance are exemplary, making him an asset to any team or organization he is a part of.", 0], ["Muhammad Zohaib Khan", "Senior Lecturer", "Mustafa's mentor", "Dec 2023", "Good student with strong analytical problem solving skills.", 0], ["Muhammad Usman", "Lecturer at NUCES-FAST", "Mustafa's mentor", "Dec 2023", "He is a very good student. I found him a good learner and hard working student.", 0], ["Muhammad Uzair Saeed", "Project Manager · Logistics & Client Operations", "Managed Mustafa directly", "May 2024", "He was quite a good learner and smooth with his skills. He endeavored and showcased his talent accurately.", 0], ["Falak Naz Soomro", "Local SEO & AEO Expert", "Mustafa's mentor", "Oct 2023", "Syed Mustafa hassan is tech enthusiastic and good leader with kind personality.", 0], ["Syed Zaid Irshad", "MS Program Coordinator, Mohammad Ali Jinnah University", "Mustafa's teacher", "May 2023", "Dedicated student with the potential to improve and learn new things.", 0], ["Duy Tri Nguyen", "Digital Transformation Leader", "Client", "May 2024", "A trusted person in Mobile App Development … he has established himself as a trusted advisor and thought leader in the mobile app development domain.", 0]],
   posts: [
     ["Dec 2023","GitHub for Beginners","LinkedIn","github","https://www.linkedin.com/pulse/github-beginners-syed-mustafa-hassan-fvctf/"],
     ["Apr 2024","A Beginner's Exploration of Cloud Computing","LinkedIn","azure","https://www.linkedin.com/pulse/beginners-exploration-cloud-computing-syed-mustafa-hassan-kaqwf/"],
@@ -1046,6 +1072,18 @@ function renderEvents(){
 $("#evFilters").addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return; evYear = b.dataset.y; renderEvents(); });
 renderEvents();
 
+
+/* testimonials */
+const initials2 = n => n.split(" ").filter(w => /^[A-Z]/.test(w)).slice(0, 2).map(w => w[0]).join("");
+const tCard = ([n, t, r, d, q]) => `<figure class="tcard fx">
+  <svg class="qm" viewBox="0 0 32 24" aria-hidden="true"><path d="M0 24V14C0 6 4 1 12 0l1 4c-4 1-6 4-6 8h6v12zm19 0V14c0-8 4-13 12-14l1 4c-4 1-6 4-6 8h6v12z"/></svg>
+  <blockquote>${esc(q)}</blockquote>
+  <figcaption><span class="tav" aria-hidden="true">${initials2(n)}</span><div><b>${esc(n)}</b><small>${esc(t)}</small><em>${esc(r)} · ${d}</em></div></figcaption></figure>`;
+$("#tCount").textContent = D.testimonials.length;
+$("#tFeatured").innerHTML = D.testimonials.filter(x => x[5]).map(tCard).join("");
+$("#tRest").innerHTML = D.testimonials.filter(x => !x[5]).map(tCard).join("");
+$("#tMore").addEventListener("click", () => { const r = $("#tRest"); r.hidden = !r.hidden;
+  $("#tMore").textContent = r.hidden ? "Show all recommendations" : "Show fewer"; if (r.hidden) $("#testimonials").scrollIntoView(); });
 $("#postList").innerHTML = D.posts.map(([d, t, s, k, l]) => `
   <a class="post fx tilt reveal" href="${l}" ${ext}>${logo(k, 40)}<div class="label">${d} · ${s}</div><h3>${esc(t)}</h3><span class="go">Read article ↗</span></a>`).join("");
 
