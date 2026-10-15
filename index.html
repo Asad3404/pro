@@ -77,7 +77,8 @@ nav.links::-webkit-scrollbar{display:none}
 nav.links a{font:500 13px var(--f-mono);text-decoration:none;color:var(--muted);padding:6px 9px;border-radius:6px;white-space:nowrap;transition:color .2s,background .2s}
 nav.links a:hover,nav.links a.on{color:var(--fg);background:var(--raise)}
 .theme{flex:none;background:none;border:1px solid var(--line);color:var(--fg);border-radius:8px;width:36px;height:36px;cursor:pointer;font:16px var(--f-mono)}
-@media (max-width: 960px){nav.links{display:none}.theme{margin-left:auto}}
+@media (max-width: 960px){nav.links a{padding:6px 7px;font-size:12px}}
+@media (max-width: 720px){nav.links{display:none}.theme{margin-left:auto}}
 
 /* hero */
 .hero-wrap{position:relative;isolation:isolate;overflow:hidden}
@@ -395,7 +396,7 @@ footer{padding-block:28px 40px;color:var(--muted);font:400 13px var(--f-mono);di
   <div class="wrap">
     <a class="brand" href="#top"><img src="assets/profile.jpg" alt="" onerror="this.remove()">Mustafa Hassan</a>
     <nav class="links" aria-label="Sections">
-      <a href="#education">Education</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#certifications">Certifications</a><a href="#awards">Awards</a><a href="#activities">Activities</a><a href="#events">Events</a><a href="#writing">Writing</a><a href="#contact">Contact</a>
+      <a href="#top" class="on">Home</a><a href="#projects">Projects</a><a href="#awards">Awards</a><a href="#speaking">Speaking</a><a href="#publications">Publications</a><a href="#extracurricular">Extracurricular</a>
     </nav>
     <button class="theme" id="themeBtn" type="button" aria-label="Toggle light and dark theme">◐</button>
   </div>
@@ -490,21 +491,21 @@ footer{padding-block:28px 40px;color:var(--muted);font:400 13px var(--f-mono);di
       <div class="awards" id="awardList"></div>
     </section>
 
-    <section class="block" id="activities">
-      <div class="shead reveal"><div><div class="label">Extracurricular activities</div><h2>Beyond the classroom</h2></div><p>Communities I founded and led, open-source programs, competitions and volunteering.</p></div>
+    <section class="block" id="extracurricular">
+      <div class="shead reveal"><div><div class="label">Extracurricular</div><h2>Extracurricular</h2></div><p>Communities I founded and led, open-source programs, competitions and volunteering.</p></div>
       <div class="comm" id="commStats"></div>
       <div class="tabs" id="tabs" role="tablist" aria-label="Extracurricular categories"></div>
       <div id="tabPanel" role="tabpanel"></div>
     </section>
 
-    <section class="block" id="events">
-      <div class="shead reveal"><div><div class="label">Events</div><h2>Events organized &amp; attended</h2></div><p>Summits, conferences, workshops and meetups across Karachi. Open a card to see the post.</p></div>
+    <section class="block" id="speaking">
+      <div class="shead reveal"><div><div class="label">Speaking</div><h2>Speaking</h2></div><p>Conference trainings, workshops, panels, and community sessions I've delivered across the globe.</p></div>
       <div class="filters" id="evFilters" role="group" aria-label="Filter events by year"></div>
       <div class="evgrid" id="eventList"></div>
     </section>
 
-    <section class="block" id="writing">
-      <div class="shead reveal"><div><div class="label">Writing</div><h2>Articles</h2></div><p>Beginner-friendly guides on developer tools and the cloud.</p></div>
+    <section class="block" id="publications">
+      <div class="shead reveal"><div><div class="label">Publications</div><h2>Publications</h2></div><p>Beginner-friendly guides on developer tools and the cloud.</p></div>
       <div class="posts" id="postList"></div>
     </section>
 
@@ -734,7 +735,7 @@ const D = {
     ["mail","Email","mustafahassan3404@gmail.com","mailto:mustafahassan3404@gmail.com"],
     ["phone","Phone","+92 336 2163440","tel:+923362163440"],
     ["linkedin","LinkedIn","linkedin.com/in/mustafahassan2001","https://www.linkedin.com/in/mustafahassan2001"],
-    ["github","GitHub","github.com/mustafahassan2001","https://github.com/mustafahassan2001"],
+    ["github","GitHub","github.com/Mustafa-Hassan2001","https://github.com/Mustafa-Hassan2001"],
     ["dev","DEV Community","dev.to/mustafahassan2001","https://dev.to/mustafahassan2001"]
   ]
 };
@@ -842,7 +843,7 @@ function renderEvents(){
         <img src="assets/events/${d}.jpg" alt="${esc(t)}" loading="lazy" onerror="this.remove()">
       </div>
       <div class="body"><div class="meta">${dt.toLocaleDateString("en-GB", { weekday: "short", day: "numeric", month: "long", year: "numeric" })}</div><h3>${esc(t)}</h3>
-        <span class="go${l ? "" : " off"}">${l ? "View event post ↗" : "Attended"}</span></div>`;
+        <span class="go${l ? "" : " off"}">${l ? "View event post ↗" : "Community session"}</span></div>`;
     const st = `style="animation:flipIn .7s ${i * 60}ms cubic-bezier(.2,.7,.2,1) both"`;
     return l ? `<a class="ev fx tilt" href="${l}" ${ext} ${st}>${inner}</a>` : `<article class="ev fx tilt" ${st}>${inner}</article>`;
   }).join("");
@@ -1103,6 +1104,7 @@ if (!window.THREE) (() => {
 })();
 
 const links = [...document.querySelectorAll("nav.links a")];
+addEventListener("scroll", () => { if (scrollY < 300) links.forEach(a => a.classList.toggle("on", a.getAttribute("href") === "#top")); }, { passive: true });
 if ("IntersectionObserver" in window) {
   const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) links.forEach(a => a.classList.toggle("on", a.getAttribute("href") === "#" + e.target.id)); }), { rootMargin: "-45% 0px -50% 0px" });
   document.querySelectorAll("section[id]").forEach(s => io.observe(s));
