@@ -227,6 +227,47 @@ section.block{padding-block:96px 0}
 .shead-side p{color:var(--muted)}
 .btn.li:hover{border-color:#0a66c2;color:#0a66c2;box-shadow:0 10px 30px -14px #0a66c2}
 
+/* IELTS */
+.ielts{display:grid;grid-template-columns:1.1fr 1fr;gap:16px}
+.ielts > *{min-width:0}
+.ie-overall{display:flex;gap:28px;align-items:center;padding:28px;border:1px solid var(--line);border-radius:var(--r);background:radial-gradient(circle at 15% 50%,var(--glow),transparent 60%),var(--surface)}
+.ring{position:relative;width:170px;flex:none;aspect-ratio:1;max-width:40%}
+.ring svg{width:100%;height:100%;transform:rotate(-90deg)}
+.ring circle{fill:none;stroke-width:9;stroke-linecap:round}
+.ring .track{stroke:var(--raise)}
+.ring .val{stroke:var(--signal);stroke-dasharray:326.7;stroke-dashoffset:calc(326.7 * (1 - var(--v) / 9))}
+.ring-in{position:absolute;inset:0;display:grid;place-content:center;text-align:center}
+.ring-in b{font:800 46px/1 var(--f-display);font-variant-numeric:tabular-nums}
+.ring-in small{font:500 12px var(--f-mono);color:var(--muted);margin-top:4px}
+.ie-meta{min-width:0;display:grid;gap:10px}
+.ie-meta h3{font-size:22px;font-weight:700}
+.cefr{display:grid;grid-template-columns:repeat(6,1fr);gap:4px;max-width:340px}
+.cefr span{text-align:center;font:600 12px var(--f-mono);padding:7px 0;border-radius:6px;background:var(--raise);color:var(--muted)}
+.cefr span.on{background:var(--signal);color:var(--signal-ink);transform:scale(1.12);box-shadow:0 8px 20px -8px var(--signal)}
+.ie-note{color:var(--muted);font-size:14px}
+.ie-note strong{color:var(--fg)}
+.ie-btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:4px}
+.ie-btns .btn{padding:10px 14px;font-size:13px}
+.ie-trf{font:400 11px var(--f-mono);color:var(--muted)}
+.ie-bands{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.band{padding:18px 20px;border:1px solid var(--line);border-radius:var(--r);background:var(--surface);display:grid;gap:6px;min-width:0}
+.band .bh{display:flex;justify-content:space-between;align-items:center;font:600 14px var(--f-body)}
+.band .bh em{font:600 10px var(--f-mono);letter-spacing:.08em;text-transform:uppercase;font-style:normal;color:var(--signal-ink);background:var(--signal);padding:3px 7px;border-radius:999px}
+.band b{font:800 40px/1 var(--f-display);font-variant-numeric:tabular-nums}
+.band.top b{color:var(--signal)}
+.band .bar{height:6px;border-radius:3px;background:var(--raise);overflow:hidden}
+.band .bar i{display:block;height:100%;width:calc(var(--v) / 9 * 100%);background:linear-gradient(90deg,var(--signal),var(--ok));transform-origin:0 50%}
+.band small{font:500 11px var(--f-mono);color:var(--muted)}
+@media (max-width: 960px){.ielts{grid-template-columns:1fr}}
+@media (max-width: 520px){.ie-overall{flex-direction:column;align-items:flex-start;padding:22px}.ring{max-width:150px}}
+@media (prefers-reduced-motion: no-preference){
+  .ring .val{animation:ringIn 1.6s cubic-bezier(.2,.7,.2,1) both}
+  @keyframes ringIn{from{stroke-dashoffset:326.7}}
+  .band .bar i{animation:grow 1.2s calc(var(--i) * .12s + .3s) cubic-bezier(.2,.7,.2,1) both}
+  .band:hover{transform:translateY(-4px)}
+  .band{transition:transform .3s,border-color .3s}
+}
+
 /* skills */
 .skills{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .sk{border:1px solid var(--line);border-radius:var(--r);padding:20px;min-width:0;background:var(--surface)}
@@ -476,6 +517,22 @@ footer{padding-block:28px 40px;color:var(--muted);font:400 13px var(--f-mono);di
       </div>
     </section>
 
+    <section class="block" id="ielts">
+      <div class="shead reveal"><div><div class="label">Language proficiency</div><h2>IELTS Academic</h2></div><p>English proficiency test by the British Council, IDP and Cambridge English. Taken 31 December 2025.</p></div>
+      <div class="ielts reveal">
+        <div class="ie-overall">
+          <div class="ring" style="--v:6.5"><svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="52" class="track"/><circle cx="60" cy="60" r="52" class="val"/></svg>
+            <div class="ring-in"><b>6.5</b><small>of 9.0</small></div></div>
+          <div class="ie-meta"><div class="label">Overall band score</div><h3>Competent to good user</h3>
+            <div class="cefr" aria-label="CEFR level B2"><span>A1</span><span>A2</span><span>B1</span><span class="on">B2</span><span>C1</span><span>C2</span></div>
+            <p class="ie-note">CEFR level <strong>B2</strong>: Upper-intermediate, independent user of English.</p>
+            <div class="ie-btns"><a class="btn primary" href="assets/docs/ielts-trf.pdf" target="_blank" rel="noopener">View test report ↗</a><a class="btn" href="https://ielts.org/verify" target="_blank" rel="noopener">Verify at ielts.org ↗</a></div>
+            <p class="ie-trf">Test Report Form 25PK504603HASS010A</p></div>
+        </div>
+        <div class="ie-bands" id="ieBands"></div>
+      </div>
+    </section>
+
     <section class="block" id="experience">
       <div class="shead reveal"><div><div class="label">Experience</div><h2>Professional experience</h2></div><p>Network operations, security operations, software engineering and technical mentorship.</p></div>
       <div class="tl" id="jobs"></div>
@@ -530,7 +587,7 @@ footer{padding-block:28px 40px;color:var(--muted);font:400 13px var(--f-mono);di
       <div>
         <div class="label">Contact</div>
         <h2 style="margin-top:10px">Let's build reliable,<br><span>secure systems.</span></h2>
-        <p style="color:var(--muted);margin-top:16px;max-width:40em">Open to roles and collaborations in network engineering, security operations, cloud and applied AI, and to research opportunities in computer vision.</p>
+        <p style="color:var(--muted);margin-top:16px;max-width:40em">Open to roles and collaborations in network engineering, security operations, cloud and applied AI, and to research opportunities.</p>
         <div class="clist" id="contactList"></div>
       </div>
     </section>
@@ -550,7 +607,7 @@ const MONO = {
   mit:["MIT","A31F34"], neuromatch:["NMA","0F766E"], deeplearning:["DL","D6264F"], greatlearning:["GL","0B5394"],
   openclassrooms:["OC","7451EB"], hec:["HEC","1F6B45"], icpc:["ICPC","1D4ED8"], pug:["PUG","0F6CBD"], maventech:["MT","A8322D"],
   itcn:["ITCN","0F766E"], oneguide:["OG","15803D"], jinnah:["JL","1B3A6B"], acm:["ACM","0085CA"], hacktoberfest:["HF","8B3A62"],
-  mlsc:["MLSC","0F6CBD"], mlsak:["MLSA","0F6CBD"], gdgmaju:["GDG","1A73E8"], netlify:["NF","0F8A8A"], phone:["☎","3A4A63"], mail:["@","1F3A8A"]
+  mlsc:["MLSC","0F6CBD"], ielts:["IELTS","C8102E"], mlsak:["MLSA","0F6CBD"], gdgmaju:["GDG","1A73E8"], netlify:["NF","0F8A8A"], phone:["☎","3A4A63"], mail:["@","1F3A8A"]
 };
 const ALIAS = { aws:"amazonaws", node:"nodedotjs", next:"nextdotjs", dev:"devdotto", cpp:"cplusplus", java:"openjdk", js:"javascript", azure:"microsoftazure", sklearn:"scikitlearn" };
 
@@ -667,6 +724,7 @@ const D = {
   certCats: { all:"All", sec:"Security & Networking", cloud:"Cloud & Data", ai:"AI / ML", dev:"Development", cp:"Competitions & Programs" },
   /* [date, title, text, logo, highlighted, link] */
   awards: [
+    ["Dec 2025","IELTS Academic: Overall Band 6.5 (CEFR B2)","Listening 6.5 · Reading 6.0 · Writing 7.0 · Speaking 6.5. British Council, IDP and Cambridge English.","ielts",1,"assets/docs/ielts-trf.pdf"],
     ["2021–25","Merit-based scholarship","Awarded for the full BS Computer Science program at Mohammad Ali Jinnah University.","maju",1],
     ["Dec 2024","Dean's List of Honor","Dean's Award for Outstanding Academic Performance, MAJU. Presented by Prof. Dr. Shaukat Wasi.","maju",1,"https://lnkd.in/p/dv8HpYAT"],
     ["Dec 2023","Dean's List of Honor, Spring 2023","Dean's Award for Outstanding Academic Performance, MAJU. Presented by Dean Muhammad Khaliq-ur-Rahman Raazi Syed.","maju",1,"https://lnkd.in/p/dMYK-wh9"],
@@ -838,6 +896,11 @@ const COVERS = {
     for (let i = 0; i < 160; i++) P(r() * 3.6 - 1.8, -1.12, r() * 3.6 - 1.8, "var(--muted)");                 // floor
     return SV(pts + `<g font-family="IBM Plex Mono,monospace" font-size="9" fill="var(--muted)"><circle cx="300" cy="22" r="4" fill="var(--signal)"/><text x="308" y="25">seat</text><circle cx="300" cy="38" r="4" fill="var(--ok)"/><text x="308" y="41">back</text><circle cx="300" cy="54" r="4" fill="#f59e0b"/><text x="308" y="57">legs</text></g>`); }
 };
+
+const IELTS = [["Listening", 6.5], ["Reading", 6.0], ["Writing", 7.0], ["Speaking", 6.5]];
+const best = Math.max(...IELTS.map(b => b[1]));
+$("#ieBands").innerHTML = IELTS.map(([n, v], i) => `<div class="band fx${v === best ? " top" : ""}" style="--v:${v};--i:${i}">
+  <div class="bh"><span>${n}</span>${v === best ? '<em>Highest</em>' : ""}</div><b>${v.toFixed(1)}</b><div class="bar"><i></i></div><small>of 9.0</small></div>`).join("");
 $("#projectList").innerHTML = D.projects.map(p => `
   <article class="proj fx tilt reveal${p.wide ? " wide" : ""}">
     <div class="pcover">${COVERS[p.img] ? COVERS[p.img]() : ""}<img src="assets/projects/${p.img}.jpg" alt="${esc(p.name)} screenshot" loading="lazy" onerror="this.remove()"></div>
@@ -874,7 +937,7 @@ renderCerts();
 
 $("#awardList").innerHTML = D.awards.map(([y, t, d, k, g, l]) => `
   <article class="award fx reveal${g ? " gold" : ""}">${logo(k, 44)}
-    <div style="min-width:0"><div class="yr">${y}</div><h3>${esc(t)}</h3><p>${esc(d)}</p>${l ? `<a class="more" href="${l}" ${ext}>View post ↗</a>` : ""}</div>
+    <div style="min-width:0"><div class="yr">${y}</div><h3>${esc(t)}</h3><p>${esc(d)}</p>${l ? `<a class="more" href="${l}" ${ext}>${l.endsWith(".pdf") ? "View test report" : "View post"} ↗</a>` : ""}</div>
   </article>`).join("");
 
 /* extracurricular */
