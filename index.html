@@ -310,13 +310,18 @@ section.block{padding-block:96px 0}
 @media (max-width: 860px){.posts{grid-template-columns:1fr}}
 
 /* contact */
-.contact{margin-top:96px;border-top:1px solid var(--line);padding-block:72px 40px;display:grid;grid-template-columns:auto 1fr;gap:48px;align-items:start}
+.contact{margin-top:96px;border-top:1px solid var(--line);padding-block:72px 40px;display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:48px;align-items:center}
+.c3d{position:relative;aspect-ratio:1;max-width:100%;border-radius:24px;overflow:hidden;border:1px solid var(--line);background:radial-gradient(circle at 50% 45%,var(--glow),transparent 65%),var(--surface);box-shadow:var(--shadow)}
+.c3d canvas{position:absolute;inset:0;width:100%;height:100%;cursor:grab}
+.c3d canvas[hidden] + .ph{display:block}
+.c3d .ph{display:none;position:absolute;inset:18%;width:auto;aspect-ratio:auto}
+.c3d-tag{position:absolute;left:16px;bottom:14px;font:500 11px var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:5px 10px;border:1px solid var(--line);border-radius:999px;background:color-mix(in srgb,var(--surface) 80%,transparent)}
 .contact > *{min-width:0}
 .contact .ph{width:220px;aspect-ratio:4/5;max-width:100%;border-radius:18px;overflow:hidden;border:1px solid var(--line);background:var(--surface);box-shadow:var(--shadow)}
 .contact .ph img{width:100%;height:100%;object-fit:cover;object-position:50% 20%;display:block}
 .contact h2{font-size:clamp(36px,6vw,68px);font-weight:800;letter-spacing:-.025em}
 .contact h2 span{color:var(--signal)}
-.clist{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:12px;margin-top:32px}
+.clist{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,360px),1fr));gap:12px;margin-top:32px}
 .citem{display:flex;align-items:center;gap:14px;padding:14px 16px;border:1px solid var(--line);border-radius:var(--r);background:var(--surface);min-width:0}
 .citem > div{min-width:0;flex:1}
 .citem a{font-weight:500;text-decoration:none;overflow-wrap:anywhere}
@@ -324,7 +329,7 @@ section.block{padding-block:96px 0}
 .copy{flex:none;font:500 12px var(--f-mono);border:1px solid var(--line);background:none;color:var(--muted);padding:5px 9px;border-radius:6px;cursor:pointer}
 .copy:hover{color:var(--fg)}
 footer{padding-block:28px 40px;color:var(--muted);font:400 13px var(--f-mono);display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
-@media (max-width: 760px){.contact{grid-template-columns:1fr;gap:28px}.contact .ph{width:160px}}
+@media (max-width: 860px){.contact{grid-template-columns:1fr;gap:28px}.c3d{max-width:420px;width:100%}}
 
 @media (max-width: 900px){.hero{grid-template-columns:1fr;padding-block:44px 32px}section.block{padding-block:72px 0}}
 @media (max-width: 520px){.status{font-size:11px;border-radius:14px}}
@@ -504,7 +509,7 @@ footer{padding-block:28px 40px;color:var(--muted);font:400 13px var(--f-mono);di
     </section>
 
     <section class="contact" id="contact">
-      <div class="ph reveal"><img src="assets/profile.jpg" alt="Syed Mustafa Hassan" onerror="this.parentNode.remove()"></div>
+      <div class="c3d reveal"><canvas id="contact3d" aria-hidden="true"></canvas><div class="ph"><img src="assets/profile.jpg" alt="Syed Mustafa Hassan" onerror="this.parentNode.remove()"></div><span class="c3d-tag">Message → Mustafa</span></div>
       <div>
         <div class="label">Contact</div>
         <h2 style="margin-top:10px">Let's build reliable,<br><span>secure systems.</span></h2>
@@ -849,7 +854,7 @@ $("#postList").innerHTML = D.posts.map(([d, t, s, k, l]) => `
   <a class="post fx tilt reveal" href="${l}" ${ext}>${logo(k, 40)}<div class="label">${d} · ${s}</div><h3>${esc(t)}</h3><span class="go">Read article ↗</span></a>`).join("");
 
 $("#contactList").innerHTML = D.contact.map(([k, n, v, h], i) => `
-  <div class="citem fx">${logo(k, 38)}<div><div class="label">${n}</div><a href="${h}" ${h.startsWith("http") ? ext : ""}>${esc(v)}</a></div>
+  <div class="citem fx tilt">${logo(k, 38)}<div><div class="label">${n}</div><a href="${h}" ${h.startsWith("http") ? ext : ""}>${esc(v)}</a></div>
   <button class="copy" type="button" id="copy-${i}" data-v="${esc(v)}">Copy</button></div>`).join("");
 $("#contactList").addEventListener("click", e => {
   const b = e.target.closest(".copy"); if (!b) return;
@@ -1018,6 +1023,83 @@ if (!window.THREE) (() => {
     if (!reduce) requestAnimationFrame(tick);
   }
   draw(); tick();
+})();
+
+/* ---------- 3D contact scene: paper plane orbiting a network core ---------- */
+(() => {
+  const cv = $("#contact3d"); if (!window.THREE || !cv) { if (cv) cv.hidden = true; return; }
+  let renderer;
+  try { renderer = new THREE.WebGLRenderer({ canvas: cv, antialias: true, alpha: true }); } catch (e) { cv.hidden = true; return; }
+  renderer.setPixelRatio(Math.min(2, devicePixelRatio || 1));
+  const scene = new THREE.Scene(), cam = new THREE.PerspectiveCamera(42, 1, .1, 50); cam.position.set(0, .6, 4.6); cam.lookAt(0, 0, 0);
+  const world = new THREE.Group(); scene.add(world);
+  const mats = []; const mat = (M, o, tok) => { const m = new M(o); m.userData.tok = tok; mats.push(m); return m; };
+
+  // core: wireframe icosahedron + inner glow + dotted shell
+  const core = new THREE.Group(); world.add(core);
+  core.add(new THREE.LineSegments(new THREE.EdgesGeometry(new THREE.IcosahedronGeometry(.62, 1)), mat(THREE.LineBasicMaterial, { transparent: true, opacity: .9 }, "--signal")));
+  core.add(new THREE.Mesh(new THREE.IcosahedronGeometry(.42, 2), mat(THREE.MeshBasicMaterial, { transparent: true, opacity: .25 }, "--ok")));
+  const shell = new THREE.Points(new THREE.IcosahedronGeometry(.9, 4), mat(THREE.PointsMaterial, { size: .018, transparent: true, opacity: .6 }, "--ok")); core.add(shell);
+
+  // contact channel nodes with pulsing links to the core
+  const nodes = [], linkMat = mat(THREE.LineBasicMaterial, { transparent: true, opacity: .35 }, "--signal");
+  const nodeMat = mat(THREE.MeshBasicMaterial, {}, "--fg"), nodeGeo = new THREE.SphereGeometry(.055, 16, 16);
+  const pulseMat = mat(THREE.MeshBasicMaterial, {}, "--signal"), pulseGeo = new THREE.SphereGeometry(.03, 10, 10);
+  for (let i = 0; i < 5; i++) {
+    const a = i / 5 * Math.PI * 2, p = new THREE.Vector3(Math.cos(a) * 1.55, Math.sin(a * 2) * .35, Math.sin(a) * 1.55);
+    const m = new THREE.Mesh(nodeGeo, nodeMat); m.position.copy(p); world.add(m);
+    world.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(), p]), linkMat));
+    const pulse = new THREE.Mesh(pulseGeo, pulseMat); world.add(pulse);
+    nodes.push({ p, pulse, t: i / 5 });
+  }
+  // orbit ring
+  const ring = new THREE.Mesh(new THREE.TorusGeometry(1.55, .006, 8, 160), mat(THREE.MeshBasicMaterial, { transparent: true, opacity: .4 }, "--line"));
+  ring.rotation.x = Math.PI / 2; world.add(ring);
+
+  // paper plane
+  const g = new THREE.BufferGeometry();
+  const V = [0,0,.42, -.34,0,-.22, 0,.02,-.16,  0,0,.42, 0,.02,-.16, .34,0,-.22,  0,0,.42, 0,.02,-.16, 0,-.12,-.2];
+  g.setAttribute("position", new THREE.Float32BufferAttribute(V, 3)); g.computeVertexNormals();
+  const plane = new THREE.Group();
+  plane.add(new THREE.Mesh(g, mat(THREE.MeshBasicMaterial, { side: THREE.DoubleSide, transparent: true, opacity: .95 }, "--fg")));
+  plane.add(new THREE.LineSegments(new THREE.EdgesGeometry(g), mat(THREE.LineBasicMaterial, {}, "--signal")));
+  world.add(plane);
+  const TRAIL = 70, trailPos = new Float32Array(TRAIL * 3), trailGeo = new THREE.BufferGeometry();
+  trailGeo.setAttribute("position", new THREE.BufferAttribute(trailPos, 3));
+  world.add(new THREE.Line(trailGeo, mat(THREE.LineBasicMaterial, { transparent: true, opacity: .55 }, "--signal")));
+  const path = t => new THREE.Vector3(Math.cos(t) * 1.25, Math.sin(t * 2) * .45 + .1, Math.sin(t) * 1.25 * Math.cos(t * .5) + .2);
+
+  const paint = () => mats.forEach(m => m.color.set(getComputedStyle(root).getPropertyValue(m.userData.tok).trim() || "#888"));
+  paint(); new MutationObserver(paint).observe(root, { attributes: true, attributeFilter: ["data-theme"] });
+  matchMedia("(prefers-color-scheme: dark)").addEventListener?.("change", paint);
+
+  const size = () => { const w = cv.clientWidth, h = cv.clientHeight; if (!w) return; renderer.setSize(w, h, false); cam.aspect = w / h; cam.updateProjectionMatrix(); };
+  size(); addEventListener("resize", size);
+  let tx = 0, ty = 0, drag = null, spin = 0;
+  cv.addEventListener("pointermove", e => { const r = cv.getBoundingClientRect(); tx = (e.clientX - r.left) / r.width - .5; ty = (e.clientY - r.top) / r.height - .5;
+    if (drag) { spin += (e.clientX - drag) * .01; drag = e.clientX; } });
+  cv.addEventListener("pointerdown", e => { drag = e.clientX; cv.setPointerCapture(e.pointerId); });
+  cv.addEventListener("pointerup", () => drag = null); cv.addEventListener("pointerleave", () => { tx = ty = 0; });
+  let on = false; new IntersectionObserver(es => on = es[0].isIntersecting).observe(cv);
+  let t = 0, filled = 0;
+  function tick(){
+    if (on || reduce) {
+      t += .012;
+      core.rotation.y += .006; core.rotation.x += .002; shell.rotation.y -= .004;
+      const s = 1 + Math.sin(t * 3) * .04; core.scale.setScalar(s);
+      world.rotation.y += ((tx * .8 + spin) - world.rotation.y) * .06;
+      world.rotation.x += ((ty * .5 + .15) - world.rotation.x) * .06;
+      nodes.forEach(n => { n.t = (n.t + .01) % 1; n.pulse.position.copy(n.p).multiplyScalar(1 - n.t); });
+      const p = path(t), q = path(t + .05);
+      plane.position.copy(p); plane.lookAt(q); plane.rotateZ(Math.sin(t * 2) * .5);
+      trailPos.copyWithin(3, 0, (TRAIL - 1) * 3); trailPos[0] = p.x; trailPos[1] = p.y; trailPos[2] = p.z;
+      if (filled < TRAIL) { for (let i = ++filled; i < TRAIL; i++) trailPos.set([p.x, p.y, p.z], i * 3); }
+      trailGeo.attributes.position.needsUpdate = true;
+      renderer.render(scene, cam);
+    }
+    if (!reduce) requestAnimationFrame(tick);
+  }
+  tick();
 })();
 
 const links = [...document.querySelectorAll("nav.links a")];
