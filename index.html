@@ -218,6 +218,10 @@ section.block{padding-block:96px 0}
 .btn.repo:hover{border-color:var(--signal);color:var(--signal)}
 .proj .tags{margin-top:auto}
 
+.shead-side{display:grid;gap:14px;justify-items:start;max-width:30em}
+.shead-side p{color:var(--muted)}
+.btn.li:hover{border-color:#0a66c2;color:#0a66c2;box-shadow:0 10px 30px -14px #0a66c2}
+
 /* skills */
 .skills{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .sk{border:1px solid var(--line);border-radius:var(--r);padding:20px;min-width:0;background:var(--surface)}
@@ -487,7 +491,7 @@ footer{padding-block:28px 40px;color:var(--muted);font:400 13px var(--f-mono);di
     </section>
 
     <section class="block" id="certifications">
-      <div class="shead reveal"><div><div class="label">Licenses &amp; certifications</div><h2><span id="certCount"></span> certifications &amp; courses</h2></div><p>Issued by Fortinet, Cisco, AWS, Google, Microsoft, Meta, Stanford, DeepLearning.AI, Postman and more.</p></div>
+      <div class="shead reveal"><div><div class="label">Licenses &amp; certifications</div><h2><span id="certCount"></span> certifications &amp; courses</h2></div><div class="shead-side"><p>Issued by Fortinet, Cisco, AWS, Google, Microsoft, Meta, Stanford, DeepLearning.AI, Postman and more.</p><a class="btn li" href="https://www.linkedin.com/in/mustafahassan2001/details/certifications/" target="_blank" rel="noopener"><span data-logo="linkedin" data-size="22"></span>View on LinkedIn ↗</a></div></div>
       <div class="issuers reveal" id="issuers"></div>
       <div class="filters" id="filters" role="group" aria-label="Filter certifications"></div>
       <div class="certs" id="certList"></div>
