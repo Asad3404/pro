@@ -9,6 +9,9 @@
 <meta property="og:title" content="Syed Mustafa Hassan · Network & Security Engineer">
 <meta property="og:description" content="Network operations, security, AI/ML projects, open source and community leadership.">
 <meta property="og:image" content="assets/profile.jpg">
+<link rel="icon" type="image/png" sizes="64x64" href="assets/favicon-64.png">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -210,6 +213,10 @@ section.block{padding-block:96px 0}
 .proj .tags{margin-top:auto;padding-top:6px}
 @media (max-width: 960px){.proj,.proj.wide{grid-column:span 3}}
 @media (max-width: 640px){.proj,.proj.wide{grid-column:span 6}}
+
+.btn.repo{align-self:flex-start;margin-top:4px;padding:9px 14px;font-size:13px}
+.btn.repo:hover{border-color:var(--signal);color:var(--signal)}
+.proj .tags{margin-top:auto}
 
 /* skills */
 .skills{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
@@ -582,17 +589,17 @@ const D = {
       tags:["react:React","next:Next.js","nestjs:Nest.js","node:Node.js","fastapi:FastAPI","graphql:GraphQL"], link:"https://lnkd.in/p/dGYRACNR" }
   ],
   projects: [
-    { name:"VisionGlyco", sub:"Microsoft Imagine Cup 2024", wide:true, metric:["< 1 s","iris inference"],
+    { name:"VisionGlyco", repo:"https://github.com/Mustafa-Hassan2001?tab=repositories&q=VisionGlyco", sub:"Microsoft Imagine Cup 2024", wide:true, metric:["< 1 s","iris inference"],
       text:"End-to-end non-invasive glucose monitoring from eye images captured on a smartphone. A trained convolutional neural network runs a real-time iris image inference pipeline in under one second.",
       tags:["tensorflow:CNN","opencv:Computer vision","Mobile","Healthcare"] },
-    { name:"BrainCare", sub:"Final year project", wide:true, metric:["2","user panels"],
+    { name:"BrainCare", repo:"https://github.com/Mustafa-Hassan2001?tab=repositories&q=BrainCare", sub:"Final year project", wide:true, metric:["2","user panels"],
       text:"React Native app for caregivers of dementia patients. Caretakers track the patient's location, manage medication and access e-medical support; the patient panel has SOS, medication reminders and brain-exercise games.",
       tags:["react:React Native","firebase:Firebase","Location tracking","Healthcare"] },
-    { name:"Low-Light Image Enhancement", sub:"Generative AI coursework", metric:["27.82 dB","PSNR"],
+    { name:"Low-Light Image Enhancement", repo:"https://github.com/Mustafa-Hassan2001?tab=repositories&q=low-light", sub:"Generative AI coursework", metric:["27.82 dB","PSNR"],
       text:"Lightweight UNet with an attention mechanism for real-time low-light image enhancement.", tags:["pytorch:PyTorch","UNet","Attention"] },
-    { name:"HDR Tone-Mapping Quality", sub:"Human-computer interaction coursework", metric:["8","algorithms evaluated"],
+    { name:"HDR Tone-Mapping Quality", repo:"https://github.com/Mustafa-Hassan2001?tab=repositories&q=tone-mapping", sub:"Human-computer interaction coursework", metric:["8","algorithms evaluated"],
       text:"Objective quality assessment of HDR tone-mapped images using multi-scale structural similarity and natural image statistics on the TMQI dataset.", tags:["python:Python","MS-SSIM","TMQI"] },
-    { name:"PointNet 3D Segmentation", sub:"Machine learning coursework", metric:["S3DIS","3D point clouds"],
+    { name:"PointNet 3D Segmentation", repo:"https://github.com/Mustafa-Hassan2001?tab=repositories&q=PointNet", sub:"Machine learning coursework", metric:["S3DIS","3D point clouds"],
       text:"Re-implemented the PointNet paper in PyTorch for direct per-point semantic segmentation and classification of 3D point clouds.", tags:["pytorch:PyTorch","3D vision","Segmentation"] }
   ],
   skills: [
@@ -778,6 +785,7 @@ $("#projectList").innerHTML = D.projects.map(p => `
     <div class="k"><h3>${esc(p.name)}</h3><div class="metric">${p.metric[0]}<small>${p.metric[1]}</small></div></div>
     <p>${esc(p.text)}</p>
     <div class="tags">${p.tags.map(tag).join("")}</div>
+    ${p.repo ? `<a class="btn repo" href="${p.repo}" ${ext}>${icon("github")}View code on GitHub ↗</a>` : ""}
   </article>`).join("");
 
 $("#skillList").innerHTML = D.skills.map(([h, xs]) =>
