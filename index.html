@@ -101,20 +101,20 @@ nav.links a:hover,nav.links a.on{color:var(--fg);background:var(--raise)}
 .btn:hover{transform:translateY(-2px)}
 
 /* orbit + portrait */
-.orbit{--R1:150px;--R2:220px;position:relative;width:min(100%,480px);aspect-ratio:1;max-width:100%;margin-inline:auto}
-.ring{position:absolute;inset:0;margin:auto;border:1px dashed var(--line);border-radius:50%}
-.ring.r1{width:calc(var(--R1)*2);height:calc(var(--R1)*2)}
-.ring.r2{width:calc(var(--R2)*2);height:calc(var(--R2)*2)}
+.orbit{position:relative;width:min(100%,500px);aspect-ratio:1;max-width:100%;margin-inline:auto;container-type:inline-size}
+.ring{position:absolute;inset:0;margin:auto;border-radius:50%;border:1.5px solid color-mix(in srgb,var(--signal) 28%,transparent);box-shadow:0 0 24px -6px color-mix(in srgb,var(--signal) 35%,transparent),inset 0 0 24px -10px color-mix(in srgb,var(--signal) 35%,transparent)}
+.ring.r1{--R:33cqw;width:66cqw;height:66cqw}
+.ring.r2{--R:45cqw;width:90cqw;height:90cqw;border-style:dashed;border-color:color-mix(in srgb,var(--signal) 22%,transparent);box-shadow:none}
 .ring .sat{position:absolute;left:50%;top:50%;width:0;height:0}
-.ring .sat .lg{position:absolute;transform:translate(-50%,-50%);--s:44px;box-shadow:var(--shadow),inset 0 0 0 1px rgba(255,255,255,.1)}
-.ring.r2 .sat .lg{--s:38px}
-.avatar{position:absolute;inset:0;margin:auto;width:210px;height:210px;border-radius:50%;padding:4px;background:conic-gradient(from var(--a,0deg),var(--signal),var(--ok),#1f3a8a,var(--signal));box-shadow:0 30px 70px -20px var(--glow),0 0 0 10px color-mix(in srgb,var(--signal) 8%,transparent)}
+.ring .sat .lg{position:absolute;transform:translate(-50%,-50%);--s:9.6cqw !important;box-shadow:var(--shadow),inset 0 0 0 1px rgba(255,255,255,.1)}
+.ring.r2 .sat .lg{--s:8.2cqw !important}
+.avatar{position:absolute;inset:0;margin:auto;width:44cqw;height:44cqw;border-radius:50%;padding:4px;background:conic-gradient(from var(--a,0deg),var(--signal),var(--ok),#1f3a8a,var(--signal));box-shadow:0 30px 70px -20px var(--glow),0 0 0 10px color-mix(in srgb,var(--signal) 8%,transparent)}
 .avatar > div{width:100%;height:100%;border-radius:50%;background:var(--surface);display:grid;place-items:center;overflow:hidden;position:relative}
 .avatar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%}
 .avatar b{font:800 52px var(--f-display);letter-spacing:-.03em;color:var(--fg)}
-.avatar small{position:absolute;bottom:-12px;left:50%;transform:translateX(-50%);white-space:nowrap;font:500 11px var(--f-mono);background:var(--surface);color:var(--fg);border:1px solid var(--line);padding:4px 11px;border-radius:999px;display:flex;gap:6px;align-items:center}
+.avatar small{position:absolute;z-index:2;bottom:7%;left:50%;transform:translateX(-50%);white-space:nowrap;font:500 11px var(--f-mono);background:var(--surface);color:var(--fg);border:1px solid var(--line);padding:4px 11px;border-radius:999px;display:flex;gap:6px;align-items:center}
 @property --a{syntax:"<angle>";inherits:false;initial-value:0deg}
-@media (max-width: 520px){.orbit{--R1:112px;--R2:165px}.ring .sat .lg{--s:34px}.ring.r2 .sat .lg{--s:30px}.avatar{width:160px;height:160px}}
+
 
 /* stats */
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
@@ -231,14 +231,14 @@ section.block{padding-block:96px 0}
 .ielts{display:grid;grid-template-columns:1.1fr 1fr;gap:16px}
 .ielts > *{min-width:0}
 .ie-overall{display:flex;gap:28px;align-items:center;padding:28px;border:1px solid var(--line);border-radius:var(--r);background:radial-gradient(circle at 15% 50%,var(--glow),transparent 60%),var(--surface)}
-.ring{position:relative;width:170px;flex:none;aspect-ratio:1;max-width:40%}
-.ring svg{width:100%;height:100%;transform:rotate(-90deg)}
-.ring circle{fill:none;stroke-width:9;stroke-linecap:round}
-.ring .track{stroke:var(--raise)}
-.ring .val{stroke:var(--signal);stroke-dasharray:326.7;stroke-dashoffset:calc(326.7 * (1 - var(--v) / 9))}
-.ring-in{position:absolute;inset:0;display:grid;place-content:center;text-align:center}
-.ring-in b{font:800 46px/1 var(--f-display);font-variant-numeric:tabular-nums}
-.ring-in small{font:500 12px var(--f-mono);color:var(--muted);margin-top:4px}
+.iering{position:relative;width:170px;flex:none;aspect-ratio:1;max-width:40%}
+.iering svg{width:100%;height:100%;transform:rotate(-90deg)}
+.iering circle{fill:none;stroke-width:9;stroke-linecap:round}
+.iering .track{stroke:var(--raise)}
+.iering .val{stroke:var(--signal);stroke-dasharray:326.7;stroke-dashoffset:calc(326.7 * (1 - var(--v) / 9))}
+.iering-in{position:absolute;inset:0;display:grid;place-content:center;text-align:center}
+.iering-in b{font:800 46px/1 var(--f-display);font-variant-numeric:tabular-nums}
+.iering-in small{font:500 12px var(--f-mono);color:var(--muted);margin-top:4px}
 .ie-meta{min-width:0;display:grid;gap:10px}
 .ie-meta h3{font-size:22px;font-weight:700}
 .cefr{display:grid;grid-template-columns:repeat(6,1fr);gap:4px;max-width:340px}
@@ -259,9 +259,9 @@ section.block{padding-block:96px 0}
 .band .bar i{display:block;height:100%;width:calc(var(--v) / 9 * 100%);background:linear-gradient(90deg,var(--signal),var(--ok));transform-origin:0 50%}
 .band small{font:500 11px var(--f-mono);color:var(--muted)}
 @media (max-width: 960px){.ielts{grid-template-columns:1fr}}
-@media (max-width: 520px){.ie-overall{flex-direction:column;align-items:flex-start;padding:22px}.ring{max-width:150px}}
+@media (max-width: 520px){.ie-overall{flex-direction:column;align-items:flex-start;padding:22px}.iering{max-width:150px}}
 @media (prefers-reduced-motion: no-preference){
-  .ring .val{animation:ringIn 1.6s cubic-bezier(.2,.7,.2,1) both}
+  .iering .val{animation:ringIn 1.6s cubic-bezier(.2,.7,.2,1) both}
   @keyframes ringIn{from{stroke-dashoffset:326.7}}
   .band .bar i{animation:grow 1.2s calc(var(--i) * .12s + .3s) cubic-bezier(.2,.7,.2,1) both}
   .band:hover{transform:translateY(-4px)}
@@ -521,8 +521,8 @@ footer{padding-block:28px 40px;color:var(--muted);font:400 13px var(--f-mono);di
       <div class="shead reveal"><div><div class="label">Language proficiency</div><h2>IELTS Academic</h2></div><p>English proficiency test by the British Council, IDP and Cambridge English. Taken 31 December 2025.</p></div>
       <div class="ielts reveal">
         <div class="ie-overall">
-          <div class="ring" style="--v:6.5"><svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="52" class="track"/><circle cx="60" cy="60" r="52" class="val"/></svg>
-            <div class="ring-in"><b>6.5</b><small>of 9.0</small></div></div>
+          <div class="iering" style="--v:6.5"><svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="52" class="track"/><circle cx="60" cy="60" r="52" class="val"/></svg>
+            <div class="iering-in"><b>6.5</b><small>of 9.0</small></div></div>
           <div class="ie-meta"><div class="label">Overall band score</div><h3>Competent to good user</h3>
             <div class="cefr" aria-label="CEFR level B2"><span>A1</span><span>A2</span><span>B1</span><span class="on">B2</span><span>C1</span><span>C2</span></div>
             <p class="ie-note">CEFR level <strong>B2</strong>: Upper-intermediate, independent user of English.</p>
@@ -826,7 +826,6 @@ function placeRing(el, keys){
   el.innerHTML = keys.map((k, i) => { const a = i / keys.length * Math.PI * 2 - Math.PI / 2;
     return `<div class="sat" style="transform:translate(calc(${Math.cos(a).toFixed(4)} * var(--R)), calc(${Math.sin(a).toFixed(4)} * var(--R)))">${logo(k)}</div>`; }).join("");
 }
-$("#r1").style.setProperty("--R", "var(--R1)"); $("#r2").style.setProperty("--R", "var(--R2)");
 placeRing($("#r1"), D.orbitInner); placeRing($("#r2"), D.orbitOuter);
 
 $("#orgs").innerHTML = [...D.orgs, ...D.orgs].map(([k, n]) => `<span class="chip">${logo(k, 30)}${esc(n)}</span>`).join("");
@@ -1087,10 +1086,6 @@ if (!window.THREE) (() => {
     arcs.push({ curve, p, t: Math.random(), s: .003 + Math.random() * .004 });
   }
   // halo ring
-  const ring = new THREE.Mesh(new THREE.RingGeometry(1.32, 1.335, 128), mat(THREE.MeshBasicMaterial, { transparent: true, opacity: .35, side: THREE.DoubleSide }, "--signal"));
-  ring.rotation.x = Math.PI / 2.3; world.add(ring);
-  const ring2 = new THREE.Mesh(new THREE.RingGeometry(1.5, 1.507, 128), mat(THREE.MeshBasicMaterial, { transparent: true, opacity: .2, side: THREE.DoubleSide }, "--ok"));
-  ring2.rotation.x = Math.PI / 1.8; ring2.rotation.y = .5; world.add(ring2);
 
   const paint = () => mats.forEach(m => m.color.set(getComputedStyle(root).getPropertyValue(m.userData.tok).trim() || "#888"));
   paint(); new MutationObserver(paint).observe(root, { attributes: true, attributeFilter: ["data-theme"] });
@@ -1102,9 +1097,11 @@ if (!window.THREE) (() => {
     renderer.setSize(r.width, r.height, false); cam.aspect = r.width / r.height; cam.updateProjectionMatrix();
     const unit = 2 * Math.tan(Math.PI / 8) * cam.position.z / r.height; // world units per px at z=0
     world.position.set((o.left + o.width / 2 - r.left - r.width / 2) * unit, -(o.top + o.height / 2 - r.top - r.height / 2) * unit, 0);
-    world.scale.setScalar(o.width * .5 * .82 * unit);
+    world.scale.setScalar(o.width * .33 * .93 * unit);
   }
-  size(); addEventListener("resize", size);
+  size(); addEventListener("resize", size); addEventListener("load", size);
+  if ("ResizeObserver" in window) new ResizeObserver(size).observe($(".orbit"));
+  document.fonts?.ready.then(size);
 
   let mx = 0, my = 0, visible = true;
   addEventListener("pointermove", e => { mx = e.clientX / innerWidth - .5; my = e.clientY / innerHeight - .5; }, { passive: true });
@@ -1112,9 +1109,8 @@ if (!window.THREE) (() => {
   function tick(){
     if (visible) {
       globe.rotation.y += .0022;
-      world.rotation.x += ((my * .5 + .25) - world.rotation.x) * .05;
-      world.rotation.y += (mx * .6 - world.rotation.y) * .05;
-      ring.rotation.z += .002; ring2.rotation.z -= .0015;
+      world.rotation.x += ((my * .25 + .2) - world.rotation.x) * .05;
+      world.rotation.y += (mx * .3 - world.rotation.y) * .05;
       for (const a of arcs) { a.t = (a.t + a.s) % 1; a.p.position.copy(a.curve.getPoint(a.t)); }
       renderer.render(scene, cam);
     }
