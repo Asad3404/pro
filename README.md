@@ -17,3 +17,12 @@ Brand and technology logos are the official marks from the Iconify `logos`, `dev
 Organizations without a public logo package show a monogram until you add their logo as `assets/logos/<key>.png`.
 Keys: wateen, nanotechx, maju, bytewise, xpert (360XpertSolutions), swoc, gssoc, wob (Winter of Blockchain), mckinsey, stanford, mit,
 neuromatch, deeplearning, openclassrooms, hec, icpc, pug, maventech, itcn, oneguide, jinnah, hacktoberfest, mlsc.
+
+## Go live (Netlify, free)
+1. Go to https://app.netlify.com/drop
+2. Drag this whole folder onto the page. It goes live in seconds on a `*.netlify.app` address.
+3. Optional: Site settings → Domain management → add a custom domain (e.g. syedmustafahassan.com).
+
+Or connect the GitHub repo in Netlify ("Add new site → Import from Git"), pick this branch, leave the build command empty and the publish directory as `.`. Every push then updates the site automatically.
+
+After it's live, send the address so the link-preview image and search tags can use the full URL.
