@@ -646,7 +646,7 @@ function logo(key, size){
   if (ICONS[key]) return `<span class="lg" style="--s:${s}px" aria-hidden="true"><svg viewBox="${ICONS[key][0]}">${ICONS[key][1]}</svg></span>`;
   /* No downloadable official logo: show a monogram, replaced automatically by assets/logos/<key>.png when that file exists */
   const m = MONO[key] || [key.slice(0, 2).toUpperCase(), "3A4A63"];
-  return `<span class="lg mono" style="--s:${s}px;--c:#${m[1]}" aria-hidden="true"><b style="${m[0].length > 3 ? "font-size:calc(var(--s)*.24)" : ""}">${m[0]}</b><img src="assets/logos/${key}.png" alt="" loading="lazy" onerror="this.remove()"></span>`;
+  return `<span class="lg mono" style="--s:${s}px;--c:#${m[1]}" aria-hidden="true"><b style="${m[0].length > 3 ? "font-size:calc(var(--s)*.24)" : ""}">${m[0]}</b><img src="assets/logos/${key}.png?v=3" alt="" onerror="this.remove()"></span>`;
 }
 function icon(key){ key = ALIAS[key] || key; return ICONS[key] ? `<i class="ti" aria-hidden="true"><svg viewBox="${ICONS[key][0]}">${ICONS[key][1]}</svg></i>` : ""; }
 
