@@ -346,6 +346,9 @@ section.block{padding-block:96px 0}
 .cert h3{font:600 15px/1.35 var(--f-body)}
 .cert .meta{font:400 12px var(--f-mono);color:var(--muted);margin-top:4px}
 .cert .feat{color:var(--signal)}
+a.cert{color:inherit;text-decoration:none;transition:border-color .2s,transform .2s}
+a.cert:hover{border-color:var(--signal);transform:translateY(-2px)}
+.cert .clink{display:inline-block;margin-top:6px;font:600 12px var(--f-body);color:var(--signal)}
 .issuers{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:24px}
 .issuers .lg{transition:transform .25s}
 .issuers .lg:hover{transform:translateY(-4px) scale(1.08)}
@@ -691,17 +694,17 @@ const D = {
       tags:["html5:HTML5","css3:CSS3","js:JavaScript","github:GitHub","SDLC"] }
   ],
   projects: [
-    { name:"VisionGlyco", img:"visionglyco", repo:"https://github.com/Mustafa-Hassan2001?tab=repositories&q=VisionGlyco", sub:"Microsoft Imagine Cup 2024", wide:true, metric:["< 1 s","iris inference"],
+    { name:"VisionGlyco", img:"visionglyco", repo:"https://github.com/Mustafa-Hassan2001/VisionGlyco", sub:"Microsoft Imagine Cup 2024", wide:true, metric:["< 1 s","iris inference"],
       text:"End-to-end non-invasive glucose monitoring from eye images captured on a smartphone. A trained convolutional neural network runs a real-time iris image inference pipeline in under one second.",
       tags:["tensorflow:CNN","opencv:Computer vision","Mobile","Healthcare"] },
-    { name:"BrainCare", img:"braincare", repo:"https://github.com/Mustafa-Hassan2001?tab=repositories&q=BrainCare", sub:"Final year project", wide:true, metric:["2","user panels"],
+    { name:"BrainCare", img:"braincare", repo:"https://github.com/Mustafa-Hassan2001/BrainCare", sub:"Final year project", wide:true, metric:["2","user panels"],
       text:"React Native app for caregivers of dementia patients. Caretakers track the patient's location, manage medication and access e-medical support; the patient panel has SOS, medication reminders and brain-exercise games.",
       tags:["react:React Native","firebase:Firebase","Location tracking","Healthcare"] },
-    { name:"Low-Light Image Enhancement", img:"lowlight", repo:"https://github.com/Mustafa-Hassan2001?tab=repositories&q=low-light", sub:"Generative AI coursework", metric:["27.82 dB","PSNR"],
+    { name:"Low-Light Image Enhancement", img:"lowlight", repo:"https://github.com/Mustafa-Hassan2001/LUMA", sub:"Generative AI coursework", metric:["27.82 dB","PSNR"],
       text:"Lightweight UNet with an attention mechanism for real-time low-light image enhancement.", tags:["pytorch:PyTorch","UNet","Attention"] },
-    { name:"HDR Tone-Mapping Quality", img:"hdr", repo:"https://github.com/Mustafa-Hassan2001?tab=repositories&q=tone-mapping", sub:"Human-computer interaction coursework", metric:["8","algorithms evaluated"],
+    { name:"HDR Tone-Mapping Quality", img:"hdr", repo:"https://github.com/Mustafa-Hassan2001/TMQA", sub:"Human-computer interaction coursework", metric:["8","algorithms evaluated"],
       text:"Objective quality assessment of HDR tone-mapped images using multi-scale structural similarity and natural image statistics on the TMQI dataset.", tags:["python:Python","MS-SSIM","TMQI"] },
-    { name:"PointNet 3D Segmentation", img:"pointnet", repo:"https://github.com/Mustafa-Hassan2001?tab=repositories&q=PointNet", sub:"Machine learning coursework", metric:["S3DIS","3D point clouds"],
+    { name:"PointNet 3D Segmentation", img:"pointnet", repo:"https://github.com/Mustafa-Hassan2001/PointFlow", sub:"Machine learning coursework", metric:["S3DIS","3D point clouds"],
       text:"Re-implemented the PointNet paper in PyTorch for direct per-point semantic segmentation and classification of 3D point clouds.", tags:["pytorch:PyTorch","3D vision","Segmentation"] }
   ],
   skills: [
@@ -751,32 +754,36 @@ const D = {
     ["CPA: Programming Essentials in C++","Cisco","cisco","Dec 2022","dev"],
     ["Data Structures and Algorithms in C++","Great Learning","greatlearning","Sep 2023","cp"],
     ["Problem Solving (Basic)","HackerRank","hackerrank","May 2023","cp"],
-    ["ICPC Asia Topi Preliminary: Certificate of Achievement","ICPC","icpc","Nov 2024","cp",1],
-    ["Imagine Cup 2024 Participation","HEC Pakistan","hec","Aug 2024","cp",1],
-    ["Google Solution Challenge 2024 Submission","Google","google","Mar 2024","cp"],
+    ["ICPC Asia Topi Preliminary: Certificate of Achievement","ICPC","icpc","Nov 2024","cp",1,"https://drive.google.com/file/d/1k_PBfP0VGXTVA71H2zcKoWOYNRH8SQ1p/view"],
+    ["Imagine Cup 2024 Participation","Microsoft · HEC Pakistan","hec","Aug 2024","cp",1,"https://drive.google.com/file/d/1Wol69lxizcqy7sbXWMEsArZpldweqdkf/view"],
+    ["Google Solution Challenge 2024 Submission","Google","google","Mar 2024","cp",1,"https://drive.google.com/file/d/1nlpTO6M1Omi5mPls4b9k3a-S2YFdyWQF/view"],
+    ["Meta Hacker Cup 2023: Round 1","Meta","meta","2023","cp",1,"https://drive.google.com/file/d/1xb2_562qYpTdungdsFC2m3IZnHfoQqq6/view"],
+    ["ACM-MAJU Jinnah League 2023: 1st Rank","ACM-MAJU","acm","2023","cp",1,"https://drive.google.com/file/d/1OGqQwQ1j4yT6IKbAbdKEkBUXyPINQPTs/view"],
+    ["ACM-MAJU Intra-Department 2022: 2nd Rank","ACM-MAJU","acm","2022","cp",1,"https://drive.google.com/file/d/1FI_FcmaLvcEkbwaz85GHP9lDRKA4QsNw/view"],
     ["Open Source Contributor","Social Winter of Code","swoc","Nov 2023","cp"],
     ["Microsoft Learn Student Ambassador","Microsoft","microsoft","Nov 2023","cp"]
   ],
   certCats: { all:"All", sec:"Security & Networking", cloud:"Cloud & Data", ai:"AI / ML", dev:"Development", cp:"Competitions & Programs" },
   /* [date, title, text, logo, highlighted, link] */
   awards: [
+    ["Nov 2024","ICPC 2024 Asia Topi Preliminary: Top 50 of 244 teams","Represented MAJU at the International Collegiate Programming Contest and solved 5 problems in 3 hours.","icpc",1,"https://drive.google.com/file/d/1k_PBfP0VGXTVA71H2zcKoWOYNRH8SQ1p/view"],
+    ["2024","Microsoft Imagine Cup 2024: MVP round","Built VisionGlyco with Azure AI Services and the OpenAI API and reached the MVP round among 100+ international teams.","microsoft",1,"https://drive.google.com/file/d/1Wol69lxizcqy7sbXWMEsArZpldweqdkf/view"],
+    ["2024","Google Solution Challenge 2024","Built BrainCare (UN SDG 3) with React Native, Firebase, Google Cloud and the Gemini API; submitted a working prototype and demo.","google",1,"https://drive.google.com/file/d/1nlpTO6M1Omi5mPls4b9k3a-S2YFdyWQF/view"],
+    ["2023","Meta Hacker Cup 2023: Round 1, global rank 6,262","Qualified for Round 1 of Meta's global programming competition.","meta",1,"https://drive.google.com/file/d/1xb2_562qYpTdungdsFC2m3IZnHfoQqq6/view"],
+    ["2023","1st Rank, ACM-MAJU Jinnah League 2023","Placed 1st of 30 by solving 7 problems in an hour.","acm",1,"https://drive.google.com/file/d/1OGqQwQ1j4yT6IKbAbdKEkBUXyPINQPTs/view"],
+    ["2022","2nd Rank, ACM-MAJU Intra-Department 2022","Placed 2nd of 20 by solving 4 problems in an hour.","acm",1,"https://drive.google.com/file/d/1FI_FcmaLvcEkbwaz85GHP9lDRKA4QsNw/view"],
     ["Dec 2025","IELTS Academic: Overall Band 6.5 (CEFR B2)","Listening 6.5 · Reading 6.0 · Writing 7.0 · Speaking 6.5. British Council, IDP and Cambridge English.","ielts",1,"assets/docs/ielts-trf.pdf"],
-    ["2021–25","Merit-based scholarship","Awarded for the full BS Computer Science program at Mohammad Ali Jinnah University.","maju",1],
+    ["2021–25","Merit-based scholarship","Awarded for the full BS Computer Science program at Mohammad Ali Jinnah University; graduated with a 3.46 / 4.0 CGPA.","maju",1],
     ["Dec 2024","Dean's List of Honor 2024","Dean's Award for Outstanding Academic Performance, MAJU. Presented by Prof. Dr. Shaukat Wasi.","maju",1,"https://lnkd.in/p/dv8HpYAT","deans-2024"],
     ["Dec 2023","Dean's List of Honor, Spring 2023","Dean's Award for Outstanding Academic Performance, MAJU. Presented by Dean Muhammad Khaliq-ur-Rahman Raazi Syed.","maju",1,"https://lnkd.in/p/dMYK-wh9","deans-spring-2023"],
     ["Jun 2023","Dean's List of Honor, Spring 2022","Dean's Award for Outstanding Academic Performance, MAJU. Presented by Dean Muhammad Khaliq-ur-Rahman Raazi Syed.","maju",1,"https://lnkd.in/p/dCasqeqB","deans-spring-2022"],
     ["Mar 2024","Outstanding Performance at Internship, 360XpertSolutions","Recognized with a certificate on completing the front-end developer internship at 360XpertSolutions, Karachi.","xpert",1,"https://lnkd.in/p/dGYRACNR","360xpert-internship"],
     ["Mar 2024","Top Contributor, Social Winter of Code","Selected as a top contributor in the front-end domain (HTML, CSS, JS) of SWOC's three-month open-source program.","swoc",1,"https://lnkd.in/p/d9N72p5W"],
-    ["2024–25","ICPC Asia Topi Preliminary","Certificate of Achievement in the International Collegiate Programming Contest, Asia Topi preliminary round.","icpc",1],
-    ["Dec 2023","Founded MLSA-MAJU","Founded the Microsoft Learn Student Community at Mohammad Ali Jinnah University.","mlsc",0,"https://lnkd.in/p/dA8VShuB"],
-    ["Apr 2024","Became Beta Microsoft Learn Student Ambassador","Promoted to Beta MLSA for community impact.","microsoft",0,"https://lnkd.in/p/dNfkpB6d"],
-    ["Nov 2023","Microsoft Learn Student Ambassador","Selected into Microsoft's global program for student campus leaders.","microsoft"],
-    ["2024","Microsoft Imagine Cup 2024","Competed with VisionGlyco, a non-invasive glucose monitoring system (HEC Pakistan certificate).","hec"],
-    ["2024","Google Solution Challenge 2024","Submitted a project to Google's global Solution Challenge.","google"],
-    ["2023","3rd Position, Jinnah League","Competitive programming competition.","jinnah"],
     ["May 2023","1st Rank, Speed Programming (ACM-MAJU)","Rapid coding with algorithms and data structures under time pressure.","acm"],
     ["Apr 2023","Silver level, HackerRank Problem Solving","Recognized for algorithmic problem-solving proficiency.","hackerrank"],
-    ["2023","Meta Hacker Cup 2023, Round 1 qualifier","Qualified to Round 1 and solved problem C1.","meta"]
+    ["Apr 2024","Beta Microsoft Learn Student Ambassador (2023–2025)","Promoted to Beta MLSA for community impact.","microsoft",1,"https://lnkd.in/p/dNfkpB6d"],
+    ["Dec 2023","Founded MLSA-MAJU","Founded the Microsoft Learn Student Community at Mohammad Ali Jinnah University.","mlsc",0,"https://lnkd.in/p/dA8VShuB"],
+    ["Nov 2023","Microsoft Learn Student Ambassador","Selected into Microsoft's global program for student campus leaders.","microsoft"]
   ],
   comm: [
     ["mlsak","5.9K","followers","Microsoft Student Ambassadors · Karachi","150+ community members","https://www.linkedin.com/company/mlsakarachi/posts/"],
@@ -967,10 +974,10 @@ function renderCerts(){
   const shown = certsAll || list.length <= 8 ? list : list.slice(0, 8);
   $("#certMore").hidden = list.length <= 8;
   $("#certMore").textContent = certsAll ? "Show fewer" : `Show all ${list.length} certifications`;
-  $("#certList").innerHTML = shown.map(([n, o, k, d, , f], i) => `
-    <div class="cert fx" style="animation:flipIn .6s ${Math.min(i, 12) * 35}ms both">${logo(k, 42)}
-      <div style="min-width:0"><h3>${esc(n)}</h3><div class="meta">${esc(o)}${d ? " · " + esc(d) : ""}${f ? ' · <span class="feat">★ featured</span>' : ""}</div></div>
-    </div>`).join("");
+  $("#certList").innerHTML = shown.map(([n, o, k, d, , f, l], i) => `
+    <${l ? `a href="${l}" ${ext}` : "div"} class="cert fx" style="animation:flipIn .6s ${Math.min(i, 12) * 35}ms both">${logo(k, 42)}
+      <div style="min-width:0"><h3>${esc(n)}</h3><div class="meta">${esc(o)}${d ? " · " + esc(d) : ""}${f ? ' · <span class="feat">★ featured</span>' : ""}</div>${l ? '<span class="clink">View certificate ↗</span>' : ""}</div>
+    </${l ? "a" : "div"}>`).join("");
 }
 $("#filters").addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return; cat = b.dataset.k; certsAll = false; try { localStorage.setItem("certCat", cat); } catch (e) {} renderCerts(); });
 $("#certMore").addEventListener("click", () => { certsAll = !certsAll; renderCerts(); if (!certsAll) $("#certifications").scrollIntoView(); });
@@ -979,7 +986,7 @@ renderCerts();
 const awardCard = ([y, t, d, k, g, l, img]) => `
   <article class="award fx reveal${g ? " gold" : ""}${img ? " has-img" : ""}">
     ${img ? `<div class="aimg"><img src="assets/awards/${img}.jpg" alt="${esc(t)}" loading="lazy"></div>` : ""}${logo(k, 44)}
-    <div style="min-width:0"><div class="yr">${y}</div><h3>${esc(t)}</h3><p>${esc(d)}</p>${l ? `<a class="btn abtn" href="${l}" ${ext}>${l.endsWith(".pdf") ? "View test report" : `${icon("linkedin")}View on LinkedIn`} ↗</a>` : ""}</div>
+    <div style="min-width:0"><div class="yr">${y}</div><h3>${esc(t)}</h3><p>${esc(d)}</p>${l ? `<a class="btn abtn" href="${l}" ${ext}>${l.endsWith(".pdf") ? "View test report" : l.includes("drive.google") ? "View certificate" : `${icon("linkedin")}View on LinkedIn`} ↗</a>` : ""}</div>
   </article>`;
 $("#awardFeatured").innerHTML = D.awards.filter(x => x[6]).map(awardCard).join("");
 const restAwards = D.awards.filter(x => !x[6]); let awardsAll = false;
